@@ -1,5 +1,4 @@
 import datetime
-import logging
 from typing import Any, Dict, List, Optional
 from fastapi import FastAPI, HTTPException, Query
 import httpx
@@ -11,6 +10,7 @@ from open_data_client.aemet_open_data_client.models import Field200, Field404
 from dateutil.parser import parse
 import time
 from app.core.config import settings
+from app.core.logging_config import logger
 
 app = FastAPI()
 
@@ -22,9 +22,6 @@ STATIONS = {"Gabriel de Castilla": "89070", "Juan Carlos I": "89064"}
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 MAX_RETRIES = 5
 RETRY_DELAY = 2  # seconds
-
-# Logging Configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Utility Functions
 def convert_to_cet(dt: datetime.datetime) -> str:
@@ -48,7 +45,7 @@ def aggregate_data(df: pd.DataFrame, aggregation: str) -> pd.DataFrame:
             raise ValueError(f"Invalid aggregation level: {aggregation}")
         return df
     except Exception as e:
-        logging.error(f"Error during aggregation: {str(e)}")
+        logger.error(f"Error during aggregation: {str(e)}")
         raise
 
 def validate_and_localize_datetime(
@@ -82,10 +79,10 @@ def fetch_data_from_url(url: str) -> Any:
                 response = client.get(url)
                 if response.status_code == 200:
                     return response.json()
-                logging.warning(f"Attempt {attempt + 1}: Unexpected HTTP status {response.status_code}")
+                logger.warning(f"Attempt {attempt + 1}: Unexpected HTTP status {response.status_code}")
             time.sleep(RETRY_DELAY)
         except Exception as e:
-            logging.error(f"Attempt {attempt + 1}: Error fetching data: {str(e)}")
+            logger.error(f"Attempt {attempt + 1}: Error fetching data: {str(e)}")
     raise HTTPException(status_code=502, detail="Failed to fetch data after multiple attempts.")
 
 def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: str) -> Dict[str, Any]:
@@ -132,7 +129,7 @@ def get_timeseries(
     # Ensure `fhora` is parsed as datetime and timezone-aware
     df["fhora"] = pd.to_datetime(df["fhora"], errors="coerce")
     if df["fhora"].isnull().any():
-        logging.error("Invalid datetime found in 'fhora' column")
+        logger.error("Invalid datetime found in 'fhora' column")
         df = df.dropna(subset=["fhora"])
 
     # Adjust timezone handling

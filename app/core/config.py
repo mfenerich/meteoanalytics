@@ -29,6 +29,7 @@ class Settings(BaseSettings):
     base_url: str = ""
     timezone: str = "Europe/Madrid"
     token: str
+    log_level: str = "INFO"
 
     class Config:
         env_file = ".env"  # Specifies the .env file
