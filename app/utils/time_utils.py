@@ -19,7 +19,7 @@ def validate_and_localize_datetime(
         Tuple[datetime, datetime]: Localized start and end datetime objects.
 
     Raises:
-        HTTPException: If the inputs are invalid or time zone is not recognized.
+        HTTPException: If the inputs are invalid, the time range exceeds one month, or the time zone is not recognized.
     """
     try:
         # Parse datetime strings
@@ -29,6 +29,10 @@ def validate_and_localize_datetime(
         # Validate time range
         if start >= end:
             raise ValueError("datetime_start must be before datetime_end")
+
+        # Check if the range exceeds one month
+        if (end - start) > timedelta(days=31):
+            raise ValueError("The maximum allowed range is one month.")
 
         # Determine time zone or offset
         if location.startswith("+") or location.startswith("-"):
@@ -46,6 +50,7 @@ def validate_and_localize_datetime(
         end_localized = timezone.localize(end)
 
         return start_localized, end_localized
+
     except Exception as e:
         logger.error(f"Error validating datetime: {e}")
         raise HTTPException(
