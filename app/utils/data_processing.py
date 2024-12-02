@@ -17,16 +17,25 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         pd.DataFrame: Aggregated DataFrame.
     """
     try:
-        logger.warning(f"Data before aggregationNNNNNNNNNNNNNNNNNNNNN: {df.head()}")
-
-        # Ensure 'fhora' is datetime and timezone-aware
+        # Ensure 'fhora' is datetime
         df["fhora"] = pd.to_datetime(df["fhora"])
+
+        # If 'fhora' is timezone-naive, localize to UTC
         if not pd.api.types.is_datetime64tz_dtype(df["fhora"]):
-            raise ValueError("Column 'fhora' must be timezone-aware.")
+            df["fhora"] = df["fhora"].dt.tz_localize("UTC")
+
+        # Ensure start and end are timezone-aware
+        start = pd.Timestamp(start)
+        end = pd.Timestamp(end)
+        if start.tzinfo is None:
+            start = start.tz_localize("UTC")
+        if end.tzinfo is None:
+            end = end.tz_localize("UTC")
 
         # Set 'fhora' as the index
         df = df.set_index("fhora")
 
+        # Filter data within the specified range
         df = df[(df.index >= start) & (df.index < end)]
 
         # Prepare aggregation logic
@@ -36,7 +45,7 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
             agg_dict["nombre"] = "first"
 
         # Define resampling rules
-        resample_map = {"Hourly": "h", "Daily": "D", "Monthly": "ME"}
+        resample_map = {"Hourly": "h", "Daily": "D", "Monthly": "M"}
         if aggregation in resample_map:
             df = df.resample(resample_map[aggregation]).agg(agg_dict).reset_index()
         else:
