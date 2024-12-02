@@ -29,7 +29,7 @@ def aggregate_data(df: pd.DataFrame, aggregation: str) -> pd.DataFrame:
             agg_dict["nombre"] = "first"
 
         # Define resampling rules
-        resample_map = {"Hourly": "H", "Daily": "D", "Monthly": "M"}
+        resample_map = {"Hourly": "h", "Daily": "D", "Monthly": "M"}
         if aggregation in resample_map:
             df = df.resample(resample_map[aggregation], origin="start").agg(agg_dict).reset_index()
         else:
