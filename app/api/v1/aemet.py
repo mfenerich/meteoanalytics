@@ -5,8 +5,8 @@ from app.core.logging_config import logger
 from app.core.config import settings
 import pytz
 import pandas as pd
-from dateutil.parser import parse
 
+from app.schemas.responses import TimeSeriesResponse
 from app.utils.data_processing import aggregate_data
 from app.utils.network_utils import fetch_data_from_url
 from app.utils.time_utils import validate_and_localize_datetime
@@ -38,7 +38,15 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
         raise HTTPException(status_code=500, detail="Unexpected response structure.")
     
 # Endpoints
-@router.get("/timeseries/")
+@router.get(
+    "/timeseries/",
+    response_model=List[TimeSeriesResponse],
+    summary="Retrieve time series data for a meteo station",
+    description="""
+    Fetches time series data for a specified meteo station, time range, and data types. 
+    Supports optional aggregation and timezone conversion.
+    """
+)
 def get_timeseries(
     datetime_start: str,
     datetime_end: str,
