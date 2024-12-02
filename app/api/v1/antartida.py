@@ -111,7 +111,7 @@ def get_timeseries(
 
     # Aggregate data
     if time_aggregation != "None":
-        df = aggregate_data(df, time_aggregation)
+        df = aggregate_data(df, time_aggregation, datetime_start, datetime_end)
 
     # Convert datetime to ISO format
     df["fhora"] = df["fhora"].apply(lambda x: x.isoformat())
