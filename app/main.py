@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 from app.core.logging_config import logger
-from app.api.v1.aemet import router as aemet_router
+from app.api.v1.antartida import router as aemet_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

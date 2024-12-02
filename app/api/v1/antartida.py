@@ -1,4 +1,3 @@
-from enum import Enum
 from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from app.enums import enums
