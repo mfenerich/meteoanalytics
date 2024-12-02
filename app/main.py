@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 import datetime
 from typing import Any, Dict, List, Optional, Tuple
 from fastapi import FastAPI, HTTPException, Query
@@ -11,7 +12,36 @@ from dateutil.parser import parse
 from app.core.config import settings
 from app.core.logging_config import logger
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan context for FastAPI to handle startup and shutdown events."""
+    # Startup logic
+    logger.info("Starting FastAPI Meteo Service")
+    yield
+    # Shutdown logic
+    logger.info("Shutting down FastAPI Meteo Service")
+
+
+app = FastAPI(
+    title="IoT Temperature API",
+    description="""
+    Add here some nice documentation
+
+    And features
+    """,
+    version="0.0.1",
+    terms_of_service="http://example.com/terms/",
+    contact={
+        "name": "API Support",
+        "url": "http://feneri.ch",
+        "email": "marcel@feneri.ch",
+    },
+    license_info={
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    },
+    lifespan=lifespan,  # Register the lifespan context
+)
 
 # Configuration
 BASE_URL = settings.base_url
