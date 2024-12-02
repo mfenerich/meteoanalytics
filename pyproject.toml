@@ -11,6 +11,7 @@ license = "MIT"
 python = "^3.10"
 uvicorn = {version = "0.30.6", extras = ["standard"]}
 fastapi = "0.112.1"
+aemet-open-data-client = {path = "open_data_client"}
 
 [tool.poetry.dev-dependencies]
 coverage = "7.6.1"
@@ -20,6 +21,9 @@ pytest = "8.3.2"
 pytest-cov = "5.0.0"
 requests = "2.32.3"
 ruff = "0.6.1"
+
+[tool.poetry.group.dev.dependencies]
+openapi-python-client = "^0.21.7"
 
 [tool.ruff]
 exclude = [".venv"]

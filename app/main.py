@@ -2,6 +2,9 @@
 
 from fastapi import FastAPI
 
+from open_data_client.aemet_open_data_client import Client
+
+
 app = FastAPI()
 
 HELLO_WORLD: str = "Hello World!"
