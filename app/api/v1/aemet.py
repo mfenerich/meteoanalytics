@@ -90,4 +90,10 @@ def get_timeseries(
     # Convert datetime to ISO format
     df["fhora"] = df["fhora"].apply(lambda x: x.isoformat())
 
-    return df.to_dict(orient="records")
+    # Validate final response
+    try:
+        response_data = df.to_dict(orient="records")
+        return response_data
+    except Exception as e:
+        logger.error(f"Error validating response data: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error preparing the response.")
