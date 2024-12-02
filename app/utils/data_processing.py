@@ -27,22 +27,6 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         # Set 'fhora' as the index
         df = df.set_index("fhora")
 
-        # Convert start and end to pd.Timestamp if they are strings
-        # start = pd.to_datetime(start) if isinstance(start, str) else start
-        # end = pd.to_datetime(end) if isinstance(end, str) else end
-
-        # # Ensure start and end are timezone-aware and align with DataFrame index timezone
-        # tz = df.index.tz  # Get the timezone of the DataFrame index
-        # if start.tzinfo is None:
-        #     start = start.tz_localize(tz)
-        # else:
-        #     start = start.astimezone(tz)
-        # if end.tzinfo is None:
-        #     end = end.tz_localize(tz)
-        # else:
-        #     end = end.astimezone(tz)
-
-        # Filter data within the given range
         df = df[(df.index >= start) & (df.index < end)]
 
         # Prepare aggregation logic
