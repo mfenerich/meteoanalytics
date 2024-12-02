@@ -43,6 +43,7 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
 @router.get(
     "/timeseries/",
     response_model=List[TimeSeriesResponse],
+    response_model_exclude_unset=True,
     summary="Retrieve time series data for a meteo station",
     description="""
     Retrieve meteorological time series data for a specified station over a defined time range.
