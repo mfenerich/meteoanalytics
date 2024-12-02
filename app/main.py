@@ -23,7 +23,7 @@ async def lifespan(app: FastAPI):
     logger.info("Shutting down FastAPI Meteo Service")
 
 app = FastAPI(
-    title="IoT Temperature API",
+    title="Meteo API",
     description="""
     Add here some nice documentation
 
