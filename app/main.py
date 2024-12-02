@@ -9,6 +9,7 @@ from open_data_client.aemet_open_data_client import AuthenticatedClient
 from open_data_client.aemet_open_data_client.api.antartida.datos_antartida import sync_detailed
 from open_data_client.aemet_open_data_client.models import Field200, Field404
 from dateutil.parser import parse
+import time
 
 app = FastAPI()
 
@@ -93,43 +94,47 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
                 datos_url = response.parsed.datos
                 logging.info(f"'datos' URL: {datos_url}")
 
-                # Step 2: Fetch the actual dataset from 'datos' URL
-                try:
-                    with httpx.Client() as http_client:
-                        datos_response = http_client.get(datos_url)
-                        datos_response.raise_for_status()  # Ensure HTTP response is OK
+                # Step 2: Fetch the actual dataset from 'datos' URL with retry mechanism
+                max_retries = 5
+                retry_delay = 2  # seconds
 
-                        # Validate that the response is JSON
-                        try:
-                            data = datos_response.json()
-                        except ValueError as ve:
-                            logging.error(f"Malformed JSON in 'datos' URL response: {ve}")
-                            raise HTTPException(
-                                status_code=500,
-                                detail="The 'datos' URL returned malformed JSON data.",
-                            )
+                for attempt in range(max_retries):
+                    try:
+                        with httpx.Client() as http_client:
+                            datos_response = http_client.get(datos_url)
+                            if datos_response.status_code == 200:
+                                try:
+                                    # Validate that the response is JSON
+                                    data = datos_response.json()
+                                    return {
+                                        "descripcion": response.parsed.descripcion,
+                                        "estado": response.parsed.estado,
+                                        "metadatos": response.parsed.metadatos,
+                                        "datos": data,
+                                    }
+                                except ValueError as ve:
+                                    logging.error(f"Malformed JSON in 'datos' URL response: {ve}")
+                                    raise HTTPException(
+                                        status_code=500,
+                                        detail="The 'datos' URL returned malformed JSON data.",
+                                    )
+                            else:
+                                logging.warning(f"Unexpected HTTP status {datos_response.status_code}, retrying...")
 
-                except httpx.RequestError as re:
-                    logging.error(f"Error fetching 'datos' URL: {re}")
-                    raise HTTPException(
-                        status_code=502,
-                        detail=f"Failed to fetch data from 'datos' URL: {str(re)}",
-                    )
+                        # If we didn't get the data yet, wait and retry
+                        time.sleep(retry_delay)
 
-                except httpx.HTTPStatusError as he:
-                    logging.error(f"Unexpected HTTP status from 'datos' URL: {he}")
-                    raise HTTPException(
-                        status_code=502,
-                        detail=f"The 'datos' URL returned an unexpected status code: {he.response.status_code}",
-                    )
+                    except httpx.RequestError as re:
+                        logging.error(f"Error fetching 'datos' URL (attempt {attempt + 1}): {re}")
 
-                # Return the full dataset along with metadata
-                return {
-                    "descripcion": response.parsed.descripcion,
-                    "estado": response.parsed.estado,
-                    "metadatos": response.parsed.metadatos,
-                    "datos": data,
-                }
+                    except httpx.HTTPStatusError as he:
+                        logging.error(f"Unexpected HTTP status from 'datos' URL (attempt {attempt + 1}): {he}")
+
+                # If retries are exhausted
+                raise HTTPException(
+                    status_code=502,
+                    detail="Failed to fetch data from 'datos' URL after multiple attempts.",
+                )
 
             if isinstance(response.parsed, Field404):
                 raise HTTPException(status_code=404, detail=response.parsed.descripcion)
@@ -142,6 +147,7 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
     except Exception as e:
         logging.error(f"Unexpected error: {str(e)}")
         raise HTTPException(status_code=500, detail="An unexpected error occurred while processing the request.")
+
 
 
 @app.get("/timeseries/")
