@@ -1,13 +1,10 @@
 import time
 
-from fastapi.responses import JSONResponse
 from fastapi.testclient import TestClient
 
 from app.core.config import settings
 from app.main import app
 import threading
-from fastapi import FastAPI, Request, logger
-from unittest.mock import patch
 
 
 # Initialize TestClient for FastAPI app
