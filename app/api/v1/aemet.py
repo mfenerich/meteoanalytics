@@ -1,5 +1,8 @@
+from enum import Enum
 from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, HTTPException, Query
+from app.enums import enums
+
 
 from app.core.logging_config import logger
 from app.core.config import settings
@@ -20,7 +23,6 @@ router = APIRouter()
 # Configuration
 BASE_URL = settings.base_url
 TOKEN = settings.token
-STATIONS = {"Gabriel de Castilla": "89070", "Juan Carlos I": "89064"}
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 
 def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: str) -> List[Dict[str, Any]]:
@@ -43,23 +45,47 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
     response_model=List[TimeSeriesResponse],
     summary="Retrieve time series data for a meteo station",
     description="""
-    Fetches time series data for a specified meteo station, time range, and data types. 
-    Supports optional aggregation and timezone conversion.
+    Retrieve meteorological time series data for a specified station over a defined time range.
+
+    ### Overview:
+    This endpoint allows you to fetch meteorological data for selected weather stations within a specified time range. The data can be aggregated at hourly, daily, or monthly intervals and adjusted to a specified timezone.
+
+    ### Key Features:
+    - Fetch raw or aggregated data from specific stations.
+    - Perform aggregations based on hourly, daily, or monthly intervals.
+    - Adjust timezone or offset for response datetime values.
+    - Filter results by specific weather parameters such as temperature, pressure, and wind speed.
+
+    ### Inputs:
+    - **`datetime_start`**: Start datetime in ISO format (e.g., `2020-12-01T00:00:00`).
+    - **`datetime_end`**: End datetime in ISO format (e.g., `2020-12-31T23:59:59`).
+    - **`station`**: Specify the weather station to fetch data from. Supported values:
+      - `89064`: Estación Meteorológica Juan Carlos I
+      - `89064R`: Estación Radiométrica Juan Carlos I
+      - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
+      - `89070`: Estación Meteorológica Gabriel de Castilla
+    - **`location`** (optional): Specify the timezone or offset for the datetime values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
+    - **`time_aggregation`** (optional): Specify the aggregation level.
+    - **`data_types`** (optional): Specify the weather parameters to include in the response. Supported values:
+      - `temperature`: Include temperature data in Celsius.
+      - `pressure`: Include atmospheric pressure in hPa.
+      - `speed`: Include wind speed in m/s.
+
+    ### Output:
+    A list of dictionaries containing:
+    - **`nombre`**: Name of the weather station.
+    - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
+    - Weather parameters (`temperature`, `pressure`, `speed`) based on the selected data types.
     """
 )
 def get_timeseries(
     datetime_start: str,
     datetime_end: str,
-    station: str = Query(..., description="Meteo Station: Gabriel de Castilla or Juan Carlos I"),
+    station: enums.Station = Query(...),
     location: Optional[str] = settings.timezone,
-    time_aggregation: Optional[str] = Query("None", enum=["None", "Hourly", "Daily", "Monthly"]),
-    data_types: Optional[List[str]] = Query(None, enum=["temperature", "pressure", "speed"]),
+    time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
+    data_types: Optional[List[enums.DataType]] = Query(None),
 ):
-    # Validate station
-    if station not in STATIONS:
-        raise HTTPException(status_code=400, detail="Invalid meteo station")
-    identificacion = STATIONS[station]
-
     # Validate and localize datetime
     start, end = validate_and_localize_datetime(datetime_start, datetime_end, location)
 
@@ -68,7 +94,7 @@ def get_timeseries(
     end_api_format = end.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
 
     # Fetch data
-    data = get_antartida_data(start_api_format, end_api_format, identificacion)
+    data = get_antartida_data(start_api_format, end_api_format, station.value)
 
     # Parse and process data
     df = pd.DataFrame(data)
