@@ -29,25 +29,31 @@ def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
 ) -> Optional[Union[Field200, Field401, Field404, Field429]]:
     if response.status_code == 200:
-        response_200 = Field200.from_dict(response.json())
+        response_data = response.json()
 
-        return response_200
+        # Check the "estado" field in the body for embedded error
+        if response_data.get("estado") == 404:
+            return Field404.from_dict(response_data)
+
+        return Field200.from_dict(response_data)
+
     if response.status_code == 401:
         response_401 = Field401.from_dict(response.json())
-
         return response_401
+
     if response.status_code == 404:
         response_404 = Field404.from_dict(response.json())
-
         return response_404
+
     if response.status_code == 429:
         response_429 = Field429.from_dict(response.json())
-
         return response_429
+
     if client.raise_on_unexpected_status:
         raise errors.UnexpectedStatus(response.status_code, response.content)
-    else:
-        return None
+
+    return None
+
 
 
 def _build_response(
