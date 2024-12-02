@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "meteoAnalytics"
+name = "app"
 version = "0.0.1"
 description = "Meteorological Analytics"
 
@@ -12,6 +12,8 @@ python = "^3.10"
 uvicorn = {version = "0.30.6", extras = ["standard"]}
 fastapi = "0.112.1"
 aemet-open-data-client = {path = "open_data_client"}
+pytz = "^2024.2"
+pandas = "^2.2.3"
 
 [tool.poetry.dev-dependencies]
 coverage = "7.6.1"
