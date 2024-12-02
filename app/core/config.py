@@ -24,7 +24,7 @@ class Settings(BaseSettings):
         token (str): API token for authentication.
     """
 
-    app_name: str = "FastAPI IoT Meteo"
+    app_name: str = "FastAPI Meteo"
     debug: bool = True
     base_url: str = ""
     timezone: str = "Europe/Madrid"
