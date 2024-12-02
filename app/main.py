@@ -23,20 +23,49 @@ STATIONS = {
     "Juan Carlos I": "89064"
 }
 
+DATA_TYPE_MAP = {
+    "temperature": "temp",
+    "pressure": "pres",
+    "speed": "vel",
+}
+
+
 # Utility: Convert time to CET/CEST with offset
 def convert_to_cet(dt: datetime) -> str:
     cet_time = dt.astimezone(CET)
     return cet_time.isoformat()
 
-# Utility: Aggregate data based on time
 def aggregate_data(df: pd.DataFrame, aggregation: str) -> pd.DataFrame:
-    if aggregation == "Hourly":
-        df = df.resample("H", on="fhora").mean()
-    elif aggregation == "Daily":
-        df = df.resample("D", on="fhora").mean()
-    elif aggregation == "Monthly":
-        df = df.resample("M", on="fhora").mean()
-    return df
+    try:
+        # Ensure 'fhora' is the datetime index
+        df = df.set_index("fhora")
+
+        # Convert applicable columns to numeric for aggregation
+        numeric_columns = df.select_dtypes(include=["number"]).columns
+
+        # Aggregation functions: mean for numeric, first for 'nombre'
+        agg_dict = {col: 'mean' for col in numeric_columns}
+        if 'nombre' in df.columns:
+            agg_dict['nombre'] = 'first'
+
+        # Group and aggregate based on the selected level
+        if aggregation == "Hourly":
+            df = df.resample("H").agg(agg_dict)
+        elif aggregation == "Daily":
+            df = df.resample("D").agg(agg_dict)
+        elif aggregation == "Monthly":
+            df = df.resample("ME").agg(agg_dict)
+        else:
+            raise ValueError(f"Invalid aggregation level: {aggregation}")
+
+        # Reset the index to make 'fhora' a column again
+        df = df.reset_index()
+
+        return df
+    except Exception as e:
+        logging.error(f"Error during aggregation: {str(e)}")
+        raise
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -115,57 +144,105 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
         raise HTTPException(status_code=500, detail="An unexpected error occurred while processing the request.")
 
 
-
 @app.get("/timeseries/")
 def get_timeseries(
     datetime_start: str,
     datetime_end: str,
     station: str = Query(..., description="Meteo Station: Gabriel de Castilla or Juan Carlos I"),
-    location: Optional[str] = "Europe/Berlin",
+    location: Optional[str] = "Europe/Madrid",
     time_aggregation: Optional[str] = Query("None", enum=["None", "Hourly", "Daily", "Monthly"]),
     data_types: Optional[List[str]] = Query(None, enum=["temperature", "pressure", "speed"]),
 ):
     # Validate station
-    if station not in STATIONS:
+    station_map = {
+        "Gabriel de Castilla": "89070",
+        "Juan Carlos I": "89064",
+    }
+    if station not in station_map:
         raise HTTPException(status_code=400, detail="Invalid meteo station")
 
-    # Validate and parse datetime
+    # Parse and validate location
     try:
-        start = parse(datetime_start).astimezone(pytz.timezone(location))
-        end = parse(datetime_end).astimezone(pytz.timezone(location))
+        if location.startswith("+") or location.startswith("-"):  # Handle offset like +02:00
+            location_tz = datetime.timezone(datetime.timedelta(hours=int(location[:3]), minutes=int(location[4:])))
+        else:  # Handle named timezones like Europe/Berlin
+            location_tz = pytz.timezone(location)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid location or timezone offset: {location}")
+
+    # Validate and localize datetime
+    try:
+        start = parse(datetime_start).replace(tzinfo=None)  # Ensure naive datetime
+        end = parse(datetime_end).replace(tzinfo=None)      # Ensure naive datetime
+
+        # Localize to provided timezone
+        start = location_tz.localize(start)
+        end = location_tz.localize(end)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Invalid datetime format: {str(e)}")
 
     if start >= end:
         raise HTTPException(status_code=400, detail="datetime_start must be before datetime_end")
 
+    # Convert to the required API format (AAAA-MM-DDTHH:MM:SSUTC)
+    start_api_format = start.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
+    end_api_format = end.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
+
     # Fetch data from API
     try:
-        # Simulate API call (replace with actual API client)
-        data = [
-            {"fhora": start + datetime.timedelta(minutes=10 * i), "temp": 1.5, "pres": 960, "vel": 4.7}
-            for i in range(int((end - start).total_seconds() / 600))
-        ]
+        # Call the real API using get_antartida_data
+        data_response = get_antartida_data(
+            fecha_ini_str=start_api_format,
+            fecha_fin_str=end_api_format,
+            identificacion=station_map[station],
+        )
+
+        # Parse the 'datos' field from the API response
+        if "datos" not in data_response:
+            raise HTTPException(status_code=500, detail="Missing 'datos' field in the API response")
+
+        data = data_response["datos"]
         df = pd.DataFrame(data)
 
-        # Check if `fhora` is timezone-aware and convert to CET/CEST
-        if pd.api.types.is_datetime64tz_dtype(df["fhora"]):
-            df["fhora"] = df["fhora"].dt.tz_convert("Europe/Madrid")
-        else:
-            df["fhora"] = pd.to_datetime(df["fhora"]).dt.tz_localize(location).dt.tz_convert("Europe/Madrid")
+        # Ensure `fhora` is parsed as datetime
+        df["fhora"] = pd.to_datetime(df["fhora"], errors="coerce")
+        if df["fhora"].isnull().any():
+            logging.error("Invalid datetime found in 'fhora' column")
+            df = df.dropna(subset=["fhora"])
 
-        # Filter data types
+        # Ensure `fhora` is timezone-aware
+        if not pd.api.types.is_datetime64tz_dtype(df["fhora"]):
+            df["fhora"] = df["fhora"].dt.tz_localize("UTC")
+
+        # Convert `fhora` to the user-specified timezone
+        user_tz = pytz.timezone(location)
+        df["fhora"] = df["fhora"].dt.tz_convert(user_tz)
+
+        # Map data_types to actual column names
+        DATA_TYPE_MAP = {
+            "temperature": "temp",
+            "pressure": "pres",
+            "speed": "vel",
+        }
         if data_types:
-            df = df[[col for col in df.columns if col in data_types or col == "fhora"]]
+            selected_columns = ["nombre", "fhora"] + [DATA_TYPE_MAP[dt] for dt in data_types if dt in DATA_TYPE_MAP]
+        else:
+            # If no data_types specified, include all
+            selected_columns = ["nombre", "fhora", "temp", "pres", "vel"]
+
+        # Select the required columns
+        df = df[[col for col in selected_columns if col in df.columns]]
 
         # Aggregate data
         if time_aggregation != "None":
             df = aggregate_data(df, time_aggregation)
 
-        # Convert timestamps to CET/CEST
-        df["fhora"] = df["fhora"].apply(lambda x: convert_to_cet(x))
+        # Convert timestamps to ISO format with timezone offset
+        df["fhora"] = df["fhora"].apply(lambda x: x.isoformat())
 
         return df.to_dict(orient="records")
+    except HTTPException as http_exc:
+        raise http_exc
     except Exception as e:
         logging.error(f"Error processing data: {str(e)}")
         raise HTTPException(status_code=500, detail="An error occurred while processing data")
