@@ -32,7 +32,7 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
         if isinstance(response.parsed, Field200):
             datos_url = response.parsed.datos
             logger.info(f"Fetched 'datos' URL: {datos_url}")
-            return fetch_data_from_url(datos_url)
+            return fetch_data_from_url(datos_url) # Fetch actual data from AEMET
         elif isinstance(response.parsed, Field404):
             raise HTTPException(status_code=404, detail=response.parsed.descripcion)
         raise HTTPException(status_code=500, detail="Unexpected response structure.")
