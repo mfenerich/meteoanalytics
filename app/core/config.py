@@ -5,6 +5,7 @@ The configuration is loaded from environment variables and supports default valu
 """
 
 from pydantic_settings import BaseSettings
+from pydantic import ConfigDict
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -22,6 +23,7 @@ class Settings(BaseSettings):
         base_url (str): Base URL for the API.
         timezone (str): Default timezone for the application.
         token (str): API token for authentication.
+        log_level (str): Logging level (e.g., DEBUG, INFO).
     """
 
     app_name: str = "FastAPI Meteo"
@@ -31,9 +33,10 @@ class Settings(BaseSettings):
     token: str
     log_level: str = "INFO"
 
-    class Config:
-        env_file = ".env"  # Specifies the .env file
-        env_file_encoding = "utf-8"  # Optional: Ensures proper encoding for .env
+    model_config = ConfigDict(
+        env_file=".env",  # Specifies the .env file
+        env_file_encoding="utf-8",  # Ensures proper encoding
+    )
 
 # Instantiate the settings object
 settings = Settings()
