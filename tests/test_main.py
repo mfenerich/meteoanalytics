@@ -1,11 +1,6 @@
 import time
-
-from fastapi.testclient import TestClient
-
 from app.core.config import settings
-from app.main import app
 import threading
-
 
 
 def test_read_item(test_client):
@@ -59,16 +54,16 @@ def test_http_exception_handler(test_client):
     assert response.status_code == 404
     assert response.json() == {"detail": "Not Found"}
 
-def test_lifespan_events():
+def test_lifespan_events(test_client):
     """
     Test the lifespan startup and shutdown events.
 
     Validates:
     - Logs are generated for startup and shutdown events.
     """
-    with TestClient(app) as client:
-        response = client.get("/health")
-        assert response.status_code == 200
+
+    response = test_client.get("/health")
+    assert response.status_code == 200
 
 def test_concurrent_health_requests(test_client):
     """
