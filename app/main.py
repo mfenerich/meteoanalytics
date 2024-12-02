@@ -1,7 +1,8 @@
 from contextlib import asynccontextmanager
 import datetime
 from typing import Any, Dict, List, Optional, Tuple
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import JSONResponse
 import httpx
 import pytz
 import pandas as pd
@@ -20,7 +21,6 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown logic
     logger.info("Shutting down FastAPI Meteo Service")
-
 
 app = FastAPI(
     title="IoT Temperature API",
@@ -51,6 +51,18 @@ STATIONS = {"Gabriel de Castilla": "89070", "Juan Carlos I": "89064"}
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 MAX_RETRIES = 5
 RETRY_DELAY = 2  # seconds
+
+@app.get("/health", tags=["Health"])
+async def health_check():
+    """
+    Check the health of the service.
+
+    Returns:
+        JSONResponse: Status and message indicating health.
+    """
+    return JSONResponse(
+        content={"status": "ok", "message": "Service is healthy"}, status_code=200
+    )
 
 # Utility Functions
 def convert_to_cet(dt: datetime.datetime) -> str:
@@ -169,3 +181,43 @@ def get_timeseries(
     df["fhora"] = df["fhora"].apply(lambda x: x.isoformat())
 
     return df.to_dict(orient="records")
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    """
+    Handle HTTP exceptions by logging and returning a standardized response.
+
+    Args:
+        request (Request): The incoming request object.
+        exc (HTTPException): The exception being handled.
+
+    Returns:
+        JSONResponse: A JSON response with the error details.
+    """
+    logger.error(f"HTTP Exception: {exc.detail} - Path: {request.url}")
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"error": exc.detail, "code": exc.status_code},
+    )
+
+
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception):
+    """
+    Handle unexpected exceptions by logging and returning a generic response.
+
+    Args:
+        request (Request): The incoming request object.
+        exc (Exception): The exception being handled.
+
+    Returns:
+        JSONResponse: A JSON response indicating an internal server error.
+    """
+    logger.error(f"Unexpected error: {exc} - Path: {request.url}")
+    return JSONResponse(
+        status_code=500,
+        content={
+            "error": "An unexpected error occurred. Please try again later.",
+            "code": 500,
+        },
+    )
