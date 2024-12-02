@@ -14,6 +14,7 @@ fastapi = "0.112.1"
 aemet-open-data-client = {path = "open_data_client"}
 pytz = "^2024.2"
 pandas = "^2.2.3"
+pydantic-settings = "^2.6.1"
 
 [tool.poetry.dev-dependencies]
 coverage = "7.6.1"

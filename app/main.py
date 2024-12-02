@@ -10,13 +10,14 @@ from open_data_client.aemet_open_data_client.api.antartida.datos_antartida impor
 from open_data_client.aemet_open_data_client.models import Field200, Field404
 from dateutil.parser import parse
 import time
+from app.core.config import settings
 
 app = FastAPI()
 
 # Constants
-BASE_URL = "https://opendata.aemet.es/opendata/"
-TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaW51eG1lbm5AZ21haWwuY29tIiwianRpIjoiZjBkODEyYjQtZGIzZC00Mjc5LWJjODYtMTExMWRmMmExMjA4IiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3MzMxMzEwNTUsInVzZXJJZCI6ImYwZDgxMmI0LWRiM2QtNDI3OS1iYzg2LTExMTFkZjJhMTIwOCIsInJvbGUiOiIifQ.CqDUSl9u2JjrH812_QjLX0pPHxktAb9vVOdGwj7RuOI"
-CET = pytz.timezone("Europe/Madrid")
+BASE_URL = settings.base_url
+TOKEN = settings.token
+CET = pytz.timezone(settings.timezone)
 STATIONS = {"Gabriel de Castilla": "89070", "Juan Carlos I": "89064"}
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 MAX_RETRIES = 5
