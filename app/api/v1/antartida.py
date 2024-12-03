@@ -9,11 +9,12 @@ from datetime import datetime
 from typing import Any, Optional
 
 import numpy as np
+import json
 import pandas as pd
 import pytz
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
 from pytest import Session
-from sqlalchemy import text
+from sqlalchemy import DateTime, cast, text, func
 
 from app.core.config import settings
 from app.core.logging_config import logger
@@ -40,7 +41,54 @@ BASE_URL = settings.base_url
 TOKEN = settings.token
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 
-import json
+def validate_cache_coverage(
+    station_id: str,
+    start_utc: datetime,
+    end_utc: datetime,
+    db: Session,
+) -> bool:
+    """
+    Validate whether the cache fully covers the requested data range.
+
+    Args:
+        station_id (str): ID of the weather station.
+        start_utc (datetime): Start datetime in UTC.
+        end_utc (datetime): End datetime in UTC.
+        db (Session): Database session.
+
+    Returns:
+        bool: True if the cache fully covers the requested range, False otherwise.
+    """
+    logger.info(f"Validating cache for station {station_id}: {start_utc} to {end_utc}")
+
+    # Generate the range of timestamps expected for the requested interval
+    requested_timestamps = pd.date_range(
+        start=start_utc, end=end_utc, freq="10T", tz="UTC"
+    )
+
+    # Query the database for the existing timestamps in the range
+    existing_data = (
+        db.query(WeatherData.fhora)
+        .filter(
+            WeatherData.identificacion == station_id,
+            WeatherData.fhora.between(start_utc, end_utc),
+        )
+        .all()
+    )
+
+    # Extract the timestamps from the query results
+    cached_timestamps = {row[0] for row in existing_data}
+
+    # Check for any missing timestamps
+    missing_timestamps = set(requested_timestamps) - cached_timestamps
+
+    if missing_timestamps:
+        logger.warning(f"Cache miss for timestamps: {missing_timestamps}")
+        return False
+
+    logger.info("Cache fully covers the requested range.")
+    return True
+
 
 def get_antartida_data(
     station_id: str,
@@ -76,20 +124,38 @@ def get_antartida_data(
         db.query(WeatherData)
         .filter(
             WeatherData.identificacion == station_id,
-            WeatherData.fhora >= start_utc,
-            WeatherData.fhora <= end_utc,
+            cast(WeatherData.fhora, DateTime) >= cast(start_utc, DateTime),
+            cast(WeatherData.fhora, DateTime) <= cast(end_utc, DateTime)
         )
         .all()
     )
 
     # Check if cache fully covers the requested interval
     if cached_data:
+        logger.warning(f"First row:::::::: {cached_data[0].fhora}")
+        # Normalize cached timestamps to 10-minute intervals
         cached_timestamps = {row.fhora for row in cached_data}
-        requested_timestamps = pd.date_range(start=start_utc, end=end_utc, freq="10T", tz="UTC")
+
+        # Normalize requested timestamps to 10-minute intervals
+        requested_timestamps = pd.date_range(
+            start=start_utc.floor("10T"),  # Align start to 10-minute intervals
+            end=end_utc.ceil("10T"),       # Align end to 10-minute intervals
+            freq="10T",
+            tz="UTC"
+        )
+
+        # Check if all requested timestamps are in the cache
         missing_timestamps = [ts for ts in requested_timestamps if ts not in cached_timestamps]
 
-        if not missing_timestamps:
-            logger.info(f"Data for station {station_id} fully retrieved from cache.")
+        # Log missing timestamps
+        if missing_timestamps:
+            logger.debug(f"Missing timestamps: {missing_timestamps}")
+
+        # If there are missing timestamps, fetch from the server
+        if missing_timestamps:
+            logger.info("Partial cache hit. Fetching missing data from the server.")
+        else:
+            logger.info("Complete cache hit. Returning cached data.")
             timezone = pytz.timezone(location) if location != "UTC" else pytz.UTC
             for row in cached_data:
                 row.data["fhora"] = (
@@ -97,13 +163,9 @@ def get_antartida_data(
                 )
             return [row.data for row in cached_data]
 
-        logger.warning(f"Missing timestamps detected: {len(missing_timestamps)} entries.")
-    else:
-        logger.warning(f"No cached data for station {station_id}.")
-
     # Fetch or mock data from API
     api_data = None
-    if True:  # Mocking condition
+    if False:  # TODO Mocking condition
         logger.info("Using mock data from 'tests/mock_data/valid_mock_data.json'")
         mock_data_path = "tests/mock_data/valid_mock_data.json"
         with open(mock_data_path, "r") as file:
@@ -129,18 +191,16 @@ def get_antartida_data(
     cache_weather_data(db, api_data)
 
     # Merge cached and newly fetched data
-    if cached_data:
-        cached_data_dict = {row.fhora: row.data for row in cached_data}
-        for record in api_data:
-            ts = pd.to_datetime(record["fhora"]).tz_convert("UTC")
-            cached_data_dict[ts] = record
-        merged_data = list(cached_data_dict.values())
-    else:
-        merged_data = api_data
+    # if cached_data:
+    #     cached_data_dict = {row.fhora: row.data for row in cached_data}
+    #     for record in api_data:
+    #         ts = pd.to_datetime(record["fhora"]).tz_convert("UTC")
+    #         cached_data_dict[ts] = record
+    #     merged_data = list(cached_data_dict.values())
+    # else:
+    #     merged_data = api_data
 
-    return merged_data
-
-
+    return api_data
 
 
 def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
