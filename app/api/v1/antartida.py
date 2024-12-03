@@ -1,5 +1,6 @@
 from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, HTTPException, Query
+import numpy as np
 from app.enums import enums
 
 
@@ -108,6 +109,11 @@ def get_timeseries(
     # Filter columns
     selected_columns = ["nombre", "fhora"] + [DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()]
     df = df[selected_columns]
+
+    # Replace string NaN to np.nan 
+    df.replace("NaN", np.nan, inplace=True)
+    df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    df.dropna(subset=["temp", "vel", "pres"], inplace=True)
 
     # Aggregate data
     if time_aggregation != "None":
