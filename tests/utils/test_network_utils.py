@@ -1,3 +1,14 @@
+"""
+Tests for network utility functions.
+
+This module contains tests for the `fetch_data_from_url` function
+validating its behavior under different scenarios, including:
+- Successful data fetch.
+- HTTP errors.
+- Retry logic during exceptions.
+- Logging during retries.
+"""
+
 from unittest.mock import MagicMock, patch
 
 import httpx
