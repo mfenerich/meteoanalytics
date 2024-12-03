@@ -189,3 +189,64 @@ def test_aggregation_levels(test_client, monkeypatch, aggregation, expected_coun
     # Check aggregated values
     aggregated_temps = [round(record["temp"], 2) for record in result]
     assert aggregated_temps == expected_values, f"Expected {expected_values}, got {aggregated_temps}."
+
+def test_unsupported_data_type(test_client):
+    response = test_client.get(
+        "/v1/antartida/timeseries/",
+        params={
+            "datetime_start": "2020-12-01T00:00:00",
+            "datetime_end": "2020-12-31T23:59:59",
+            "station": "89064",
+            "data_types": ["unsupported_type"],
+        },
+    )
+    assert response.status_code == 422
+    assert "data_types" in response.json()["detail"][0]["loc"]
+
+def test_missing_columns_still_retuning(test_client, monkeypatch):
+    mock_data = [
+        {"fhora": "2020-12-01T00:00:00", "vel": 1.0, "pres": 1000.0, "nombre": "Estación Meteorológica Juan Carlos I"},  # Missing 'temp'
+        {"fhora": "2020-12-01T01:00:00", "temp": 20.0, "pres": 1010.0, "nombre": "Estación Meteorológica Juan Carlos I"},  # Missing 'vel'
+    ]
+
+    def mock_get_antartida_data(*args, **kwargs):
+        return mock_data
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
+    response = test_client.get(
+        "/v1/antartida/timeseries/",
+        params={
+            "datetime_start": "2020-12-01T00:00:00",
+            "datetime_end": "2020-12-01T02:00:00",
+            "station": "89064",
+        },
+    )
+    assert response.status_code == 200
+
+def test_multiple_data_type_aggregation(test_client, monkeypatch):
+    mock_data = [
+        {"fhora": "2020-12-01T00:00:00", "temp": 10.0, "pres": 1000.0, "nombre": "Estación Meteorológica Juan Carlos I"},
+        {"fhora": "2020-12-01T01:00:00", "temp": 20.0, "pres": 1010.0, "nombre": "Estación Meteorológica Juan Carlos I"},
+    ]
+
+    def mock_get_antartida_data(*args, **kwargs):
+        return mock_data
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
+    response = test_client.get(
+        "/v1/antartida/timeseries/",
+        params={
+            "datetime_start": "2020-12-01T00:00:00",
+            "datetime_end": "2020-12-01T23:59:59",
+            "station": "89064",
+            "time_aggregation": "Daily",
+            "data_types": ["temperature", "pressure"],
+        },
+    )
+    assert response.status_code == 200
+    result = response.json()
+    assert len(result) == 1
+    assert result[0]["temp"] == 15.0  # Average temperature
+    assert result[0]["pres"] == 1005.0  # Average pressure
