@@ -13,6 +13,7 @@ import pandas as pd
 import pytz
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
 from pytest import Session
+from sqlalchemy import text
 
 from app.core.config import settings
 from app.core.logging_config import logger
@@ -46,6 +47,7 @@ def get_antartida_data(
     start_api_format: str,
     end_api_format: str,
     db: Session,
+    location: Optional[str] = "UTC",
 ) -> list[dict[str, Any]]:
     """
     Fetch data from the AEMET API or retrieve it from the cache.
@@ -56,26 +58,22 @@ def get_antartida_data(
     Args:
         db (Session): Database session.
         station_id (str): ID of the weather station.
-        start_api_format (str): Start datetime in API format.
-        end_api_format (str): End datetime in API format.
+        start_api_format (str): Start datetime in API format (UTC).
+        end_api_format (str): End datetime in API format (UTC).
+        location (Optional[str]): Requested timezone for the output.
 
     Returns:
         list[dict]: List of weather data records.
     """
+    # Ensure UTC conversion for database filtering
+    start_utc = pd.to_datetime(start_api_format).tz_convert("UTC")
+    end_utc = pd.to_datetime(end_api_format).tz_convert("UTC")
 
-    # Convert the start and end times back to datetime objects in UTC for querying the DB
-    try:
-        start_utc = datetime.strptime(start_api_format, "%Y-%m-%dT%H:%M:%SUTC").replace(tzinfo=pytz.utc)
-        end_utc = datetime.strptime(end_api_format, "%Y-%m-%dT%H:%M:%SUTC").replace(tzinfo=pytz.utc)
-    except ValueError as e:
-        logger.error(f"Failed to parse datetime strings: {e}")
-        raise HTTPException(status_code=400, detail="Invalid datetime format.")
-
-    logger.warning(f"Querying database: start={start_utc}, end={end_utc}")
+    logger.info(f"Querying database: start={start_utc}, end={end_utc}")
 
     # Check if data exists in the database
     existing_data = (
-    db.query(WeatherData.data)  # Query only the 'data' field
+        db.query(WeatherData)
         .filter(
             WeatherData.identificacion == station_id,
             WeatherData.fhora >= start_utc,
@@ -86,15 +84,17 @@ def get_antartida_data(
 
     if existing_data:
         logger.info(f"Data for station {station_id} retrieved from cache.")
-        return [row[0] for row in existing_data]
-    else:
-        logger.warning(f"station_id: {station_id}, start_api_format: {start_api_format}, end_api_format: {end_api_format}, ")
+        # Convert cached timestamps to the requested timezone
+        timezone = pytz.timezone(location) if location != "UTC" else pytz.UTC
+        for row in existing_data:
+            row.data["fhora"] = (
+                pd.to_datetime(row.data["fhora"]).tz_convert("UTC").astimezone(timezone).isoformat()
+            )
+        return [row.data for row in existing_data]
 
-    # Fetch or mock data
-    # TODO: Funciona, mas ainda nao estou certo sobre os TZ. Estou guardando tudo em UTC
-    # Mas nao tenho certerza ainda de como retornar, mas acho q teria q converter para o TZ solicitado
+    # Fetch or mock data from API
     api_data = None
-    if True: # TODO: colocar uma variavel de ambiente
+    if True:  # Mocking condition
         logger.info("Using mock data from 'tests/mock_data/valid_mock_data.json'")
         mock_data_path = "tests/mock_data/valid_mock_data.json"
         with open(mock_data_path, "r") as file:
@@ -122,41 +122,73 @@ def get_antartida_data(
     return api_data
 
 
+
 def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
     """
-    Cache weather data in the database using bulk inserts.
+    Cache weather data in the database using optimized techniques.
 
     Args:
         db (Session): Database session.
         api_data (list[dict]): Weather data fetched from the API.
     """
-    utc = pytz.UTC
-    records = []
-    for record in api_data:
-        timestamp = pd.to_datetime(record["fhora"], errors="coerce")
-        if timestamp.tzinfo is None:
-            # If the timestamp is naive, assume it is in UTC
-            timestamp = utc.localize(timestamp)
-        else:
-            # Convert any localized timestamp to UTC
-            timestamp = timestamp.astimezone(utc)
-
-        records.append(
-            WeatherData(
-                identificacion=record["identificacion"],
-                fhora=timestamp,
-                data=record,
-            )
-        )
-
-    # Perform bulk insert
     try:
-        db.bulk_save_objects(records)
+        utc = pytz.UTC
+        formatted_records = []
+        for record in api_data:
+            timestamp = pd.to_datetime(record["fhora"], errors="coerce")
+            if timestamp.tzinfo is None:
+                # If the timestamp is naive, assume it is in UTC
+                timestamp = utc.localize(timestamp)
+            else:
+                # Convert any localized timestamp to UTC
+                timestamp = timestamp.astimezone(utc)
+
+            # Convert pandas.Timestamp to Python datetime
+            timestamp = timestamp.to_pydatetime()
+
+            # Format the record for bulk insertion
+            formatted_records.append({
+                "identificacion": record["identificacion"],
+                "fhora": timestamp,
+                "data": json.dumps(record),  # Serialize JSON data
+            })
+
+        # Optimize SQLite journal mode
+        db.execute(text("PRAGMA journal_mode = WAL;"))
+
+        # Create a temporary table for staging data
+        db.execute(text("""
+            CREATE TEMP TABLE temp_weather_data (
+                identificacion TEXT NOT NULL,
+                fhora TIMESTAMP NOT NULL,
+                data JSON NOT NULL
+            );
+        """))
+
+        # Use executemany for bulk insertion into the temp table
+        insert_query = """
+            INSERT INTO temp_weather_data (identificacion, fhora, data)
+            VALUES (:identificacion, :fhora, :data);
+        """
+        db.execute(text(insert_query), formatted_records)
+
+        # Move data from the temporary table to the main table
+        db.execute(text("""
+            INSERT OR IGNORE INTO weather_data (identificacion, fhora, data)
+            SELECT identificacion, fhora, data 
+            FROM temp_weather_data;
+        """))
+
+        # Drop the temporary table
+        db.execute(text("DROP TABLE temp_weather_data;"))
+
+        # Commit the transaction
         db.commit()
-        logger.info(f"Successfully cached {len(records)} records to the database.")
+        logger.info(f"Successfully cached {len(formatted_records)} records to the database.")
+
     except Exception as e:
         db.rollback()
-        logger.error(f"Failed to bulk insert data: {e}")
+        logger.error(f"Failed to cache data: {e}")
 
 # Endpoints
 @router.get(
@@ -253,7 +285,7 @@ def get_timeseries(
     end_api_format = end.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
 
     # Fetch data
-    data = get_antartida_data(station.value, start_api_format, end_api_format, db)
+    data = get_antartida_data(station.value, start_api_format, end_api_format, db, location)
 
     # Handle empty DataFrame
     if len(data) == 0:
