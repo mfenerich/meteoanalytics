@@ -35,9 +35,19 @@ def test_add_temperature_missing_fields(test_client, query_params, expected_stat
         ("/v1/antartida/timeseries/?datetime_start=2020-12-01T00:00:00&datetime_end=2021-01-31T23:59:59&station=89064", 400),  # > 1 month
     ],
 )
-def test_time_range_validation(test_client, query_params, expected_status):
-    """Test the time range validation."""
+def test_time_range_validation(test_client, mock_data, monkeypatch, query_params, expected_status):
+    """Test the time range validation with mocked data."""
+    
+    # Mock `get_antartida_data` to return the mock data
+    def mock_get_antartida_data(*args, **kwargs):
+        return mock_data
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
+    # Simulate the API call
     response = test_client.get(query_params)
+
+    # Validate the response
     assert response.status_code == expected_status
 
 @pytest.mark.parametrize(
@@ -63,8 +73,15 @@ def test_time_range_validation(test_client, query_params, expected_status):
         ),
     ],
 )
-def test_data_type_filters(test_client, query_params, expected_fields):
+def test_data_type_filters(test_client, mock_data, monkeypatch, query_params, expected_fields):
     """Test filtering by data types (temperature, pressure, speed)."""
+
+    # Mock `get_antartida_data` to return the mock data
+    def mock_get_antartida_data(*args, **kwargs):
+        return mock_data
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
     response = test_client.get("/v1/antartida/timeseries/", params=query_params)
     assert response.status_code == 200
     for record in response.json():
@@ -72,8 +89,15 @@ def test_data_type_filters(test_client, query_params, expected_fields):
         assert all(field in record for field in expected_fields)
 
 
-def test_timezone_adjustment(test_client):
+def test_timezone_adjustment(test_client, mock_data, monkeypatch,):
     """Test that the timezone adjustment works as expected."""
+
+    # Mock `get_antartida_data` to return the mock data
+    def mock_get_antartida_data(*args, **kwargs):
+        return mock_data
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
     query_params = (
         f"/v1/antartida/timeseries/?datetime_start=2020-12-01T00:00:00&datetime_end=2020-12-31T23:59:59&station={Station.JUAN_CARLOS_I.value}&location=Europe/Berlin"
     )
@@ -93,8 +117,15 @@ def test_timezone_adjustment(test_client):
         (TimeAggregation.MONTHLY.value, "2020-12-01T00:00:00", "2020-12-02T00:00:00", 1),  # One month = 1 record
     ],
 )
-def test_time_aggregation(test_client, time_aggregation, start, end, expected_count):
+def test_time_aggregation(test_client, mock_data, monkeypatch, time_aggregation, start, end, expected_count):
     """Test different time aggregation levels."""
+
+    # Mock `get_antartida_data` to return the mock data
+    def mock_get_antartida_data(*args, **kwargs):
+        return mock_data
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
     query_params = {
         "datetime_start": start,
         "datetime_end": end,
@@ -250,3 +281,30 @@ def test_multiple_data_type_aggregation(test_client, monkeypatch):
     assert len(result) == 1
     assert result[0]["temp"] == 15.0  # Average temperature
     assert result[0]["pres"] == 1005.0  # Average pressure
+
+
+def test_empty_dataframe_response(test_client, monkeypatch):
+    """Test that the endpoint returns 204 No Content for an empty data response."""
+
+    # Mock data-fetching function to return an empty list
+    def mock_get_antartida_data(*args, **kwargs):
+        return []  # Simulate no data returned from the external API
+
+    monkeypatch.setattr("app.api.v1.antartida.get_antartida_data", mock_get_antartida_data)
+
+    # Simulate API call
+    response = test_client.get(
+        "/v1/antartida/timeseries/",
+        params={
+            "datetime_start": "2020-12-01T00:00:00",
+            "datetime_end": "2020-12-31T23:59:59",
+            "station": "89064",
+            "location": "UTC",
+            "time_aggregation": "Hourly",
+            "data_types": ["temperature", "pressure", "speed"],
+        },
+    )
+
+    # Validate response
+    assert response.status_code == 204, f"Expected 204, got {response.status_code}."
+    assert response.text == "", "Expected no content in the response body."

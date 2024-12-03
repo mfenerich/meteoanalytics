@@ -1,5 +1,5 @@
 from typing import Any, Dict, List, Optional
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Response
 import numpy as np
 from app.enums import enums
 
@@ -97,36 +97,35 @@ def get_timeseries(
     # Fetch data
     data = get_antartida_data(start_api_format, end_api_format, station.value)
 
+    # Handle empty DataFrame
+    if len(data) == 0:
+        logger.warning("Processed DataFrame is empty. Returning 204 No Content.")
+        return Response(status_code=204)
+
     # Parse and process data
     df = pd.DataFrame(data)
     df["fhora"] = pd.to_datetime(df["fhora"], errors="coerce")
     if not pd.api.types.is_datetime64tz_dtype(df["fhora"]):
-        # If timezone-naive, localize to UTC
         df["fhora"] = df["fhora"].dt.tz_localize("UTC")
-    # Convert to the specified timezone
     df["fhora"] = df["fhora"].dt.tz_convert(location)
 
     # Filter columns
     selected_columns = ["nombre", "fhora"] + [DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()]
     df = df[selected_columns]
 
+    # Handle missing values
     # Note: Here we delete rows with missing values in critical columns (e.g., 'temp', 'vel', 'pres').
     # Other approaches, such as filling missing values with the mean, median, interpolation, or 
     # using forward/backward filling, could also be considered depending on the use case and dataset size.
-
-    # Replace string NaN with actual np.nan
     df.replace("NaN", np.nan, inplace=True)
-
-    # Ensure required columns are present
     required_columns = ["temp", "vel", "pres"]
     existing_columns = [col for col in required_columns if col in df.columns]
 
     if existing_columns:
-        # Drop rows with NaN in required columns
         df = df[df[existing_columns].notna().all(axis=1)]
     else:
-        raise ValueError(f"Required columns {required_columns} are missing from the DataFrame.")
-
+        logger.warning(f"Missing required columns {required_columns} in the data.")
+        df = pd.DataFrame(columns=selected_columns)
 
     # Aggregate data
     if time_aggregation != "None":

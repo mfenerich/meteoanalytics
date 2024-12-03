@@ -17,6 +17,11 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         pd.DataFrame: Aggregated DataFrame.
     """
     try:
+
+        # Return an empty DataFrame early if input is empty
+        if df.empty:
+            return pd.DataFrame()
+
         # Ensure 'fhora' is datetime
         df["fhora"] = pd.to_datetime(df["fhora"])
 

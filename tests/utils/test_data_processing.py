@@ -4,7 +4,6 @@ import pytest
 
 from app.utils.data_processing import aggregate_data
 
-# Falta fazer as medias de outras granularidades
 @pytest.mark.parametrize(
     "aggregation, column, start_date, end_date, expected_average",
     [
@@ -75,29 +74,6 @@ def test_date_range_edge_cases(mock_data_leap_year, start, end, expected_count):
         result = aggregate_data(df, "Hourly", start, end)
         assert len(result) == expected_count
 
-
-# # Error: precisa calcular as medias
-# @pytest.mark.parametrize(
-#     "aggregation, expected_count",
-#     [
-#         ("Hourly", 24),  # 24 records for 1 day
-#         ("Daily", 1),    # 1 record for 1 day
-#         ("Monthly", 1),  # 1 record for 1 month
-#     ],
-# )
-# def test_aggregation_granularities(mock_data, aggregation, expected_count):
-#     """
-#     Test that aggregation produces the correct number of records for each granularity.
-#     """
-#     import pandas as pd
-
-#     # Convert mock data to DataFrame
-#     df = pd.DataFrame(mock_data)
-#     df["fhora"] = pd.to_datetime(df["fhora"])
-
-#     result = aggregate_data(df, aggregation, "2020-12-01T14:00:00", "2020-12-31T14:00:00")
-#     assert len(result) == expected_count
-
 def test_invalid_aggregation_level(mock_data):
     """
     Test that invalid aggregation levels raise an HTTPException.
@@ -123,3 +99,69 @@ def test_response_fields(mock_data):
     required_fields = ["fhora", "temp", "pres", "vel"]
     for field in required_fields:
         assert field in result.columns
+
+def test_missing_columns(mock_data):
+    """
+    Test that missing required columns are handled gracefully.
+    Missing columns should be ignored, and the function should process the remaining data.
+    """
+    # Simulate missing 'temp' column
+    df = pd.DataFrame(mock_data).drop(columns=["temp"])
+
+    # Call the aggregation function
+    try:
+        result = aggregate_data(df, "Daily", "2020-12-01T00:00:00", "2020-12-31T00:00:00")
+        assert "temp" not in result.columns, "The 'temp' column should not be in the result if it's missing in the input."
+        assert len(result) > 0, "The result should not be empty when other columns are present."
+    except Exception as e:
+        pytest.fail(f"Test failed due to unexpected exception: {e}")
+
+
+def test_overlapping_date_ranges(mock_data):
+    """Test overlapping date ranges for aggregation."""
+    df = pd.DataFrame(mock_data)
+    df["fhora"] = pd.to_datetime(df["fhora"])
+
+    # Aggregation with overlapping ranges
+    result = aggregate_data(df, "Hourly", "2020-12-01T14:00:00", "2020-12-01T15:00:00")
+    assert len(result) == 1  # Only one hour in range
+
+def test_single_row_dataframe():
+    """Test aggregation with a single-row DataFrame."""
+    single_row = pd.DataFrame([{
+        "fhora": "2020-12-01T14:00:00",
+        "temp": 10.0,
+        "pres": 1000.0,
+        "vel": 5.0,
+    }])
+    single_row["fhora"] = pd.to_datetime(single_row["fhora"])
+    result = aggregate_data(single_row, "Daily", "2020-12-01T00:00:00", "2020-12-31T00:00:00")
+    assert len(result) == 1
+    assert result["temp"].iloc[0] == 10.0
+
+def test_nan_handling(mock_data):
+    """Test aggregation with NaN values in optional columns."""
+    df = pd.DataFrame(mock_data)
+    df.loc[0, "temp"] = None  # Simulate NaN value in 'temp'
+    df["fhora"] = pd.to_datetime(df["fhora"])
+
+    result = aggregate_data(df, "Hourly", "2020-12-01T14:00:00", "2020-12-31T00:00:00")
+    assert len(result) > 0
+    assert result["temp"].notna().all()  # Ensure all remaining 'temp' values are non-NaN
+
+def test_timezone_conversion(mock_data):
+    """Test that the function handles timezone conversion correctly."""
+    # Create a DataFrame from mock data
+    df = pd.DataFrame(mock_data)
+
+    # Make the datetime timezone-naive and then localize to UTC
+    df["fhora"] = pd.to_datetime(df["fhora"], errors="coerce").dt.tz_localize(None)  # Ensure naive first
+    df["fhora"] = df["fhora"].dt.tz_localize("UTC")  # Localize to UTC
+
+    # Convert timezone to 'Europe/Berlin'
+    df["fhora"] = df["fhora"].dt.tz_convert("Europe/Berlin")
+
+    result = aggregate_data(df, "Daily", "2020-12-01T00:00:00", "2020-12-31T00:00:00")
+
+    assert len(result) > 0
+    assert result["fhora"].iloc[0].tz.zone == "Europe/Berlin"  # Ensure timezone is correctly converted
