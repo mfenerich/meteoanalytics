@@ -45,8 +45,17 @@ def get_antartida_data(
         list[dict]: List of weather data records.
     """
     # Ensure UTC conversion for database filtering
-    start_utc = pd.to_datetime(start_api_format).tz_convert("UTC")
-    end_utc = pd.to_datetime(end_api_format).tz_convert("UTC")
+    start_utc = pd.to_datetime(start_api_format)
+    if start_utc.tzinfo is None:
+        start_utc = start_utc.tz_localize("UTC")
+    else:
+        start_utc = start_utc.tz_convert("UTC")
+
+    end_utc = pd.to_datetime(end_api_format)
+    if end_utc.tzinfo is None:
+        end_utc = end_utc.tz_localize("UTC")
+    else:
+        end_utc = end_utc.tz_convert("UTC")
 
     logger.info(f"Querying database: start={start_utc}, end={end_utc}")
 
