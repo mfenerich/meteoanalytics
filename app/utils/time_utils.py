@@ -37,10 +37,12 @@ def validate_and_localize_datetime(
         # Determine time zone or offset
         if location.startswith("+") or location.startswith("-"):
             # Handle offset-based time zone
-            hours_offset = int(location[:3])
-            minutes_offset = int(location[4:]) if len(location) > 3 else 0
-            offset = timedelta(hours=hours_offset, minutes=minutes_offset)
-            timezone = pytz.FixedOffset(int(offset.total_seconds() / 60))
+            if ":" in location:
+                hours_offset, minutes_offset = map(int, location.split(":"))
+                total_minutes = hours_offset * 60 + minutes_offset if hours_offset >= 0 else hours_offset * 60 - minutes_offset
+            else:
+                total_minutes = int(location) * 60
+            timezone = pytz.FixedOffset(total_minutes)
         else:
             # Handle named time zone
             timezone = pytz.timezone(location)
