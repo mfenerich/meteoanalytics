@@ -1,3 +1,10 @@
+"""
+This module defines API endpoints and helper functions.
+
+For retrieving meteorological data from the AEMET API. It processes and returns
+time series data for specified stations in Antarctica.
+"""
+
 from typing import Any, Optional
 
 import numpy as np
@@ -106,6 +113,33 @@ def get_timeseries(
     time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
     data_types: Optional[list[enums.DataType]] = Query(None),
 ):
+    """
+    Retrieve meteorological time series data for a specified station.
+
+    This function fetches and processes meteorological data from a given station
+    for the specified time range. Data can be aggregated at hourly, daily, or
+    monthly intervals, and adjusted to a specified timezone.
+
+    Args:
+        datetime_start (str): Start datetime
+            in ISO format (e.g., "2020-12-01T00:00:00").
+        datetime_end (str): End datetime in ISO format (e.g., "2020-12-31T23:59:59").
+        station (enums.Station): Weather station to fetch data from.
+        location (Optional[str]): Timezone or offset
+            for datetime values (default: "Europe/Madrid").
+        time_aggregation (Optional[enums.TimeAggregation]):
+            Aggregation level ("None" by default).
+        data_types (Optional[list[enums.DataType]]):
+            Weather parameters to include (e.g., temperature, pressure).
+
+    Returns:
+        list[dict]: Processed meteorological data
+            for the specified station and time range.
+
+    Raises:
+        HTTPException: If no data is found (204)
+            or an error occurs during processing (500).
+    """
     # Validate and localize datetime
     start, end = validate_and_localize_datetime(datetime_start, datetime_end, location)
 
