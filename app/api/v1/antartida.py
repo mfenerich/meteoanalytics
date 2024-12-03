@@ -111,9 +111,15 @@ def get_timeseries(
     df = df[selected_columns]
 
     # Replace string NaN to np.nan 
-    df.replace("NaN", np.nan, inplace=True)
-    df.replace([np.inf, -np.inf], np.nan, inplace=True)
-    df.dropna(subset=["temp", "vel", "pres"], inplace=True)
+    # Check if the columns exist in the DataFrame before dropping NaN
+    required_columns = ["temp", "vel", "pres"]
+    existing_columns = [col for col in required_columns if col in df.columns]
+
+    if existing_columns:
+        df.dropna(subset=existing_columns, inplace=True)
+    else:
+        raise ValueError(f"Required columns {required_columns} are missing from the DataFrame.")
+
 
     # Aggregate data
     if time_aggregation != "None":
