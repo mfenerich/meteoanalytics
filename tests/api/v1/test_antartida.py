@@ -136,7 +136,13 @@ def test_timezone_adjustment(
         "app.api.v1.antartida.get_antartida_data", mock_get_antartida_data
     )
 
-    query_params = f"/v1/antartida/timeseries/?datetime_start=2020-12-01T00:00:00&datetime_end=2020-12-31T23:59:59&station={Station.JUAN_CARLOS_I.value}&location=Europe/Berlin"
+    query_params = (
+        f"/v1/antartida/timeseries/"
+        f"?datetime_start=2020-12-01T00:00:00"
+        f"&datetime_end=2020-12-31T23:59:59"
+        f"&station={Station.JUAN_CARLOS_I.value}"
+        f"&location=Europe/Berlin"
+    )
     response = test_client.get(query_params)
     assert response.status_code == 200
 
@@ -250,6 +256,12 @@ def test_get_timeseries_with_nan_data(test_client, mock_data_leap_year, monkeypa
 def test_aggregation_levels(
     test_client, monkeypatch, aggregation, expected_count, expected_values
 ):
+    """
+    Test aggregation levels for temperature data.
+
+    Ensures that data is correctly aggregated at hourly
+        daily, or no aggregation levels.
+    """
     # Inline mock data
     mock_data = [
         {
@@ -313,6 +325,11 @@ def test_aggregation_levels(
 
 
 def test_unsupported_data_type(test_client):
+    """
+    Test response for unsupported data types.
+
+    Ensures that the API returns a 422 status code for invalid data types.
+    """
     response = test_client.get(
         "/v1/antartida/timeseries/",
         params={
@@ -327,6 +344,11 @@ def test_unsupported_data_type(test_client):
 
 
 def test_missing_columns_still_retuning(test_client, monkeypatch):
+    """
+    Test handling of missing columns in the response.
+
+    Ensures that responses with missing columns are handled gracefully.
+    """
     mock_data = [
         {
             "fhora": "2020-12-01T00:00:00",
@@ -361,6 +383,12 @@ def test_missing_columns_still_retuning(test_client, monkeypatch):
 
 
 def test_multiple_data_type_aggregation(test_client, monkeypatch):
+    """
+    Test aggregation for multiple data types.
+
+    Ensures that temperature and pressure data are aggregated
+        correctly when requested together.
+    """
     mock_data = [
         {
             "fhora": "2020-12-01T00:00:00",
