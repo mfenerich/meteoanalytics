@@ -1,3 +1,11 @@
+"""
+Tests for the time utility functions.
+
+This module includes tests for the `validate_and_localize_datetime` function
+validating its behavior with different datetime formats, time zones
+offsets, and edge cases such as DST transitions.
+"""
+
 from datetime import timedelta
 
 import pytest
