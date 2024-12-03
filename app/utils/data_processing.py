@@ -1,9 +1,14 @@
 from typing import Any
+
 import pandas as pd
 from fastapi import HTTPException
+
 from app.core.logging_config import logger
 
-def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> pd.DataFrame:
+
+def aggregate_data(
+    df: pd.DataFrame, aggregation: str, start: Any, end: Any
+) -> pd.DataFrame:
     """
     Aggregate data based on the specified granularity, respecting the time zone in 'fhora'.
 
@@ -17,7 +22,6 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         pd.DataFrame: Aggregated DataFrame.
     """
     try:
-
         # Return an empty DataFrame early if input is empty
         if df.empty:
             return pd.DataFrame()
@@ -62,5 +66,5 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
 
         return df
     except Exception as e:
-        logger.error(f"Error during aggregation: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error aggregating data: {str(e)}")
+        logger.error(f"Error during aggregation: {e!s}")
+        raise HTTPException(status_code=500, detail=f"Error aggregating data: {e!s}")

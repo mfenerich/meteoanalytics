@@ -1,8 +1,11 @@
+from datetime import datetime, timedelta
 from typing import Tuple
+
 import pytz
 from fastapi import HTTPException
+
 from app.core.logging_config import logger
-from datetime import datetime, timedelta
+
 
 def validate_and_localize_datetime(
     datetime_start: str, datetime_end: str, location: str
@@ -39,7 +42,11 @@ def validate_and_localize_datetime(
             # Handle offset-based time zone
             if ":" in location:
                 hours_offset, minutes_offset = map(int, location.split(":"))
-                total_minutes = hours_offset * 60 + minutes_offset if hours_offset >= 0 else hours_offset * 60 - minutes_offset
+                total_minutes = (
+                    hours_offset * 60 + minutes_offset
+                    if hours_offset >= 0
+                    else hours_offset * 60 - minutes_offset
+                )
             else:
                 total_minutes = int(location) * 60
             timezone = pytz.FixedOffset(total_minutes)
@@ -56,6 +63,5 @@ def validate_and_localize_datetime(
     except Exception as e:
         logger.error(f"Error validating datetime: {e}")
         raise HTTPException(
-            status_code=400,
-            detail=f"Invalid datetime or location: {str(e)}"
+            status_code=400, detail=f"Invalid datetime or location: {e!s}"
         )

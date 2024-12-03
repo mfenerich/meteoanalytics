@@ -1,8 +1,11 @@
-import pytest
-from fastapi import HTTPException
 from datetime import timedelta
-from app.utils.time_utils import validate_and_localize_datetime
+
+import pytest
 import pytz
+from fastapi import HTTPException
+
+from app.utils.time_utils import validate_and_localize_datetime
+
 
 def test_valid_named_timezone():
     """Test with valid datetime strings and a named time zone."""
@@ -13,6 +16,7 @@ def test_valid_named_timezone():
     assert result[0].tzinfo.zone == pytz.timezone(timezone).zone
     assert result[1].tzinfo.zone == pytz.timezone(timezone).zone
 
+
 def test_valid_offset_timezone():
     """Test with valid datetime strings and an offset time zone."""
     start = "2023-12-01T10:00:00"
@@ -21,6 +25,7 @@ def test_valid_offset_timezone():
     result = validate_and_localize_datetime(start, end, offset)
     assert result[0].tzinfo.utcoffset(result[0]) == timedelta(hours=2)
     assert result[1].tzinfo.utcoffset(result[1]) == timedelta(hours=2)
+
 
 def test_invalid_timezone():
     """Test with an invalid time zone."""
@@ -32,6 +37,7 @@ def test_invalid_timezone():
     assert exc_info.value.status_code == 400
     assert "Invalid datetime or location" in exc_info.value.detail
 
+
 def test_start_after_end():
     """Test with datetime_start after datetime_end."""
     start = "2023-12-02T10:00:00"
@@ -41,6 +47,7 @@ def test_start_after_end():
         validate_and_localize_datetime(start, end, timezone)
     assert exc_info.value.status_code == 400
     assert "datetime_start must be before datetime_end" in exc_info.value.detail
+
 
 def test_range_exceeds_one_month():
     """Test with a range that exceeds one month."""
@@ -52,6 +59,7 @@ def test_range_exceeds_one_month():
     assert exc_info.value.status_code == 400
     assert "The maximum allowed range is one month." in exc_info.value.detail
 
+
 def test_missing_offset_minutes():
     """Test with an offset time zone missing minutes."""
     start = "2023-12-01T10:00:00"
@@ -60,6 +68,7 @@ def test_missing_offset_minutes():
     result = validate_and_localize_datetime(start, end, offset)
     assert result[0].tzinfo.utcoffset(result[0]) == timedelta(hours=2)
     assert result[1].tzinfo.utcoffset(result[1]) == timedelta(hours=2)
+
 
 def test_invalid_datetime_format():
     """Test with invalid datetime format."""
@@ -71,6 +80,7 @@ def test_invalid_datetime_format():
     assert exc_info.value.status_code == 400
     assert "Invalid datetime or location" in exc_info.value.detail
 
+
 def test_timezone_with_utc_offset():
     """Test with valid UTC offset time zone."""
     start = "2023-12-01T10:00:00"
@@ -79,6 +89,7 @@ def test_timezone_with_utc_offset():
     result = validate_and_localize_datetime(start, end, offset)
     assert result[0].tzinfo.utcoffset(result[0]) == timedelta(hours=-3, minutes=-30)
     assert result[1].tzinfo.utcoffset(result[1]) == timedelta(hours=-3, minutes=-30)
+
 
 def test_dst_transition_named_timezone():
     """Test with a named time zone during a DST transition."""
@@ -96,6 +107,7 @@ def test_dst_transition_named_timezone():
     result_dst = validate_and_localize_datetime(start_dst, end_dst, timezone)
     assert result_dst[0].tzinfo.utcoffset(result_dst[0]) == timedelta(hours=2)
     assert result_dst[1].tzinfo.utcoffset(result_dst[1]) == timedelta(hours=2)
+
 
 def test_dst_transition_fixed_offset():
     """Test with a fixed offset time zone, which should not change."""

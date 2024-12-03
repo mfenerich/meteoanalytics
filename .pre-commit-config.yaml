@@ -6,6 +6,7 @@ repos:
       - id: check-merge-conflict
       - id: detect-private-key
       - id: check-added-large-files
+        exclude: ^open_data_client/
   - repo: local
     hooks:
       - id: ruff
@@ -15,6 +16,7 @@ repos:
         types_or: [python, pyi]
         args: ["--fix", "--config", "pyproject.toml"]
         require_serial: true
+        exclude: ^open_data_client/
       - id: ruff-format
         name: ruff-format
         entry: ruff format
@@ -22,3 +24,4 @@ repos:
         types_or: [python, pyi]
         args: ["--config", "pyproject.toml"]
         require_serial: true
+        exclude: ^open_data_client/

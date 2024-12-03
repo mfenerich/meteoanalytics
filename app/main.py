@@ -1,8 +1,11 @@
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
-from app.core.logging_config import logger
+
 from app.api.v1.antartida import router as aemet_router
+from app.core.logging_config import logger
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -10,6 +13,7 @@ async def lifespan(app: FastAPI):
     logger.info("Starting FastAPI Meteo Service")
     yield
     logger.info("Shutting down FastAPI Meteo Service")
+
 
 app = FastAPI(
     title="Meteo API",
@@ -35,6 +39,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+
 @app.get("/health", tags=["Health"])
 async def health_check():
     """
@@ -42,15 +47,14 @@ async def health_check():
     Returns:
         JSONResponse: Status and message indicating health.
     """
-
     return JSONResponse(
         content={"status": "ok", "message": "Service is healthy"}, status_code=200
     )
 
+
 # Include AEMET Router
-app.include_router(
-    aemet_router, prefix="/v1/antartida", tags=["AEMET Antarctica Data"]
-)
+app.include_router(aemet_router, prefix="/v1/antartida", tags=["AEMET Antarctica Data"])
+
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc: HTTPException):
@@ -60,6 +64,7 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         status_code=exc.status_code,
         content={"error": exc.detail, "code": exc.status_code},
     )
+
 
 @app.exception_handler(Exception)
 async def generic_exception_handler(request: Request, exc: Exception):

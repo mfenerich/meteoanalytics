@@ -1,8 +1,10 @@
-import pytest
-from unittest.mock import patch, MagicMock
-from fastapi import HTTPException
-from app.utils.network_utils import MAX_RETRIES, fetch_data_from_url
+from unittest.mock import MagicMock, patch
+
 import httpx
+import pytest
+from fastapi import HTTPException
+
+from app.utils.network_utils import MAX_RETRIES, fetch_data_from_url
 
 
 @pytest.fixture
@@ -25,8 +27,10 @@ def test_fetch_data_http_error():
     """Test data fetch with non-200 HTTP status code."""
     mock_response = MagicMock()
     mock_response.status_code = 404
-    with patch("httpx.Client.get", return_value=mock_response), \
-         patch("time.sleep") as mock_sleep:
+    with (
+        patch("httpx.Client.get", return_value=mock_response),
+        patch("time.sleep") as mock_sleep,
+    ):
         with pytest.raises(HTTPException) as exc_info:
             fetch_data_from_url("http://test-url.com")
         assert exc_info.value.status_code == 502
@@ -37,8 +41,10 @@ def test_fetch_data_http_error():
 
 def test_fetch_data_retry_on_exception():
     """Test retry logic when an exception occurs during fetch."""
-    with patch("httpx.Client.get", side_effect=httpx.RequestError("Connection error")), \
-         patch("time.sleep") as mock_sleep:
+    with (
+        patch("httpx.Client.get", side_effect=httpx.RequestError("Connection error")),
+        patch("time.sleep") as mock_sleep,
+    ):
         with pytest.raises(HTTPException) as exc_info:
             fetch_data_from_url("http://test-url.com")
         assert exc_info.value.status_code == 502
@@ -49,10 +55,14 @@ def test_fetch_data_retry_on_exception():
 
 def test_fetch_data_retries_log_errors(caplog):
     """Test that fetch logs warnings/errors during retries."""
-    with patch("httpx.Client.get", side_effect=httpx.RequestError("Connection error")), \
-         patch("time.sleep"):
+    with (
+        patch("httpx.Client.get", side_effect=httpx.RequestError("Connection error")),
+        patch("time.sleep"),
+    ):
         with pytest.raises(HTTPException):
             fetch_data_from_url("http://test-url.com")
     log_messages = [record.message for record in caplog.records]
     assert any("Attempt 1: Error fetching data" in msg for msg in log_messages)
-    assert any("Failed to fetch data after multiple attempts" in msg for msg in log_messages)
+    assert any(
+        "Failed to fetch data after multiple attempts" in msg for msg in log_messages
+    )

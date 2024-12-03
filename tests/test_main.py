@@ -1,6 +1,7 @@
-import time
-from app.core.config import settings
 import threading
+import time
+
+from app.core.config import settings
 
 
 def test_read_item(test_client):
@@ -31,6 +32,7 @@ def test_health_response_time(test_client):
     assert response.status_code == 200
     assert (end_time - start_time) < 0.2  # Response should take less than 200ms
 
+
 def test_health_stress(test_client):
     """
     Test the stability of the `/health` endpoint under high request load.
@@ -44,6 +46,7 @@ def test_health_stress(test_client):
         response = test_client.get("/health")
         assert response.status_code == 200
 
+
 def test_http_exception_handler(test_client):
     """
     Test the custom HTTPException handler.
@@ -54,6 +57,7 @@ def test_http_exception_handler(test_client):
     assert response.status_code == 404
     assert response.json() == {"detail": "Not Found"}
 
+
 def test_lifespan_events(test_client):
     """
     Test the lifespan startup and shutdown events.
@@ -61,9 +65,9 @@ def test_lifespan_events(test_client):
     Validates:
     - Logs are generated for startup and shutdown events.
     """
-
     response = test_client.get("/health")
     assert response.status_code == 200
+
 
 def test_concurrent_health_requests(test_client):
     """
@@ -74,15 +78,19 @@ def test_concurrent_health_requests(test_client):
     Validates:
     - All requests return HTTP status code 200.
     """
+
     def make_request():
         response = test_client.get("/health")
         assert response.status_code == 200
 
-    threads = [threading.Thread(target=make_request) for _ in range(50)]  # Simulate 50 concurrent requests
+    threads = [
+        threading.Thread(target=make_request) for _ in range(50)
+    ]  # Simulate 50 concurrent requests
     for thread in threads:
         thread.start()
     for thread in threads:
         thread.join()
+
 
 def test_router_integration(test_client):
     """
@@ -94,6 +102,7 @@ def test_router_integration(test_client):
     response = test_client.get("/v1/antartida/timeseries/")
     assert response.status_code in {200, 422}  # 422 if required params are missing
 
+
 def test_environment_config_loading():
     """
     Test that the application loads settings from the environment correctly.
@@ -103,6 +112,7 @@ def test_environment_config_loading():
     """
     assert settings.app_name == settings.app_name
     assert settings.timezone == settings.timezone
+
 
 def test_health_content_type(test_client):
     """

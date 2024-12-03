@@ -1,19 +1,20 @@
 from typing import Any, Dict, List, Optional
-from fastapi import APIRouter, HTTPException, Query, Response
+
 import numpy as np
-from app.enums import enums
-
-
-from app.core.logging_config import logger
-from app.core.config import settings
-import pytz
 import pandas as pd
+import pytz
+from fastapi import APIRouter, HTTPException, Query, Response
 
+from app.core.config import settings
+from app.core.logging_config import logger
+from app.enums import enums
 from app.schemas.responses import TimeSeriesResponse
 from app.utils.data_processing import aggregate_data
 from app.utils.network_utils import fetch_data_from_url
 from app.utils.time_utils import validate_and_localize_datetime
-from open_data_client.aemet_open_data_client.api.antartida.datos_antartida import sync_detailed
+from open_data_client.aemet_open_data_client.api.antartida.datos_antartida import (
+    sync_detailed,
+)
 from open_data_client.aemet_open_data_client.client import AuthenticatedClient
 from open_data_client.aemet_open_data_client.models.field_200 import Field200
 from open_data_client.aemet_open_data_client.models.field_404 import Field404
@@ -25,20 +26,27 @@ BASE_URL = settings.base_url
 TOKEN = settings.token
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 
-def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: str) -> List[Dict[str, Any]]:
+
+def get_antartida_data(
+    fecha_ini_str: str, fecha_fin_str: str, identificacion: str
+) -> List[Dict[str, Any]]:
     """Fetch data from the AEMET API and handle retries for the dataset."""
     with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
         response = sync_detailed(
-            fecha_ini_str=fecha_ini_str, fecha_fin_str=fecha_fin_str, identificacion=identificacion, client=client
+            fecha_ini_str=fecha_ini_str,
+            fecha_fin_str=fecha_fin_str,
+            identificacion=identificacion,
+            client=client,
         )
         if isinstance(response.parsed, Field200):
             datos_url = response.parsed.datos
             logger.info(f"Fetched 'datos' URL: {datos_url}")
-            return fetch_data_from_url(datos_url) # Fetch actual data from AEMET
+            return fetch_data_from_url(datos_url)  # Fetch actual data from AEMET
         elif isinstance(response.parsed, Field404):
             raise HTTPException(status_code=404, detail=response.parsed.descripcion)
         raise HTTPException(status_code=500, detail="Unexpected response structure.")
-    
+
+
 # Endpoints
 @router.get(
     "/timeseries/",
@@ -77,7 +85,7 @@ def get_antartida_data(fecha_ini_str: str, fecha_fin_str: str, identificacion: s
     - **`nombre`**: Name of the weather station.
     - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
     - Weather parameters (`temperature`, `pressure`, `speed`) based on the selected data types.
-    """
+    """,
 )
 def get_timeseries(
     datetime_start: str,
@@ -110,12 +118,14 @@ def get_timeseries(
     df["fhora"] = df["fhora"].dt.tz_convert(location)
 
     # Filter columns
-    selected_columns = ["nombre", "fhora"] + [DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()]
+    selected_columns = ["nombre", "fhora"] + [
+        DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()
+    ]
     df = df[selected_columns]
 
     # Handle missing values
     # Note: Here we delete rows with missing values in critical columns (e.g., 'temp', 'vel', 'pres').
-    # Other approaches, such as filling missing values with the mean, median, interpolation, or 
+    # Other approaches, such as filling missing values with the mean, median, interpolation, or
     # using forward/backward filling, could also be considered depending on the use case and dataset size.
     df = df.replace("NaN", np.nan, inplace=False)
     required_columns = ["temp", "vel", "pres"]
@@ -139,5 +149,5 @@ def get_timeseries(
         response_data = df.to_dict(orient="records")
         return response_data
     except Exception as e:
-        logger.error(f"Error validating response data: {str(e)}")
+        logger.error(f"Error validating response data: {e!s}")
         raise HTTPException(status_code=500, detail="Error preparing the response.")

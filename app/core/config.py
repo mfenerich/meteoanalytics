@@ -4,14 +4,16 @@ This module defines the application configuration using Pydantic's BaseSettings.
 The configuration is loaded from environment variables and supports default values.
 """
 
-from pydantic_settings import BaseSettings
-from pydantic import ConfigDict
 from pathlib import Path
+
 from dotenv import load_dotenv
+from pydantic import ConfigDict
+from pydantic_settings import BaseSettings
 
 # Load the .env file
 dotenv_path = Path(".env")
 load_dotenv(dotenv_path)
+
 
 class Settings(BaseSettings):
     """
@@ -37,6 +39,7 @@ class Settings(BaseSettings):
         env_file=".env",  # Specifies the .env file
         env_file_encoding="utf-8",  # Ensures proper encoding
     )
+
 
 # Instantiate the settings object
 settings = Settings()

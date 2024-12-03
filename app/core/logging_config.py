@@ -2,11 +2,14 @@
 
 import logging
 from logging.handlers import RotatingFileHandler
+
 from app.core.config import settings
 
 # Configuration
 LOG_FILE = "app.log"
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(lineno)d - %(message)s"
+LOG_FORMAT = (
+    "%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(lineno)d - %(message)s"
+)
 LOG_LEVEL = settings.log_level.upper()
 
 # Create a custom logger
@@ -18,9 +21,11 @@ stream_handler = logging.StreamHandler()
 stream_handler.setLevel(LOG_LEVEL)
 
 try:
-    file_handler = RotatingFileHandler(LOG_FILE, maxBytes=5 * 1024 * 1024, backupCount=5)  # 5 MB max size
+    file_handler = RotatingFileHandler(
+        LOG_FILE, maxBytes=5 * 1024 * 1024, backupCount=5
+    )  # 5 MB max size
     file_handler.setLevel(LOG_LEVEL)
-except IOError as e:
+except OSError as e:
     print(f"Warning: Could not create log file handler: {e}")
     file_handler = None
 
