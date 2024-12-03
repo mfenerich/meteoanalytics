@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional
+from typing import Any, Optional
 
 import numpy as np
 import pandas as pd
@@ -29,7 +29,7 @@ DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 
 def get_antartida_data(
     fecha_ini_str: str, fecha_fin_str: str, identificacion: str
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """Fetch data from the AEMET API and handle retries for the dataset."""
     with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
         response = sync_detailed(
@@ -50,32 +50,42 @@ def get_antartida_data(
 # Endpoints
 @router.get(
     "/timeseries/",
-    response_model=List[TimeSeriesResponse],
+    response_model=list[TimeSeriesResponse],
     response_model_exclude_unset=True,
     summary="Retrieve time series data for a meteo station",
     description="""
-    Retrieve meteorological time series data for a specified station over a defined time range.
+    Retrieve meteorological time series data for a specified station over
+        a defined time range.
 
     ### Overview:
-    This endpoint allows you to fetch meteorological data for selected weather stations within a specified time range. The data can be aggregated at hourly, daily, or monthly intervals and adjusted to a specified timezone.
+    This endpoint allows you to fetch meteorological data for selected
+        weather stations within a specified time range.
+            The data can be aggregated at hourly,
+        daily, or monthly intervals and adjusted to a specified timezone.
 
     ### Key Features:
     - Fetch raw or aggregated data from specific stations.
-    - Perform aggregations based on hourly, daily, or monthly intervals.
+    - Perform aggregations based on hourly, daily,
+        or monthly intervals.
     - Adjust timezone or offset for response datetime values.
-    - Filter results by specific weather parameters such as temperature, pressure, and wind speed.
+    - Filter results by specific weather parameters
+        such as temperature, pressure, and wind speed.
 
     ### Inputs:
     - **`datetime_start`**: Start datetime in ISO format (e.g., `2020-12-01T00:00:00`).
     - **`datetime_end`**: End datetime in ISO format (e.g., `2020-12-31T23:59:59`).
-    - **`station`**: Specify the weather station to fetch data from. Supported values:
+    - **`station`**: Specify the weather station to fetch data from.
+        Supported values:
       - `89064`: Estación Meteorológica Juan Carlos I
       - `89064R`: Estación Radiométrica Juan Carlos I
       - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
       - `89070`: Estación Meteorológica Gabriel de Castilla
-    - **`location`** (optional): Specify the timezone or offset for the datetime values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
+    - **`location`** (optional):
+        Specify the timezone or offset for the datetime
+        values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
     - **`time_aggregation`** (optional): Specify the aggregation level.
-    - **`data_types`** (optional): Specify the weather parameters to include in the response. Supported values:
+    - **`data_types`** (optional): Specify the weather
+        parameters to include in the response. Supported values:
       - `temperature`: Include temperature data in Celsius.
       - `pressure`: Include atmospheric pressure in hPa.
       - `speed`: Include wind speed in m/s.
@@ -84,7 +94,8 @@ def get_antartida_data(
     A list of dictionaries containing:
     - **`nombre`**: Name of the weather station.
     - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
-    - Weather parameters (`temperature`, `pressure`, `speed`) based on the selected data types.
+    - Weather parameters (`temperature`, `pressure`, `speed`)
+        based on the selected data types.
     """,
 )
 def get_timeseries(
@@ -93,7 +104,7 @@ def get_timeseries(
     station: enums.Station = Query(...),
     location: Optional[str] = settings.timezone,
     time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
-    data_types: Optional[List[enums.DataType]] = Query(None),
+    data_types: Optional[list[enums.DataType]] = Query(None),
 ):
     # Validate and localize datetime
     start, end = validate_and_localize_datetime(datetime_start, datetime_end, location)
@@ -125,8 +136,10 @@ def get_timeseries(
 
     # Handle missing values
     # Note: Here we delete rows with missing values in critical columns (e.g., 'temp', 'vel', 'pres').
-    # Other approaches, such as filling missing values with the mean, median, interpolation, or
-    # using forward/backward filling, could also be considered depending on the use case and dataset size.
+    # Other approaches, such as filling missing values
+    #   with the mean, median, interpolation, or
+    # using forward/backward filling, could also be considered
+    #   depending on the use case and dataset size.
     df = df.replace("NaN", np.nan, inplace=False)
     required_columns = ["temp", "vel", "pres"]
     existing_columns = [col for col in required_columns if col in df.columns]
