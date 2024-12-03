@@ -1,3 +1,15 @@
+"""
+Tests for the main FastAPI application.
+
+This module contains tests for various aspects of the application,
+including:
+- `/health` endpoint functionality and performance.
+- Router integrations.
+- Concurrent request handling.
+- Custom exception handlers.
+- Application configuration loading.
+"""
+
 import threading
 import time
 
