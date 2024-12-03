@@ -135,7 +135,8 @@ def get_timeseries(
     df = df[selected_columns]
 
     # Handle missing values
-    # Note: Here we delete rows with missing values in critical columns (e.g., 'temp', 'vel', 'pres').
+    # Note: Here we delete rows with missing values
+    #   in critical columns (e.g., 'temp', 'vel', 'pres').
     # Other approaches, such as filling missing values
     #   with the mean, median, interpolation, or
     # using forward/backward filling, could also be considered
