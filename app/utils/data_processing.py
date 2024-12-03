@@ -1,3 +1,11 @@
+"""
+Utility functions for processing and aggregating data.
+
+This module provides helper functions for handling time-series data,
+including aggregation based on specified granularities while ensuring
+timezone consistency.
+"""
+
 from typing import Any
 
 import pandas as pd
@@ -10,8 +18,9 @@ def aggregate_data(
     df: pd.DataFrame, aggregation: str, start: Any, end: Any
 ) -> pd.DataFrame:
     """
-    Aggregate data based on the specified granularity, respecting the time zone in 'fhora'.
+    Aggregate data based on the specified granularity.
 
+    Respecting the time zone in 'fhora'.
     Args:
         df (pd.DataFrame): Input DataFrame.
         aggregation (str): Aggregation level ("Hourly", "Daily", "Monthly").
