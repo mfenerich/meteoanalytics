@@ -1,3 +1,11 @@
+"""
+Tests for data processing utilities.
+
+This module includes tests for the `aggregate_data` function
+validating its behavior with different aggregation levels, time ranges
+missing data, and timezone handling.
+"""
+
 import pandas as pd
 import pytest
 from fastapi import HTTPException
@@ -34,11 +42,7 @@ from app.utils.data_processing import aggregate_data
 def test_aggregation_averages(
     mock_data, aggregation, column, start_date, end_date, expected_average
 ):
-    """
-    Test that the aggregation logic correctly calculates averages for numeric fields.
-    """
-    import pandas as pd
-
+    """Test aggregation logic for averages of numeric fields."""
     # Convert mock data to DataFrame
     df = pd.DataFrame(mock_data)
     df["fhora"] = pd.to_datetime(df["fhora"])
@@ -53,8 +57,6 @@ def test_aggregation_averages(
 
 def test_timezone_handling(mock_data):
     """Test that timezone-aware and naive datetime handling works correctly."""
-    import pandas as pd
-
     # Create a timezone-naive DataFrame
     df_naive = pd.DataFrame(mock_data)
     df_naive["fhora"] = pd.to_datetime(df_naive["fhora"]).dt.tz_localize(None)
@@ -83,9 +85,7 @@ def test_timezone_handling(mock_data):
     ],
 )
 def test_date_range_edge_cases(mock_data_leap_year, start, end, expected_count):
-    """
-    Test edge cases for date ranges.
-    """
+    """Test edge cases for date ranges."""
     # Convert mock data to DataFrame
     df = pd.DataFrame(mock_data_leap_year)
     df["fhora"] = pd.to_datetime(df["fhora"])
@@ -103,9 +103,7 @@ def test_date_range_edge_cases(mock_data_leap_year, start, end, expected_count):
 
 
 def test_invalid_aggregation_level(mock_data):
-    """
-    Test that invalid aggregation levels raise an HTTPException.
-    """
+    """Test that invalid aggregation levels raise an HTTPException."""
     # Convert mock data to DataFrame
     df = pd.DataFrame(mock_data)
     df["fhora"] = pd.to_datetime(df["fhora"])
@@ -132,7 +130,9 @@ def test_response_fields(mock_data):
 def test_missing_columns(mock_data):
     """
     Test that missing required columns are handled gracefully.
-    Missing columns should be ignored, and the function should process the remaining data.
+
+    Missing columns should be ignored, and the function should process
+        the remaining data.
     """
     # Simulate missing 'temp' column
     df = pd.DataFrame(mock_data).drop(columns=["temp"])
