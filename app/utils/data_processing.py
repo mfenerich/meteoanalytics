@@ -32,6 +32,10 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         if end.tzinfo is None:
             end = end.tz_localize("UTC")
 
+        # Validate time range
+        if start >= end:
+            raise ValueError("Start time must be before end time.")
+
         # Set 'fhora' as the index
         df = df.set_index("fhora")
 
@@ -45,7 +49,7 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
             agg_dict["nombre"] = "first"
 
         # Define resampling rules
-        resample_map = {"Hourly": "h", "Daily": "D", "Monthly": "M"}
+        resample_map = {"Hourly": "h", "Daily": "D", "Monthly": "ME"}
         if aggregation in resample_map:
             df = df.resample(resample_map[aggregation]).agg(agg_dict).reset_index()
         else:
@@ -54,4 +58,4 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         return df
     except Exception as e:
         logger.error(f"Error during aggregation: {str(e)}")
-        raise HTTPException(status_code=500, detail="Error aggregating data.")
+        raise HTTPException(status_code=500, detail=f"Error aggregating data: {str(e)}")
