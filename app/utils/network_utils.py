@@ -1,3 +1,10 @@
+"""
+Utility functions for handling network operations.
+
+This module provides helper functions for making HTTP requests,
+including retry logic for handling temporary failures.
+"""
+
 import time
 
 import httpx
@@ -19,8 +26,10 @@ def fetch_data_from_url(url: str):
                     logger.info(f"Data successfully fetched from {url}")
                     return response.json()
                 logger.warning(
-                    f"Attempt {attempt + 1}: Unexpected HTTP status {response.status_code}"
+                    f"Attempt {attempt + 1}: Unexpected HTTP status "
+                    f"{response.status_code}"
                 )
+
         except Exception as e:
             logger.error(
                 f"Attempt {attempt + 1}: Error fetching data from {url}: {e!s}"
