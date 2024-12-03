@@ -5,15 +5,19 @@ For retrieving meteorological data from the AEMET API. It processes and returns
 time series data for specified stations in Antarctica.
 """
 
+from datetime import datetime
 from typing import Any, Optional
 
 import numpy as np
 import pandas as pd
 import pytz
-from fastapi import APIRouter, HTTPException, Query, Response
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
+from pytest import Session
 
 from app.core.config import settings
 from app.core.logging_config import logger
+from app.db.connection import get_db
+from app.db.models import WeatherData
 from app.enums import enums
 from app.schemas.responses import TimeSeriesResponse
 from app.utils.data_processing import aggregate_data
@@ -26,6 +30,8 @@ from open_data_client.aemet_open_data_client.client import AuthenticatedClient
 from open_data_client.aemet_open_data_client.models.field_200 import Field200
 from open_data_client.aemet_open_data_client.models.field_404 import Field404
 
+db_dependency = Depends(get_db)
+
 router = APIRouter()
 
 # Configuration
@@ -33,26 +39,124 @@ BASE_URL = settings.base_url
 TOKEN = settings.token
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 
+import json
 
 def get_antartida_data(
-    fecha_ini_str: str, fecha_fin_str: str, identificacion: str
+    station_id: str,
+    start_api_format: str,
+    end_api_format: str,
+    db: Session,
 ) -> list[dict[str, Any]]:
-    """Fetch data from the AEMET API and handle retries for the dataset."""
-    with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
-        response = sync_detailed(
-            fecha_ini_str=fecha_ini_str,
-            fecha_fin_str=fecha_fin_str,
-            identificacion=identificacion,
-            client=client,
-        )
-        if isinstance(response.parsed, Field200):
-            datos_url = response.parsed.datos
-            logger.info(f"Fetched 'datos' URL: {datos_url}")
-            return fetch_data_from_url(datos_url)  # Fetch actual data from AEMET
-        elif isinstance(response.parsed, Field404):
-            raise HTTPException(status_code=404, detail=response.parsed.descripcion)
-        raise HTTPException(status_code=500, detail="Unexpected response structure.")
+    """
+    Fetch data from the AEMET API or retrieve it from the cache.
 
+    If the data for the specified station and time range is not in the database,
+    fetch it from the API or mock data file and store it in the database.
+
+    Args:
+        db (Session): Database session.
+        station_id (str): ID of the weather station.
+        start_api_format (str): Start datetime in API format.
+        end_api_format (str): End datetime in API format.
+
+    Returns:
+        list[dict]: List of weather data records.
+    """
+
+    # Convert the start and end times back to datetime objects in UTC for querying the DB
+    try:
+        start_utc = datetime.strptime(start_api_format, "%Y-%m-%dT%H:%M:%SUTC").replace(tzinfo=pytz.utc)
+        end_utc = datetime.strptime(end_api_format, "%Y-%m-%dT%H:%M:%SUTC").replace(tzinfo=pytz.utc)
+    except ValueError as e:
+        logger.error(f"Failed to parse datetime strings: {e}")
+        raise HTTPException(status_code=400, detail="Invalid datetime format.")
+
+    logger.warning(f"Querying database: start={start_utc}, end={end_utc}")
+
+    # Check if data exists in the database
+    existing_data = (
+    db.query(WeatherData.data)  # Query only the 'data' field
+        .filter(
+            WeatherData.identificacion == station_id,
+            WeatherData.fhora >= start_utc,
+            WeatherData.fhora <= end_utc,
+        )
+        .all()
+    )
+
+    if existing_data:
+        logger.info(f"Data for station {station_id} retrieved from cache.")
+        return [row[0] for row in existing_data]
+    else:
+        logger.warning(f"station_id: {station_id}, start_api_format: {start_api_format}, end_api_format: {end_api_format}, ")
+
+    # Fetch or mock data
+    # TODO: Funciona, mas ainda nao estou certo sobre os TZ. Estou guardando tudo em UTC
+    # Mas nao tenho certerza ainda de como retornar, mas acho q teria q converter para o TZ solicitado
+    api_data = None
+    if True:
+        logger.info("Using mock data from 'tests/mock_data/valid_mock_data.json'")
+        mock_data_path = "tests/mock_data/valid_mock_data.json"
+        with open(mock_data_path, "r") as file:
+            api_data = json.load(file)
+    else:
+        with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
+            response = sync_detailed(
+                fecha_ini_str=start_api_format,
+                fecha_fin_str=end_api_format,
+                identificacion=station_id,
+                client=client,
+            )
+            if isinstance(response.parsed, Field200):
+                datos_url = response.parsed.datos
+                api_data = fetch_data_from_url(datos_url)
+            elif isinstance(response.parsed, Field404):
+                raise HTTPException(status_code=404, detail=response.parsed.descripcion)
+
+    if not api_data:
+        raise HTTPException(status_code=500, detail="Failed to fetch data.")
+
+    # Cache data in the database
+    cache_weather_data(db, api_data)
+
+    return api_data
+
+
+def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
+    """
+    Cache weather data in the database using bulk inserts.
+
+    Args:
+        db (Session): Database session.
+        api_data (list[dict]): Weather data fetched from the API.
+    """
+    utc = pytz.UTC
+    records = []
+    for record in api_data:
+        timestamp = pd.to_datetime(record["fhora"], errors="coerce")
+        if timestamp.tzinfo is None:
+            # If the timestamp is naive, assume it is in UTC
+            timestamp = utc.localize(timestamp)
+        else:
+            # Convert any localized timestamp to UTC
+            timestamp = timestamp.astimezone(utc)
+
+        records.append(
+            WeatherData(
+                identificacion=record["identificacion"],
+                fhora=timestamp,
+                data=record,
+            )
+        )
+
+    # Perform bulk insert
+    try:
+        db.bulk_save_objects(records)
+        db.commit()
+        logger.info(f"Successfully cached {len(records)} records to the database.")
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Failed to bulk insert data: {e}")
 
 # Endpoints
 @router.get(
@@ -112,6 +216,7 @@ def get_timeseries(
     location: Optional[str] = settings.timezone,
     time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
     data_types: Optional[list[enums.DataType]] = Query(None),
+    db: Session = Depends(get_db),
 ):
     """
     Retrieve meteorological time series data for a specified station.
@@ -148,7 +253,7 @@ def get_timeseries(
     end_api_format = end.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
 
     # Fetch data
-    data = get_antartida_data(start_api_format, end_api_format, station.value)
+    data = get_antartida_data(station.value, start_api_format, end_api_format, db)
 
     # Handle empty DataFrame
     if len(data) == 0:

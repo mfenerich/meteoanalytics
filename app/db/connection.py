@@ -17,6 +17,7 @@ engine = create_engine(DATABASE_URL, echo=True)
 # Create a session factory
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
+
 def get_db():
     """
     Provide a database session for FastAPI routes.
