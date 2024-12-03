@@ -1,0 +1,5210 @@
+[
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T00:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 961.1,
+      "vel": 4.75
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T01:00:00+01:00",
+      "temp": 0.7166666666666667,
+      "pres": 961.2833333333333,
+      "vel": 2.766666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T02:00:00+01:00",
+      "temp": 0.7833333333333333,
+      "pres": 960.9833333333332,
+      "vel": 3.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T03:00:00+01:00",
+      "temp": 0.7833333333333333,
+      "pres": 960.6666666666666,
+      "vel": 5.6000000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T04:00:00+01:00",
+      "temp": 0.7000000000000001,
+      "pres": 960.6500000000001,
+      "vel": 5.433333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T05:00:00+01:00",
+      "temp": 0.6166666666666666,
+      "pres": 960.3833333333333,
+      "vel": 4.6499999999999995
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T06:00:00+01:00",
+      "temp": 0.5333333333333333,
+      "pres": 960.2999999999998,
+      "vel": 4.516666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T07:00:00+01:00",
+      "temp": 0.26666666666666666,
+      "pres": 960.2666666666668,
+      "vel": 3.4499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T08:00:00+01:00",
+      "temp": 0.25,
+      "pres": 960.1333333333333,
+      "vel": 3.8000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T09:00:00+01:00",
+      "temp": 0.4666666666666666,
+      "pres": 960,
+      "vel": 4.516666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T10:00:00+01:00",
+      "temp": 0.6,
+      "pres": 959.7000000000002,
+      "vel": 4.383333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T11:00:00+01:00",
+      "temp": 0.6666666666666666,
+      "pres": 959.8166666666666,
+      "vel": 2.8333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T12:00:00+01:00",
+      "temp": 0.3333333333333333,
+      "pres": 959.7166666666667,
+      "vel": 1.7166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T13:00:00+01:00",
+      "temp": 0.7833333333333333,
+      "pres": 959.85,
+      "vel": 2.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T14:00:00+01:00",
+      "temp": 1.0999999999999999,
+      "pres": 959.9333333333334,
+      "vel": 2.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T15:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 960.0833333333334,
+      "vel": 3.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T16:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 960.0333333333333,
+      "vel": 2.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T17:00:00+01:00",
+      "temp": 1.1666666666666667,
+      "pres": 960,
+      "vel": 2.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T18:00:00+01:00",
+      "temp": 1.1166666666666667,
+      "pres": 959.9833333333332,
+      "vel": 4.666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T19:00:00+01:00",
+      "temp": 1.5333333333333332,
+      "pres": 960.1500000000001,
+      "vel": 2.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T20:00:00+01:00",
+      "temp": 1.2833333333333334,
+      "pres": 960.1166666666667,
+      "vel": 1.8499999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T21:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 960.1666666666666,
+      "vel": 1.5333333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T22:00:00+01:00",
+      "temp": 0.7333333333333334,
+      "pres": 960.2833333333333,
+      "vel": 0.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-01T23:00:00+01:00",
+      "temp": 0.48333333333333334,
+      "pres": 960.5500000000001,
+      "vel": 0.55
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T00:00:00+01:00",
+      "temp": 0.3333333333333333,
+      "pres": 960.8333333333334,
+      "vel": 0.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T01:00:00+01:00",
+      "temp": 0.3833333333333333,
+      "pres": 961.3000000000001,
+      "vel": 0.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T02:00:00+01:00",
+      "temp": -0.7999999999999999,
+      "pres": 961.7833333333333,
+      "vel": 0.43333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T03:00:00+01:00",
+      "temp": -0.4666666666666666,
+      "pres": 962.4499999999999,
+      "vel": 0.43333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T04:00:00+01:00",
+      "temp": -0.5333333333333333,
+      "pres": 963.1666666666666,
+      "vel": 1.1333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T05:00:00+01:00",
+      "temp": -1.05,
+      "pres": 963.9333333333334,
+      "vel": 3.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T06:00:00+01:00",
+      "temp": -0.7000000000000001,
+      "pres": 965.0166666666668,
+      "vel": 2.75
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T07:00:00+01:00",
+      "temp": -0.6333333333333333,
+      "pres": 966.0833333333334,
+      "vel": 1.1333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T08:00:00+01:00",
+      "temp": -0.6833333333333332,
+      "pres": 967.1833333333334,
+      "vel": 0.5666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T09:00:00+01:00",
+      "temp": -1.1166666666666665,
+      "pres": 968.0833333333334,
+      "vel": 1.05
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T10:00:00+01:00",
+      "temp": -1.2166666666666666,
+      "pres": 968.9499999999999,
+      "vel": 0.7166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T11:00:00+01:00",
+      "temp": -0.4166666666666667,
+      "pres": 969.7666666666668,
+      "vel": 0.5666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T12:00:00+01:00",
+      "temp": 0.09999999999999999,
+      "pres": 970.1666666666666,
+      "vel": 2.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T13:00:00+01:00",
+      "temp": 1.1666666666666667,
+      "pres": 970.6666666666666,
+      "vel": 1.4000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T14:00:00+01:00",
+      "temp": 1.3666666666666665,
+      "pres": 971.2666666666668,
+      "vel": 1.7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T15:00:00+01:00",
+      "temp": 1.5166666666666666,
+      "pres": 971.9499999999999,
+      "vel": 2.8000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T16:00:00+01:00",
+      "temp": 1.6166666666666665,
+      "pres": 972.8000000000001,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T17:00:00+01:00",
+      "temp": 1.7166666666666668,
+      "pres": 973.4833333333332,
+      "vel": 2.016666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T18:00:00+01:00",
+      "temp": 1.9000000000000001,
+      "pres": 974.1333333333333,
+      "vel": 2.183333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T19:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 974.7833333333333,
+      "vel": 2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T20:00:00+01:00",
+      "temp": 1.6333333333333335,
+      "pres": 975.5500000000001,
+      "vel": 1.6000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T21:00:00+01:00",
+      "temp": 1.1833333333333333,
+      "pres": 976.3166666666666,
+      "vel": 2.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T22:00:00+01:00",
+      "temp": 0.8333333333333334,
+      "pres": 976.9499999999999,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-02T23:00:00+01:00",
+      "temp": 0.6166666666666666,
+      "pres": 977.65,
+      "vel": 1.55
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T00:00:00+01:00",
+      "temp": 0.31666666666666665,
+      "pres": 978.5,
+      "vel": 1.75
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T01:00:00+01:00",
+      "temp": 0.16666666666666666,
+      "pres": 979.3333333333334,
+      "vel": 0.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T02:00:00+01:00",
+      "temp": -0.16666666666666666,
+      "pres": 980.1333333333333,
+      "vel": 1.0999999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T03:00:00+01:00",
+      "temp": -0.23333333333333336,
+      "pres": 980.9666666666667,
+      "vel": 1.1333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T04:00:00+01:00",
+      "temp": -0.8666666666666667,
+      "pres": 981.8000000000001,
+      "vel": 2.183333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T05:00:00+01:00",
+      "temp": -1.0833333333333333,
+      "pres": 982.5666666666666,
+      "vel": 2.6999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T06:00:00+01:00",
+      "temp": -1.55,
+      "pres": 983.35,
+      "vel": 2.966666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T07:00:00+01:00",
+      "temp": -1.3666666666666665,
+      "pres": 984.1999999999999,
+      "vel": 2.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T08:00:00+01:00",
+      "temp": -0.9166666666666666,
+      "pres": 984.9499999999999,
+      "vel": 2.283333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T09:00:00+01:00",
+      "temp": -0.8666666666666667,
+      "pres": 985.8166666666666,
+      "vel": 1.7166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T10:00:00+01:00",
+      "temp": -0.04999999999999999,
+      "pres": 986.7333333333332,
+      "vel": 1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T11:00:00+01:00",
+      "temp": 0.7999999999999999,
+      "pres": 987.65,
+      "vel": 1.4166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T12:00:00+01:00",
+      "temp": 0.5833333333333334,
+      "pres": 988.3666666666667,
+      "vel": 1.6333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T13:00:00+01:00",
+      "temp": 0.8666666666666667,
+      "pres": 988.9,
+      "vel": 1.5166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T14:00:00+01:00",
+      "temp": 1.3166666666666667,
+      "pres": 989.3166666666666,
+      "vel": 2.6166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T15:00:00+01:00",
+      "temp": 1.05,
+      "pres": 989.9666666666667,
+      "vel": 4.3500000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T16:00:00+01:00",
+      "temp": 1.2833333333333334,
+      "pres": 990.4,
+      "vel": 2.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T17:00:00+01:00",
+      "temp": 1.6166666666666665,
+      "pres": 990.6999999999999,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T18:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 990.9833333333332,
+      "vel": 2.5833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T19:00:00+01:00",
+      "temp": 0.45,
+      "pres": 991.2333333333332,
+      "vel": 2.0833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T20:00:00+01:00",
+      "temp": 0.09999999999999999,
+      "pres": 991.4499999999999,
+      "vel": 2.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T21:00:00+01:00",
+      "temp": 0.03333333333333333,
+      "pres": 991.3166666666666,
+      "vel": 1.9166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T22:00:00+01:00",
+      "temp": 0.10000000000000002,
+      "pres": 990.8833333333333,
+      "vel": 2.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-03T23:00:00+01:00",
+      "temp": -0.06666666666666667,
+      "pres": 990.3833333333333,
+      "vel": 4.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T00:00:00+01:00",
+      "temp": -0.39999999999999997,
+      "pres": 989.4166666666666,
+      "vel": 4.8999999999999995
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T01:00:00+01:00",
+      "temp": -0.5166666666666667,
+      "pres": 987.9833333333332,
+      "vel": 5.916666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T02:00:00+01:00",
+      "temp": -0.3333333333333333,
+      "pres": 986.0166666666668,
+      "vel": 6.733333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T03:00:00+01:00",
+      "temp": -0.16666666666666666,
+      "pres": 983.9666666666667,
+      "vel": 7.033333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T04:00:00+01:00",
+      "temp": 0.5166666666666667,
+      "pres": 982.2166666666667,
+      "vel": 4.05
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T05:00:00+01:00",
+      "temp": 0.6,
+      "pres": 981.2666666666668,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T06:00:00+01:00",
+      "temp": 0.5,
+      "pres": 981,
+      "vel": 1.7333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T07:00:00+01:00",
+      "temp": 0.4000000000000001,
+      "pres": 980.8000000000001,
+      "vel": 1.8333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T08:00:00+01:00",
+      "temp": 0.4000000000000001,
+      "pres": 980.9166666666666,
+      "vel": 1.4833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T09:00:00+01:00",
+      "temp": 0.5,
+      "pres": 981.3166666666666,
+      "vel": 2.6666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T10:00:00+01:00",
+      "temp": 0.4166666666666667,
+      "pres": 981.85,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T11:00:00+01:00",
+      "temp": 0.4000000000000001,
+      "pres": 982.5166666666668,
+      "vel": 2.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T12:00:00+01:00",
+      "temp": 0.35000000000000003,
+      "pres": 983.3333333333334,
+      "vel": 3.016666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T13:00:00+01:00",
+      "temp": 0.4166666666666667,
+      "pres": 983.9,
+      "vel": 2.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T14:00:00+01:00",
+      "temp": 0.6666666666666666,
+      "pres": 984.5666666666666,
+      "vel": 2.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T15:00:00+01:00",
+      "temp": 0.9,
+      "pres": 985.1666666666666,
+      "vel": 1.9333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T16:00:00+01:00",
+      "temp": 1.1,
+      "pres": 985.8166666666666,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T17:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 986.3000000000001,
+      "vel": 1.3166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T18:00:00+01:00",
+      "temp": 1.1833333333333333,
+      "pres": 986.75,
+      "vel": 1.4000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T19:00:00+01:00",
+      "temp": 1.0166666666666668,
+      "pres": 987.3833333333333,
+      "vel": 2.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T20:00:00+01:00",
+      "temp": 1,
+      "pres": 987.8833333333333,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T21:00:00+01:00",
+      "temp": 1.0166666666666668,
+      "pres": 988.3666666666667,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T22:00:00+01:00",
+      "temp": 1.1333333333333333,
+      "pres": 988.4666666666667,
+      "vel": 2.3000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-04T23:00:00+01:00",
+      "temp": 1.0166666666666668,
+      "pres": 988.8333333333334,
+      "vel": 0.9833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T00:00:00+01:00",
+      "temp": 0.9,
+      "pres": 988.9499999999999,
+      "vel": 1.2166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T01:00:00+01:00",
+      "temp": 0.8000000000000002,
+      "pres": 989.0166666666668,
+      "vel": 1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T02:00:00+01:00",
+      "temp": 0.75,
+      "pres": 988.7833333333333,
+      "vel": 0.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T03:00:00+01:00",
+      "temp": 0.7166666666666667,
+      "pres": 988.6500000000001,
+      "vel": 1.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T04:00:00+01:00",
+      "temp": 0.7166666666666667,
+      "pres": 988.3666666666667,
+      "vel": 0.19999999999999998
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T05:00:00+01:00",
+      "temp": 0.6666666666666666,
+      "pres": 987.9833333333332,
+      "vel": 0.8166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T06:00:00+01:00",
+      "temp": 0.5499999999999999,
+      "pres": 987.4833333333332,
+      "vel": 1.0833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T07:00:00+01:00",
+      "temp": 0.7166666666666667,
+      "pres": 986.85,
+      "vel": 1.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T08:00:00+01:00",
+      "temp": 0.7666666666666666,
+      "pres": 986.3000000000001,
+      "vel": 0.4333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T09:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 985.7666666666668,
+      "vel": 0.9166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T10:00:00+01:00",
+      "temp": 1.6166666666666665,
+      "pres": 985.3000000000001,
+      "vel": 1.7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T11:00:00+01:00",
+      "temp": 1.9833333333333334,
+      "pres": 984.6666666666666,
+      "vel": 1.2166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T12:00:00+01:00",
+      "temp": 2.466666666666667,
+      "pres": 984.0166666666668,
+      "vel": 1.8
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T13:00:00+01:00",
+      "temp": 2.5833333333333335,
+      "pres": 983.5833333333334,
+      "vel": 0.9500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T14:00:00+01:00",
+      "temp": 2.8166666666666664,
+      "pres": 983.3833333333333,
+      "vel": 0.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T15:00:00+01:00",
+      "temp": 2.783333333333333,
+      "pres": 983.2833333333333,
+      "vel": 1.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T16:00:00+01:00",
+      "temp": 2.75,
+      "pres": 983.2666666666668,
+      "vel": 1.7666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T17:00:00+01:00",
+      "temp": 2.3166666666666664,
+      "pres": 983.3166666666666,
+      "vel": 1.4333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T18:00:00+01:00",
+      "temp": 2.533333333333333,
+      "pres": 983.4166666666666,
+      "vel": 1.3666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T19:00:00+01:00",
+      "temp": 2.6666666666666665,
+      "pres": 983.2666666666668,
+      "vel": 1.2833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T20:00:00+01:00",
+      "temp": 2.8333333333333335,
+      "pres": 983.3166666666666,
+      "vel": 0.8833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T21:00:00+01:00",
+      "temp": 2.8000000000000003,
+      "pres": 983.3333333333334,
+      "vel": 0.9833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T22:00:00+01:00",
+      "temp": 3,
+      "pres": 982.75,
+      "vel": 1.7166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-05T23:00:00+01:00",
+      "temp": 3.0999999999999996,
+      "pres": 982.3000000000001,
+      "vel": 0.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T00:00:00+01:00",
+      "temp": 3.0500000000000003,
+      "pres": 981.5,
+      "vel": 1.0999999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T01:00:00+01:00",
+      "temp": 2.2666666666666666,
+      "pres": 980.8000000000001,
+      "vel": 2.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T02:00:00+01:00",
+      "temp": 2.8833333333333333,
+      "pres": 979.4666666666667,
+      "vel": 1.5833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T03:00:00+01:00",
+      "temp": 1.75,
+      "pres": 978.3666666666667,
+      "vel": 4.7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T04:00:00+01:00",
+      "temp": 2.15,
+      "pres": 976.4833333333332,
+      "vel": 3.883333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T05:00:00+01:00",
+      "temp": 1.9000000000000001,
+      "pres": 974.9166666666666,
+      "vel": 5.083333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T06:00:00+01:00",
+      "temp": 1.4333333333333333,
+      "pres": 974.4333333333334,
+      "vel": 2.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T07:00:00+01:00",
+      "temp": 0.9166666666666666,
+      "pres": 975.1,
+      "vel": 2.8666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T08:00:00+01:00",
+      "temp": 1.2,
+      "pres": 975.0833333333334,
+      "vel": 3.1999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T09:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 974.9833333333332,
+      "vel": 3.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T10:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 974.6166666666667,
+      "vel": 3.1500000000000004
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T11:00:00+01:00",
+      "temp": 1.4333333333333333,
+      "pres": 974.2666666666668,
+      "vel": 3.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T12:00:00+01:00",
+      "temp": 1.55,
+      "pres": 973.6833333333334,
+      "vel": 4.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T13:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 973.1999999999999,
+      "vel": 3.266666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T14:00:00+01:00",
+      "temp": 1.1333333333333335,
+      "pres": 972.7666666666668,
+      "vel": 3.8333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T15:00:00+01:00",
+      "temp": 0.9333333333333332,
+      "pres": 972.4,
+      "vel": 4.583333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T16:00:00+01:00",
+      "temp": 0.7166666666666667,
+      "pres": 972.4833333333332,
+      "vel": 4.6000000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T17:00:00+01:00",
+      "temp": 0.5666666666666667,
+      "pres": 972.8000000000001,
+      "vel": 3.15
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T18:00:00+01:00",
+      "temp": 0.5,
+      "pres": 973.0666666666666,
+      "vel": 2.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T19:00:00+01:00",
+      "temp": 0.43333333333333335,
+      "pres": 973.4166666666666,
+      "vel": 2.966666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T20:00:00+01:00",
+      "temp": 0.3666666666666667,
+      "pres": 973.6666666666666,
+      "vel": 2.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T21:00:00+01:00",
+      "temp": 0.5333333333333333,
+      "pres": 974.0666666666666,
+      "vel": 3.266666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T22:00:00+01:00",
+      "temp": 0.7000000000000001,
+      "pres": 974.4666666666667,
+      "vel": 4.916666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-06T23:00:00+01:00",
+      "temp": 0.6833333333333332,
+      "pres": 974.8666666666667,
+      "vel": 3.966666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T00:00:00+01:00",
+      "temp": 0.65,
+      "pres": 975.2333333333332,
+      "vel": 3.783333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T01:00:00+01:00",
+      "temp": 0.6666666666666666,
+      "pres": 975.5833333333334,
+      "vel": 4.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T02:00:00+01:00",
+      "temp": 0.5666666666666667,
+      "pres": 975.8833333333333,
+      "vel": 2.966666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T03:00:00+01:00",
+      "temp": 0.5499999999999999,
+      "pres": 976.2166666666667,
+      "vel": 5.433333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T04:00:00+01:00",
+      "temp": 0.4666666666666666,
+      "pres": 976.4666666666667,
+      "vel": 4.816666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T05:00:00+01:00",
+      "temp": 0.38333333333333336,
+      "pres": 976.7833333333333,
+      "vel": 4.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T06:00:00+01:00",
+      "temp": 0.39999999999999997,
+      "pres": 977.1333333333333,
+      "vel": 5.283333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T07:00:00+01:00",
+      "temp": 0.45,
+      "pres": 977.4,
+      "vel": 3.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T08:00:00+01:00",
+      "temp": -0.016666666666666666,
+      "pres": 977.8166666666666,
+      "vel": 3.3166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T09:00:00+01:00",
+      "temp": -0.06666666666666667,
+      "pres": 978.3000000000001,
+      "vel": 4.116666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T10:00:00+01:00",
+      "temp": 0.13333333333333333,
+      "pres": 978.8000000000001,
+      "vel": 2.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T11:00:00+01:00",
+      "temp": 0.6166666666666666,
+      "pres": 979.1500000000001,
+      "vel": 1.5833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T12:00:00+01:00",
+      "temp": 0.7666666666666666,
+      "pres": 979.25,
+      "vel": 1.6833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T13:00:00+01:00",
+      "temp": 1.0166666666666666,
+      "pres": 979.4166666666666,
+      "vel": 1.7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T14:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 980,
+      "vel": 2.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T15:00:00+01:00",
+      "temp": 1.2833333333333334,
+      "pres": 980.7833333333333,
+      "vel": 1.7333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T16:00:00+01:00",
+      "temp": 1.6166666666666665,
+      "pres": 981.5500000000001,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T17:00:00+01:00",
+      "temp": 0.9,
+      "pres": 982.3166666666666,
+      "vel": 2.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T18:00:00+01:00",
+      "temp": 0.7166666666666667,
+      "pres": 983.2166666666667,
+      "vel": 2.316666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T19:00:00+01:00",
+      "temp": 0.7666666666666666,
+      "pres": 984.1833333333334,
+      "vel": 2.066666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T20:00:00+01:00",
+      "temp": 0.7833333333333333,
+      "pres": 985.1999999999999,
+      "vel": 3.5833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T21:00:00+01:00",
+      "temp": 0.5499999999999999,
+      "pres": 986.3166666666666,
+      "vel": 3.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T22:00:00+01:00",
+      "temp": 0.6,
+      "pres": 987.5,
+      "vel": 3.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-07T23:00:00+01:00",
+      "temp": 0.48333333333333334,
+      "pres": 988.75,
+      "vel": 4.2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T00:00:00+01:00",
+      "temp": 0.45,
+      "pres": 990.1666666666666,
+      "vel": 4.166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T01:00:00+01:00",
+      "temp": 0.3,
+      "pres": 991.4166666666666,
+      "vel": 3.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T02:00:00+01:00",
+      "temp": 0.13333333333333333,
+      "pres": 992.2666666666668,
+      "vel": 3.1833333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T03:00:00+01:00",
+      "temp": 0.016666666666666666,
+      "pres": 993.1166666666667,
+      "vel": 3.516666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T04:00:00+01:00",
+      "temp": 0.08333333333333333,
+      "pres": 993.7666666666668,
+      "vel": 3.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T05:00:00+01:00",
+      "temp": -0.016666666666666666,
+      "pres": 994.4666666666667,
+      "vel": 3.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T06:00:00+01:00",
+      "temp": 0.06666666666666667,
+      "pres": 995.1666666666666,
+      "vel": 3.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T07:00:00+01:00",
+      "temp": -0.08333333333333333,
+      "pres": 995.7666666666668,
+      "vel": 2.4499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T08:00:00+01:00",
+      "temp": -0.16666666666666666,
+      "pres": 996.2666666666668,
+      "vel": 2.0833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T09:00:00+01:00",
+      "temp": -0.11666666666666668,
+      "pres": 996.5,
+      "vel": 1.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T10:00:00+01:00",
+      "temp": -0.05000000000000001,
+      "pres": 997.0166666666668,
+      "vel": 1.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T11:00:00+01:00",
+      "temp": 0.18333333333333335,
+      "pres": 997.1833333333334,
+      "vel": 1.1500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T12:00:00+01:00",
+      "temp": -0.13333333333333333,
+      "pres": 997.7833333333333,
+      "vel": 1.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T13:00:00+01:00",
+      "temp": 0.19999999999999998,
+      "pres": 997.7333333333332,
+      "vel": 1.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T14:00:00+01:00",
+      "temp": 1.05,
+      "pres": 997.4833333333332,
+      "vel": 1.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T15:00:00+01:00",
+      "temp": 1.5166666666666666,
+      "pres": 997.1333333333333,
+      "vel": 0.9166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T16:00:00+01:00",
+      "temp": 2.016666666666667,
+      "pres": 996.65,
+      "vel": 1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T17:00:00+01:00",
+      "temp": 2.3833333333333333,
+      "pres": 996.5,
+      "vel": 1.0833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T18:00:00+01:00",
+      "temp": 2.3833333333333333,
+      "pres": 996.5833333333334,
+      "vel": 1.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T19:00:00+01:00",
+      "temp": 2.0166666666666666,
+      "pres": 996.7666666666668,
+      "vel": 2.433333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T20:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 996.7666666666668,
+      "vel": 2.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T21:00:00+01:00",
+      "temp": 2.3,
+      "pres": 996.9,
+      "vel": 1.75
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T22:00:00+01:00",
+      "temp": 2.9333333333333336,
+      "pres": 996.5333333333333,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-08T23:00:00+01:00",
+      "temp": 2.6666666666666665,
+      "pres": 996.2166666666667,
+      "vel": 2.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T00:00:00+01:00",
+      "temp": 1.9833333333333334,
+      "pres": 996.0500000000001,
+      "vel": 2.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T01:00:00+01:00",
+      "temp": 1.7833333333333332,
+      "pres": 995.4333333333334,
+      "vel": 1.95
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T02:00:00+01:00",
+      "temp": 1.6666666666666667,
+      "pres": 994.9499999999999,
+      "vel": 2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T03:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 994.4666666666667,
+      "vel": 2.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T04:00:00+01:00",
+      "temp": 1.6333333333333335,
+      "pres": 993.85,
+      "vel": 2.8333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T05:00:00+01:00",
+      "temp": 1.6500000000000001,
+      "pres": 993.0166666666668,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T06:00:00+01:00",
+      "temp": 1.5333333333333332,
+      "pres": 992.6166666666667,
+      "vel": 1.2166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T07:00:00+01:00",
+      "temp": 1.383333333333333,
+      "pres": 992.5666666666666,
+      "vel": 1.3666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T08:00:00+01:00",
+      "temp": 1.3,
+      "pres": 992.6666666666666,
+      "vel": 2.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T09:00:00+01:00",
+      "temp": 1.0333333333333334,
+      "pres": 992.5,
+      "vel": 1.6333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T10:00:00+01:00",
+      "temp": 0.7833333333333333,
+      "pres": 992.5666666666666,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T11:00:00+01:00",
+      "temp": 0.21666666666666667,
+      "pres": 993.5500000000001,
+      "vel": 3.9499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T12:00:00+01:00",
+      "temp": 0.13333333333333333,
+      "pres": 994.15,
+      "vel": 4.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T13:00:00+01:00",
+      "temp": 0.3833333333333333,
+      "pres": 994.85,
+      "vel": 4.8999999999999995
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T14:00:00+01:00",
+      "temp": 0.9333333333333332,
+      "pres": 994.9833333333332,
+      "vel": 3.8833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T15:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 995.3333333333334,
+      "vel": 2.8833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T16:00:00+01:00",
+      "temp": 1.4666666666666668,
+      "pres": 995.6999999999999,
+      "vel": 3.9166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T17:00:00+01:00",
+      "temp": 1.3833333333333335,
+      "pres": 996.15,
+      "vel": 5.616666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T18:00:00+01:00",
+      "temp": 1.2666666666666666,
+      "pres": 996.5,
+      "vel": 6.416666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T19:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 997.0333333333333,
+      "vel": 4.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T20:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 997,
+      "vel": 4.55
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T21:00:00+01:00",
+      "temp": 1.4333333333333333,
+      "pres": 997.1333333333333,
+      "vel": 2.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T22:00:00+01:00",
+      "temp": 0.9500000000000001,
+      "pres": 997.3833333333333,
+      "vel": 3.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-09T23:00:00+01:00",
+      "temp": 0.48333333333333334,
+      "pres": 997.5166666666668,
+      "vel": 4.183333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T00:00:00+01:00",
+      "temp": 0.15,
+      "pres": 997.3833333333333,
+      "vel": 3.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T01:00:00+01:00",
+      "temp": -0.05000000000000001,
+      "pres": 997.2166666666667,
+      "vel": 3.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T02:00:00+01:00",
+      "temp": -0.11666666666666668,
+      "pres": 997.3000000000001,
+      "vel": 3.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T03:00:00+01:00",
+      "temp": -0.15,
+      "pres": 997.15,
+      "vel": 2.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T04:00:00+01:00",
+      "temp": -0.31666666666666665,
+      "pres": 996.9166666666666,
+      "vel": 2.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T05:00:00+01:00",
+      "temp": -0.5333333333333333,
+      "pres": 996.5833333333334,
+      "vel": 1.2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T06:00:00+01:00",
+      "temp": -0.65,
+      "pres": 996.1666666666666,
+      "vel": 0.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T07:00:00+01:00",
+      "temp": -0.65,
+      "pres": 995.9333333333334,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T08:00:00+01:00",
+      "temp": -0.5,
+      "pres": 995.5833333333334,
+      "vel": 1.9166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T09:00:00+01:00",
+      "temp": 0,
+      "pres": 994.9666666666667,
+      "vel": 1.0333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T10:00:00+01:00",
+      "temp": 0.3,
+      "pres": 994.6,
+      "vel": 0.7999999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T11:00:00+01:00",
+      "temp": 0.6666666666666666,
+      "pres": 994.2166666666667,
+      "vel": 1.7166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T12:00:00+01:00",
+      "temp": 0.85,
+      "pres": 993.65,
+      "vel": 2.716666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T13:00:00+01:00",
+      "temp": 1.2166666666666668,
+      "pres": 993.15,
+      "vel": 1.5999999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T14:00:00+01:00",
+      "temp": 2.2666666666666666,
+      "pres": 992.3333333333334,
+      "vel": 3.016666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T15:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 991.8166666666666,
+      "vel": 4.316666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T16:00:00+01:00",
+      "temp": 0.9166666666666666,
+      "pres": 991.2333333333332,
+      "vel": 3.6833333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T17:00:00+01:00",
+      "temp": 1.1,
+      "pres": 990.4833333333332,
+      "vel": 3.4499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T18:00:00+01:00",
+      "temp": 1.25,
+      "pres": 989.6333333333333,
+      "vel": 4.433333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T19:00:00+01:00",
+      "temp": 1.1500000000000001,
+      "pres": 988.85,
+      "vel": 4.8500000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T20:00:00+01:00",
+      "temp": 1.0666666666666667,
+      "pres": 988.0166666666668,
+      "vel": 5.466666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T21:00:00+01:00",
+      "temp": 1.0666666666666667,
+      "pres": 987.1999999999999,
+      "vel": 4.683333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T22:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 986.6166666666667,
+      "vel": 3.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-10T23:00:00+01:00",
+      "temp": 0.9666666666666667,
+      "pres": 985.9,
+      "vel": 3.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T00:00:00+01:00",
+      "temp": 0.9333333333333332,
+      "pres": 985.3000000000001,
+      "vel": 2.6999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T01:00:00+01:00",
+      "temp": 1,
+      "pres": 984.5500000000001,
+      "vel": 3.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T02:00:00+01:00",
+      "temp": 1,
+      "pres": 984.1,
+      "vel": 2.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T03:00:00+01:00",
+      "temp": 0.9500000000000001,
+      "pres": 983.5500000000001,
+      "vel": 3.8166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T04:00:00+01:00",
+      "temp": 0.9333333333333332,
+      "pres": 983.0666666666666,
+      "vel": 4.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T05:00:00+01:00",
+      "temp": 0.9166666666666666,
+      "pres": 982.4666666666667,
+      "vel": 3.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T06:00:00+01:00",
+      "temp": 1.0166666666666666,
+      "pres": 981.9,
+      "vel": 3.8000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T07:00:00+01:00",
+      "temp": 1.5666666666666667,
+      "pres": 981.2333333333332,
+      "vel": 3.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T08:00:00+01:00",
+      "temp": 1.8499999999999999,
+      "pres": 980.7833333333333,
+      "vel": 3.266666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T09:00:00+01:00",
+      "temp": 2.1666666666666665,
+      "pres": 980.4833333333332,
+      "vel": 3.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T10:00:00+01:00",
+      "temp": 1.8166666666666667,
+      "pres": 980.1166666666667,
+      "vel": 4.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T11:00:00+01:00",
+      "temp": 2.6666666666666665,
+      "pres": 979.4499999999999,
+      "vel": 4.2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T12:00:00+01:00",
+      "temp": 2.8166666666666664,
+      "pres": 978.6666666666666,
+      "vel": 3.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T13:00:00+01:00",
+      "temp": 2.066666666666667,
+      "pres": 978,
+      "vel": 5.3999999999999995
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T14:00:00+01:00",
+      "temp": 2.0166666666666666,
+      "pres": 977.6833333333334,
+      "vel": 4.166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T15:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 977.5333333333333,
+      "vel": 4.783333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T16:00:00+01:00",
+      "temp": 2.1166666666666667,
+      "pres": 976.9499999999999,
+      "vel": 4.716666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T17:00:00+01:00",
+      "temp": 2.25,
+      "pres": 976.5500000000001,
+      "vel": 4.55
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T18:00:00+01:00",
+      "temp": 2.3666666666666667,
+      "pres": 976.25,
+      "vel": 5.833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T19:00:00+01:00",
+      "temp": 2.2333333333333334,
+      "pres": 976,
+      "vel": 6.583333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T20:00:00+01:00",
+      "temp": 2.466666666666667,
+      "pres": 975.6333333333333,
+      "vel": 7.416666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T21:00:00+01:00",
+      "temp": 2.6833333333333336,
+      "pres": 974.8833333333333,
+      "vel": 7.633333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T22:00:00+01:00",
+      "temp": 2.4666666666666663,
+      "pres": 974.1,
+      "vel": 6.116666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-11T23:00:00+01:00",
+      "temp": 2.3,
+      "pres": 973.4833333333332,
+      "vel": 5.8
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T00:00:00+01:00",
+      "temp": 2.0166666666666666,
+      "pres": 973.1666666666666,
+      "vel": 5.616666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T01:00:00+01:00",
+      "temp": 1.9833333333333334,
+      "pres": 972.5833333333334,
+      "vel": 5.383333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T02:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 972.2333333333332,
+      "vel": 5.8
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T03:00:00+01:00",
+      "temp": 1.95,
+      "pres": 971.75,
+      "vel": 5.016666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T04:00:00+01:00",
+      "temp": 1.9833333333333334,
+      "pres": 971.2666666666668,
+      "vel": 3.9499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T05:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 970.8000000000001,
+      "vel": 4.016666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T06:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 970.1166666666667,
+      "vel": 4.566666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T07:00:00+01:00",
+      "temp": 2.1666666666666665,
+      "pres": 969.7333333333332,
+      "vel": 3.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T08:00:00+01:00",
+      "temp": 2.25,
+      "pres": 969.5333333333333,
+      "vel": 2.6833333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T09:00:00+01:00",
+      "temp": 2.1166666666666667,
+      "pres": 969.65,
+      "vel": 2.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T10:00:00+01:00",
+      "temp": 1.75,
+      "pres": 969.7166666666667,
+      "vel": 3.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T11:00:00+01:00",
+      "temp": 1.2,
+      "pres": 970.1666666666666,
+      "vel": 1.7666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T12:00:00+01:00",
+      "temp": 0.5333333333333333,
+      "pres": 970.9333333333334,
+      "vel": 2.3000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T13:00:00+01:00",
+      "temp": 0.25,
+      "pres": 971.5333333333333,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T14:00:00+01:00",
+      "temp": 0.6333333333333333,
+      "pres": 972.0666666666666,
+      "vel": 2.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T15:00:00+01:00",
+      "temp": 1.05,
+      "pres": 972.6,
+      "vel": 2.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T16:00:00+01:00",
+      "temp": 1.6333333333333335,
+      "pres": 972.9833333333332,
+      "vel": 3.15
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T17:00:00+01:00",
+      "temp": 2.1666666666666665,
+      "pres": 973.5833333333334,
+      "vel": 3.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T18:00:00+01:00",
+      "temp": 2.4166666666666665,
+      "pres": 974.1833333333334,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T19:00:00+01:00",
+      "temp": 2.466666666666667,
+      "pres": 974.7333333333332,
+      "vel": 2.316666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T20:00:00+01:00",
+      "temp": 2.466666666666667,
+      "pres": 975,
+      "vel": 0.8333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T21:00:00+01:00",
+      "temp": 2.3833333333333333,
+      "pres": 975.4,
+      "vel": 1.4166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T22:00:00+01:00",
+      "temp": 2.4833333333333334,
+      "pres": 975.7333333333332,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-12T23:00:00+01:00",
+      "temp": 2.0833333333333335,
+      "pres": 976.0166666666668,
+      "vel": 1.3666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T00:00:00+01:00",
+      "temp": 1.4166666666666667,
+      "pres": 976.25,
+      "vel": 1.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T01:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 976.5,
+      "vel": 1.4833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T02:00:00+01:00",
+      "temp": 0.6833333333333332,
+      "pres": 976.8666666666667,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T03:00:00+01:00",
+      "temp": 0.15,
+      "pres": 977.3166666666666,
+      "vel": 2.966666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T04:00:00+01:00",
+      "temp": -0.05000000000000001,
+      "pres": 977.5500000000001,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T05:00:00+01:00",
+      "temp": -0.15,
+      "pres": 977.5,
+      "vel": 1.0333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T06:00:00+01:00",
+      "temp": -0.8166666666666668,
+      "pres": 977.3166666666666,
+      "vel": 0.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T07:00:00+01:00",
+      "temp": -1.1166666666666667,
+      "pres": 977.3000000000001,
+      "vel": 0.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T08:00:00+01:00",
+      "temp": -1.1333333333333333,
+      "pres": 977.4166666666666,
+      "vel": 0.7333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T09:00:00+01:00",
+      "temp": -0.5,
+      "pres": 977.4833333333332,
+      "vel": 1.4166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T10:00:00+01:00",
+      "temp": 0.13333333333333333,
+      "pres": 977.3333333333334,
+      "vel": 2.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T11:00:00+01:00",
+      "temp": 0.6666666666666666,
+      "pres": 977.3666666666667,
+      "vel": 2.1999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T12:00:00+01:00",
+      "temp": 1.2833333333333334,
+      "pres": 977.1166666666667,
+      "vel": 2.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T13:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 976.8666666666667,
+      "vel": 2.1333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T14:00:00+01:00",
+      "temp": 2.85,
+      "pres": 976.6166666666667,
+      "vel": 2.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T15:00:00+01:00",
+      "temp": 1.95,
+      "pres": 976.2666666666668,
+      "vel": 3.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T16:00:00+01:00",
+      "temp": 1.8166666666666667,
+      "pres": 975.85,
+      "vel": 4.433333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T17:00:00+01:00",
+      "temp": 1.7,
+      "pres": 975.5166666666668,
+      "vel": 3.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T18:00:00+01:00",
+      "temp": 1.25,
+      "pres": 974.9333333333334,
+      "vel": 3.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T19:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 974.4166666666666,
+      "vel": 4.366666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T20:00:00+01:00",
+      "temp": 2.216666666666667,
+      "pres": 974.0833333333334,
+      "vel": 2.1999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T21:00:00+01:00",
+      "temp": 3.1166666666666667,
+      "pres": 974.3000000000001,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T22:00:00+01:00",
+      "temp": 2.35,
+      "pres": 974.6,
+      "vel": 2.183333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-13T23:00:00+01:00",
+      "temp": 1.6166666666666665,
+      "pres": 974.8499999999999,
+      "vel": 1.6333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T00:00:00+01:00",
+      "temp": 1.5666666666666667,
+      "pres": 974.9666666666667,
+      "vel": 0.7166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T01:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 975.1833333333334,
+      "vel": 0.6166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T02:00:00+01:00",
+      "temp": 1.0666666666666667,
+      "pres": 975.0333333333333,
+      "vel": 0.5333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T03:00:00+01:00",
+      "temp": 0.6999999999999998,
+      "pres": 974.9333333333334,
+      "vel": 0.8666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T04:00:00+01:00",
+      "temp": 0.5166666666666667,
+      "pres": 974.4666666666667,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T05:00:00+01:00",
+      "temp": 0.5166666666666667,
+      "pres": 974.4833333333332,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T06:00:00+01:00",
+      "temp": 0.5333333333333333,
+      "pres": 974.4833333333332,
+      "vel": 0.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T07:00:00+01:00",
+      "temp": 0.3833333333333333,
+      "pres": 974.3333333333334,
+      "vel": 0.5166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T08:00:00+01:00",
+      "temp": 0.31666666666666665,
+      "pres": 974.25,
+      "vel": 0.7000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T09:00:00+01:00",
+      "temp": 0.3666666666666667,
+      "pres": 974.2000000000002,
+      "vel": 1.5333333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T10:00:00+01:00",
+      "temp": 0.38333333333333336,
+      "pres": 974.2999999999998,
+      "vel": 1.6333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T11:00:00+01:00",
+      "temp": 0.7333333333333334,
+      "pres": 974.3833333333333,
+      "vel": 2.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T12:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 974.4,
+      "vel": 3.1333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T13:00:00+01:00",
+      "temp": 0,
+      "pres": 974.5166666666668,
+      "vel": 3.5999999999999996
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T14:00:00+01:00",
+      "temp": -0.45,
+      "pres": 974.6,
+      "vel": 3.316666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T15:00:00+01:00",
+      "temp": 0.21666666666666665,
+      "pres": 974.6333333333333,
+      "vel": 2.1666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T16:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 974.5666666666666,
+      "vel": 2.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T17:00:00+01:00",
+      "temp": 1.4833333333333334,
+      "pres": 974.5833333333334,
+      "vel": 2.6999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T18:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 974.6,
+      "vel": 4.05
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T19:00:00+01:00",
+      "temp": 1.3666666666666665,
+      "pres": 974.7166666666667,
+      "vel": 3.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T20:00:00+01:00",
+      "temp": 1.2,
+      "pres": 975,
+      "vel": 3.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T21:00:00+01:00",
+      "temp": 1.2666666666666666,
+      "pres": 975.5,
+      "vel": 2.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T22:00:00+01:00",
+      "temp": 1.2666666666666666,
+      "pres": 975.8666666666667,
+      "vel": 2.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-14T23:00:00+01:00",
+      "temp": 0.6333333333333333,
+      "pres": 976.1999999999999,
+      "vel": 4.183333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T00:00:00+01:00",
+      "temp": 0.31666666666666665,
+      "pres": 976.5666666666666,
+      "vel": 2.783333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T01:00:00+01:00",
+      "temp": 0.10000000000000002,
+      "pres": 976.9,
+      "vel": 2.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T02:00:00+01:00",
+      "temp": -0.08333333333333333,
+      "pres": 977.1333333333333,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T03:00:00+01:00",
+      "temp": -0.3333333333333333,
+      "pres": 977.3333333333334,
+      "vel": 2.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T04:00:00+01:00",
+      "temp": -0.4166666666666667,
+      "pres": 977.5,
+      "vel": 1.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T05:00:00+01:00",
+      "temp": -0.6666666666666666,
+      "pres": 977.5333333333333,
+      "vel": 1.6500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T06:00:00+01:00",
+      "temp": -0.3333333333333333,
+      "pres": 977.7333333333332,
+      "vel": 1.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T07:00:00+01:00",
+      "temp": -0.13333333333333333,
+      "pres": 977.8499999999999,
+      "vel": 0.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T08:00:00+01:00",
+      "temp": -0.25,
+      "pres": 977.9166666666666,
+      "vel": 1.6333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T09:00:00+01:00",
+      "temp": -0.016666666666666663,
+      "pres": 978,
+      "vel": 0.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T10:00:00+01:00",
+      "temp": 0.5,
+      "pres": 978,
+      "vel": 0.9500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T11:00:00+01:00",
+      "temp": 0.9166666666666666,
+      "pres": 977.9499999999999,
+      "vel": 1.7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T12:00:00+01:00",
+      "temp": 1.1166666666666667,
+      "pres": 977.9,
+      "vel": 1.7666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T13:00:00+01:00",
+      "temp": 1.4000000000000001,
+      "pres": 977.7666666666668,
+      "vel": 2.4166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T14:00:00+01:00",
+      "temp": 1.6166666666666665,
+      "pres": 977.8499999999999,
+      "vel": 2.283333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T15:00:00+01:00",
+      "temp": 2.1333333333333333,
+      "pres": 977.9,
+      "vel": 3.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T16:00:00+01:00",
+      "temp": 2.5500000000000003,
+      "pres": 978.0500000000001,
+      "vel": 3.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T17:00:00+01:00",
+      "temp": 2.6666666666666665,
+      "pres": 978.2666666666668,
+      "vel": 4.066666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T18:00:00+01:00",
+      "temp": 2.8000000000000003,
+      "pres": 978.3166666666666,
+      "vel": 3.8333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T19:00:00+01:00",
+      "temp": 2.8166666666666664,
+      "pres": 978.5166666666668,
+      "vel": 3.8333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T20:00:00+01:00",
+      "temp": 2.6333333333333333,
+      "pres": 978.6999999999999,
+      "vel": 4.016666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T21:00:00+01:00",
+      "temp": 2.65,
+      "pres": 979.0333333333333,
+      "vel": 2.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T22:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 979.3833333333333,
+      "vel": 1.9833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-15T23:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 979.6999999999999,
+      "vel": 3.0833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T00:00:00+01:00",
+      "temp": 1.25,
+      "pres": 979.9,
+      "vel": 1.8333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T01:00:00+01:00",
+      "temp": 0.8666666666666667,
+      "pres": 980.3166666666666,
+      "vel": 2.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T02:00:00+01:00",
+      "temp": 0.5833333333333334,
+      "pres": 980.6999999999999,
+      "vel": 2.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T03:00:00+01:00",
+      "temp": 0.2833333333333333,
+      "pres": 981,
+      "vel": 1.9166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T04:00:00+01:00",
+      "temp": 0.16666666666666666,
+      "pres": 981.1833333333334,
+      "vel": 1.0333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T05:00:00+01:00",
+      "temp": 0.08333333333333333,
+      "pres": 981.2666666666668,
+      "vel": 1.3166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T06:00:00+01:00",
+      "temp": -0.13333333333333333,
+      "pres": 981.3833333333333,
+      "vel": 0.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T07:00:00+01:00",
+      "temp": -0.26666666666666666,
+      "pres": 981.5,
+      "vel": 1.0833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T08:00:00+01:00",
+      "temp": -0.3333333333333333,
+      "pres": 981.65,
+      "vel": 0.8166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T09:00:00+01:00",
+      "temp": -0.4166666666666667,
+      "pres": 982,
+      "vel": 1.4000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T10:00:00+01:00",
+      "temp": -0.3,
+      "pres": 982.3333333333334,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T11:00:00+01:00",
+      "temp": -0.13333333333333333,
+      "pres": 982.7166666666667,
+      "vel": 1.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T12:00:00+01:00",
+      "temp": 0.18333333333333335,
+      "pres": 982.7833333333333,
+      "vel": 1.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T13:00:00+01:00",
+      "temp": 0.6,
+      "pres": 982.5500000000001,
+      "vel": 1.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T14:00:00+01:00",
+      "temp": 0.7833333333333333,
+      "pres": 982.3000000000001,
+      "vel": 2.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T15:00:00+01:00",
+      "temp": 1.0166666666666666,
+      "pres": 982.3833333333333,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T16:00:00+01:00",
+      "temp": 0.8166666666666668,
+      "pres": 982.4,
+      "vel": 2.4833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T17:00:00+01:00",
+      "temp": 0.9666666666666667,
+      "pres": 982.2833333333333,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T18:00:00+01:00",
+      "temp": 1.1166666666666667,
+      "pres": 982.1500000000001,
+      "vel": 1.3499999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T19:00:00+01:00",
+      "temp": 1.2833333333333334,
+      "pres": 982.0166666666668,
+      "vel": 1.1666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T20:00:00+01:00",
+      "temp": 1.0333333333333334,
+      "pres": 981.9333333333334,
+      "vel": 0.9666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T21:00:00+01:00",
+      "temp": 1.05,
+      "pres": 982.1166666666667,
+      "vel": 0.9333333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T22:00:00+01:00",
+      "temp": 0.65,
+      "pres": 982.25,
+      "vel": 2.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-16T23:00:00+01:00",
+      "temp": 0.5499999999999999,
+      "pres": 982.3833333333333,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T00:00:00+01:00",
+      "temp": 0.3666666666666667,
+      "pres": 982.3833333333333,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T01:00:00+01:00",
+      "temp": 0.18333333333333335,
+      "pres": 982.1666666666666,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T02:00:00+01:00",
+      "temp": 0.10000000000000002,
+      "pres": 982.0666666666666,
+      "vel": 1.2166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T03:00:00+01:00",
+      "temp": -0.016666666666666666,
+      "pres": 982.1,
+      "vel": 0.5166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T04:00:00+01:00",
+      "temp": -0.06666666666666667,
+      "pres": 982.0333333333333,
+      "vel": 0.31666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T05:00:00+01:00",
+      "temp": -0.16666666666666666,
+      "pres": 982,
+      "vel": 0.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T06:00:00+01:00",
+      "temp": -0.20000000000000004,
+      "pres": 982.0166666666668,
+      "vel": 0.7333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T07:00:00+01:00",
+      "temp": -0.21666666666666667,
+      "pres": 982.1500000000001,
+      "vel": 0.35000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T08:00:00+01:00",
+      "temp": -0.18333333333333335,
+      "pres": 982.3666666666667,
+      "vel": 0.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T09:00:00+01:00",
+      "temp": -0.03333333333333333,
+      "pres": 982.5166666666668,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T10:00:00+01:00",
+      "temp": 0.18333333333333335,
+      "pres": 982.8333333333334,
+      "vel": 2.35
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T11:00:00+01:00",
+      "temp": 0.39999999999999997,
+      "pres": 983.1,
+      "vel": 3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T12:00:00+01:00",
+      "temp": 0.48333333333333334,
+      "pres": 983.3333333333334,
+      "vel": 2.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T13:00:00+01:00",
+      "temp": 0.7333333333333334,
+      "pres": 983.4,
+      "vel": 2.4166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T14:00:00+01:00",
+      "temp": 1.7166666666666668,
+      "pres": 983.5500000000001,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T15:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 983.85,
+      "vel": 1.6500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T16:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 984.2166666666667,
+      "vel": 2.3166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T17:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 984.4666666666667,
+      "vel": 3.1666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T18:00:00+01:00",
+      "temp": 1.6666666666666667,
+      "pres": 984.8000000000001,
+      "vel": 2.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T19:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 985.2166666666667,
+      "vel": 2.766666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T20:00:00+01:00",
+      "temp": 1.4666666666666668,
+      "pres": 985.4499999999999,
+      "vel": 3.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T21:00:00+01:00",
+      "temp": 1.3166666666666667,
+      "pres": 985.8333333333334,
+      "vel": 2.6999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T22:00:00+01:00",
+      "temp": 1.4500000000000002,
+      "pres": 986.3000000000001,
+      "vel": 2.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-17T23:00:00+01:00",
+      "temp": 1.4833333333333334,
+      "pres": 986.7666666666668,
+      "vel": 2.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T00:00:00+01:00",
+      "temp": 1.0333333333333334,
+      "pres": 987.0833333333334,
+      "vel": 2.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T01:00:00+01:00",
+      "temp": 0.75,
+      "pres": 987.4333333333334,
+      "vel": 1.1666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T02:00:00+01:00",
+      "temp": 0.5333333333333333,
+      "pres": 987.7166666666667,
+      "vel": 1.3166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T03:00:00+01:00",
+      "temp": 0.16666666666666666,
+      "pres": 987.9499999999999,
+      "vel": 1.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T04:00:00+01:00",
+      "temp": 0.15,
+      "pres": 988.1,
+      "vel": 2.433333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T05:00:00+01:00",
+      "temp": 0.03333333333333333,
+      "pres": 988.3666666666667,
+      "vel": 2.2833333333333337
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T06:00:00+01:00",
+      "temp": -0.25,
+      "pres": 988.4666666666667,
+      "vel": 1.9000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T07:00:00+01:00",
+      "temp": -0.3,
+      "pres": 988.6,
+      "vel": 1.8333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T08:00:00+01:00",
+      "temp": -0.21666666666666667,
+      "pres": 988.75,
+      "vel": 1.3666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T09:00:00+01:00",
+      "temp": -0.10000000000000002,
+      "pres": 989.0333333333333,
+      "vel": 2.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T10:00:00+01:00",
+      "temp": 0.03333333333333333,
+      "pres": 989.3499999999999,
+      "vel": 1.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T11:00:00+01:00",
+      "temp": 0.11666666666666668,
+      "pres": 989.5500000000001,
+      "vel": 2.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T12:00:00+01:00",
+      "temp": 0.05000000000000001,
+      "pres": 989.8666666666667,
+      "vel": 2.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T13:00:00+01:00",
+      "temp": 0.08333333333333333,
+      "pres": 990,
+      "vel": 1.5333333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T14:00:00+01:00",
+      "temp": 0.15,
+      "pres": 990.0666666666666,
+      "vel": 2.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T15:00:00+01:00",
+      "temp": 0.31666666666666665,
+      "pres": 990.2000000000002,
+      "vel": 1.8
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T16:00:00+01:00",
+      "temp": 0.9833333333333334,
+      "pres": 990.3166666666666,
+      "vel": 1.9833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T17:00:00+01:00",
+      "temp": 1.0333333333333334,
+      "pres": 990.5833333333334,
+      "vel": 1.8499999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T18:00:00+01:00",
+      "temp": 1.05,
+      "pres": 990.9,
+      "vel": 2.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T19:00:00+01:00",
+      "temp": 1.3333333333333333,
+      "pres": 991.2166666666667,
+      "vel": 2.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T20:00:00+01:00",
+      "temp": 1.6833333333333333,
+      "pres": 991.7333333333332,
+      "vel": 2.9166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T21:00:00+01:00",
+      "temp": 1.7,
+      "pres": 992.2333333333332,
+      "vel": 2.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T22:00:00+01:00",
+      "temp": 1.6666666666666667,
+      "pres": 992.6,
+      "vel": 1.6166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-18T23:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 993.0166666666668,
+      "vel": 1.8333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T00:00:00+01:00",
+      "temp": 1.2333333333333334,
+      "pres": 993.3833333333333,
+      "vel": 1.6166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T01:00:00+01:00",
+      "temp": 0.75,
+      "pres": 993.7666666666668,
+      "vel": 1.7666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T02:00:00+01:00",
+      "temp": 0.26666666666666666,
+      "pres": 994.1166666666667,
+      "vel": 1.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T03:00:00+01:00",
+      "temp": 0.016666666666666666,
+      "pres": 994.3166666666666,
+      "vel": 0.9166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T04:00:00+01:00",
+      "temp": -0.11666666666666665,
+      "pres": 994.3666666666667,
+      "vel": 0.9500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T05:00:00+01:00",
+      "temp": -0.26666666666666666,
+      "pres": 994.4,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T06:00:00+01:00",
+      "temp": -0.20000000000000004,
+      "pres": 994.4666666666667,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T07:00:00+01:00",
+      "temp": -0.25,
+      "pres": 994.4499999999999,
+      "vel": 1.5666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T08:00:00+01:00",
+      "temp": -0.35000000000000003,
+      "pres": 994.5500000000001,
+      "vel": 0.9833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T09:00:00+01:00",
+      "temp": -0.3333333333333333,
+      "pres": 994.6500000000001,
+      "vel": 1.0833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T10:00:00+01:00",
+      "temp": -0.31666666666666665,
+      "pres": 994.6833333333334,
+      "vel": 1.1666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T11:00:00+01:00",
+      "temp": -0.2833333333333333,
+      "pres": 994.5666666666666,
+      "vel": 0.7000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T12:00:00+01:00",
+      "temp": -0.2333333333333333,
+      "pres": 994.6,
+      "vel": 1.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T13:00:00+01:00",
+      "temp": -0.11666666666666668,
+      "pres": 994.2666666666668,
+      "vel": 1.3166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T14:00:00+01:00",
+      "temp": -0.08333333333333333,
+      "pres": 994.0666666666666,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T15:00:00+01:00",
+      "temp": 0.016666666666666666,
+      "pres": 993.9499999999999,
+      "vel": 1.7666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T16:00:00+01:00",
+      "temp": 0,
+      "pres": 993.9,
+      "vel": 2.716666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T17:00:00+01:00",
+      "temp": 0.5166666666666667,
+      "pres": 993.6833333333334,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T18:00:00+01:00",
+      "temp": 0.9500000000000001,
+      "pres": 993.5833333333334,
+      "vel": 2.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T19:00:00+01:00",
+      "temp": 0.6833333333333332,
+      "pres": 993.4666666666667,
+      "vel": 2.8000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T20:00:00+01:00",
+      "temp": 1.2,
+      "pres": 993.1833333333334,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T21:00:00+01:00",
+      "temp": 1.45,
+      "pres": 992.7166666666667,
+      "vel": 2.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T22:00:00+01:00",
+      "temp": 1.4666666666666668,
+      "pres": 992.3666666666667,
+      "vel": 2.8000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-19T23:00:00+01:00",
+      "temp": 1.4000000000000001,
+      "pres": 991.6166666666667,
+      "vel": 3.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T00:00:00+01:00",
+      "temp": 1.0666666666666667,
+      "pres": 990.8333333333334,
+      "vel": 4.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T01:00:00+01:00",
+      "temp": 1.1166666666666667,
+      "pres": 990.4,
+      "vel": 5.3500000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T02:00:00+01:00",
+      "temp": 1.1500000000000001,
+      "pres": 989.85,
+      "vel": 3.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T03:00:00+01:00",
+      "temp": 1.4666666666666668,
+      "pres": 989.2166666666667,
+      "vel": 3.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T04:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 988.4833333333332,
+      "vel": 3.766666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T05:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 987.6333333333333,
+      "vel": 5.433333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T06:00:00+01:00",
+      "temp": 2.2333333333333334,
+      "pres": 986.85,
+      "vel": 6.033333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T07:00:00+01:00",
+      "temp": 2.1333333333333333,
+      "pres": 986.2333333333332,
+      "vel": 4.833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T08:00:00+01:00",
+      "temp": 2.0833333333333335,
+      "pres": 985.8166666666666,
+      "vel": 4.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T09:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 985.6333333333333,
+      "vel": 3.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T10:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 985.4,
+      "vel": 3.6999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T11:00:00+01:00",
+      "temp": 2.1333333333333333,
+      "pres": 985.0500000000001,
+      "vel": 1.7333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T12:00:00+01:00",
+      "temp": 3.4166666666666665,
+      "pres": 984.3000000000001,
+      "vel": 2.6166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T13:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 983.9666666666667,
+      "vel": 4.083333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T14:00:00+01:00",
+      "temp": 2.4833333333333334,
+      "pres": 983.5333333333333,
+      "vel": 3.9166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T15:00:00+01:00",
+      "temp": 2.983333333333333,
+      "pres": 982.65,
+      "vel": 5.083333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T16:00:00+01:00",
+      "temp": 2.9333333333333336,
+      "pres": 982.0166666666668,
+      "vel": 5.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T17:00:00+01:00",
+      "temp": 3.516666666666667,
+      "pres": 981,
+      "vel": 4.916666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T18:00:00+01:00",
+      "temp": 4.5,
+      "pres": 979.75,
+      "vel": 7.433333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T19:00:00+01:00",
+      "temp": 3.5500000000000003,
+      "pres": 979.0333333333333,
+      "vel": 7.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T20:00:00+01:00",
+      "temp": 3.8000000000000003,
+      "pres": 977.8833333333333,
+      "vel": 4.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T21:00:00+01:00",
+      "temp": 4.05,
+      "pres": 976.4166666666666,
+      "vel": 6.55
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T22:00:00+01:00",
+      "temp": 4.166666666666667,
+      "pres": 974.8000000000001,
+      "vel": 6.683333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-20T23:00:00+01:00",
+      "temp": 3.4333333333333336,
+      "pres": 973.6833333333334,
+      "vel": 6.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T00:00:00+01:00",
+      "temp": 2.9333333333333336,
+      "pres": 972.7333333333332,
+      "vel": 4.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T01:00:00+01:00",
+      "temp": 2.766666666666667,
+      "pres": 972,
+      "vel": 3.15
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T02:00:00+01:00",
+      "temp": 2.6333333333333333,
+      "pres": 971.3666666666667,
+      "vel": 3.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T03:00:00+01:00",
+      "temp": 2.283333333333333,
+      "pres": 970.4666666666667,
+      "vel": 3.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T04:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 969.8333333333334,
+      "vel": 4.75
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T05:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 969.4,
+      "vel": 2.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T06:00:00+01:00",
+      "temp": 2.0166666666666666,
+      "pres": 968.6166666666667,
+      "vel": 3.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T07:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 967.8333333333334,
+      "vel": 3.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T08:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 966.9333333333334,
+      "vel": 3.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T09:00:00+01:00",
+      "temp": 1.6333333333333335,
+      "pres": 966.4,
+      "vel": 3.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T10:00:00+01:00",
+      "temp": 1.2666666666666666,
+      "pres": 965.9499999999999,
+      "vel": 3.3166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T11:00:00+01:00",
+      "temp": 1.1666666666666667,
+      "pres": 965.4833333333332,
+      "vel": 2.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T12:00:00+01:00",
+      "temp": 1.4166666666666667,
+      "pres": 965.2166666666667,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T13:00:00+01:00",
+      "temp": 1.5333333333333332,
+      "pres": 965.4499999999999,
+      "vel": 1.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T14:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 965.8166666666666,
+      "vel": 1.0166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T15:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 966.6666666666666,
+      "vel": 1.1666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T16:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 968.2166666666667,
+      "vel": 1.4833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T17:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 969.9499999999999,
+      "vel": 1.2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T18:00:00+01:00",
+      "temp": 1.6500000000000001,
+      "pres": 971.35,
+      "vel": 2.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T19:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 972.6999999999999,
+      "vel": 3.0500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T20:00:00+01:00",
+      "temp": 1.4833333333333334,
+      "pres": 973.8666666666667,
+      "vel": 3.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T21:00:00+01:00",
+      "temp": 1.0166666666666668,
+      "pres": 974.9499999999999,
+      "vel": 3.283333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T22:00:00+01:00",
+      "temp": 0.8833333333333333,
+      "pres": 975.8666666666667,
+      "vel": 3.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-21T23:00:00+01:00",
+      "temp": 0.8833333333333333,
+      "pres": 976.75,
+      "vel": 4.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T00:00:00+01:00",
+      "temp": 0.9333333333333332,
+      "pres": 977.6166666666667,
+      "vel": 3.766666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T01:00:00+01:00",
+      "temp": 1.0833333333333333,
+      "pres": 978.5,
+      "vel": 3.266666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T02:00:00+01:00",
+      "temp": 1.1333333333333335,
+      "pres": 979,
+      "vel": 2.3000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T03:00:00+01:00",
+      "temp": 1.2166666666666666,
+      "pres": 979.4666666666667,
+      "vel": 2.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T04:00:00+01:00",
+      "temp": 1.2,
+      "pres": 980.0833333333334,
+      "vel": 1.6500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T05:00:00+01:00",
+      "temp": 1.1166666666666667,
+      "pres": 980.0833333333334,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T06:00:00+01:00",
+      "temp": 1.0166666666666668,
+      "pres": 980.0500000000001,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T07:00:00+01:00",
+      "temp": 1,
+      "pres": 979.9166666666666,
+      "vel": 1.0666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T08:00:00+01:00",
+      "temp": 1.55,
+      "pres": 979.9333333333334,
+      "vel": 0.8833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T09:00:00+01:00",
+      "temp": 1.5333333333333332,
+      "pres": 980,
+      "vel": 0.5833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T10:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 980.0500000000001,
+      "vel": 2.4166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T11:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 979.9666666666667,
+      "vel": 1.6666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T12:00:00+01:00",
+      "temp": 2.35,
+      "pres": 979.9666666666667,
+      "vel": 2.1999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T13:00:00+01:00",
+      "temp": 2.4,
+      "pres": 979.8833333333333,
+      "vel": 1.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T14:00:00+01:00",
+      "temp": 2.65,
+      "pres": 979.5666666666666,
+      "vel": 2.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T15:00:00+01:00",
+      "temp": 2.3666666666666667,
+      "pres": 979.6166666666667,
+      "vel": 2.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T16:00:00+01:00",
+      "temp": 2.25,
+      "pres": 979.4499999999999,
+      "vel": 2.783333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T17:00:00+01:00",
+      "temp": 2.066666666666667,
+      "pres": 979.1333333333333,
+      "vel": 3.1333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T18:00:00+01:00",
+      "temp": 2.2333333333333334,
+      "pres": 978.85,
+      "vel": 2.1833333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T19:00:00+01:00",
+      "temp": 2.216666666666667,
+      "pres": 978.4499999999999,
+      "vel": 2.516666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T20:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 977.8666666666667,
+      "vel": 3.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T21:00:00+01:00",
+      "temp": 2.1666666666666665,
+      "pres": 977.4666666666667,
+      "vel": 3.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T22:00:00+01:00",
+      "temp": 2.35,
+      "pres": 977.25,
+      "vel": 1.8166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-22T23:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 977.25,
+      "vel": 2.6333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T00:00:00+01:00",
+      "temp": 1.7,
+      "pres": 977.2666666666665,
+      "vel": 2.6666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T01:00:00+01:00",
+      "temp": 2.1999999999999997,
+      "pres": 977.5333333333333,
+      "vel": 3.4333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T02:00:00+01:00",
+      "temp": 2.1333333333333333,
+      "pres": 977.9833333333332,
+      "vel": 3.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T03:00:00+01:00",
+      "temp": 2.066666666666667,
+      "pres": 978.4166666666666,
+      "vel": 1.6833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T04:00:00+01:00",
+      "temp": 2.5,
+      "pres": 978.4,
+      "vel": 3.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T05:00:00+01:00",
+      "temp": 1.6333333333333335,
+      "pres": 978.6833333333334,
+      "vel": 2.9499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T06:00:00+01:00",
+      "temp": 1.3499999999999999,
+      "pres": 978.6999999999999,
+      "vel": 1.2833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T07:00:00+01:00",
+      "temp": 1.75,
+      "pres": 978.4666666666667,
+      "vel": 1.5166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T08:00:00+01:00",
+      "temp": 1.1333333333333335,
+      "pres": 978.7333333333332,
+      "vel": 1.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T09:00:00+01:00",
+      "temp": 1.3666666666666665,
+      "pres": 979,
+      "vel": 2.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T10:00:00+01:00",
+      "temp": 1.7,
+      "pres": 979.0500000000001,
+      "vel": 3.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T11:00:00+01:00",
+      "temp": 1.8166666666666667,
+      "pres": 979.1,
+      "vel": 2.5833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T12:00:00+01:00",
+      "temp": 2.0500000000000003,
+      "pres": 979.0166666666668,
+      "vel": 2.5833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T13:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 979.0166666666668,
+      "vel": 3.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T14:00:00+01:00",
+      "temp": 2.2333333333333334,
+      "pres": 978.9833333333332,
+      "vel": 3.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T15:00:00+01:00",
+      "temp": 2.216666666666667,
+      "pres": 979.0833333333334,
+      "vel": 3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T16:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 979.1166666666667,
+      "vel": 3.733333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T17:00:00+01:00",
+      "temp": 2.1,
+      "pres": 978.6666666666666,
+      "vel": 3.783333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T18:00:00+01:00",
+      "temp": 2.1999999999999997,
+      "pres": 978.3333333333334,
+      "vel": 3.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T19:00:00+01:00",
+      "temp": 2.1999999999999997,
+      "pres": 977.9166666666666,
+      "vel": 3.5666666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T20:00:00+01:00",
+      "temp": 2.5500000000000003,
+      "pres": 977.1333333333333,
+      "vel": 5.733333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T21:00:00+01:00",
+      "temp": 3.1833333333333336,
+      "pres": 976.0833333333334,
+      "vel": 5.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T22:00:00+01:00",
+      "temp": 4.1000000000000005,
+      "pres": 974.5,
+      "vel": 4.8500000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-23T23:00:00+01:00",
+      "temp": 3.716666666666667,
+      "pres": 973.4499999999999,
+      "vel": 7.05
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T00:00:00+01:00",
+      "temp": 3.483333333333333,
+      "pres": 972.0166666666668,
+      "vel": 6.75
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T01:00:00+01:00",
+      "temp": 3.483333333333333,
+      "pres": 970.5,
+      "vel": 5.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T02:00:00+01:00",
+      "temp": 3.1999999999999997,
+      "pres": 968.9333333333334,
+      "vel": 6.266666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T03:00:00+01:00",
+      "temp": 3,
+      "pres": 967.4,
+      "vel": 5.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T04:00:00+01:00",
+      "temp": 3.216666666666667,
+      "pres": 965.4499999999999,
+      "vel": 7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T05:00:00+01:00",
+      "temp": 3.1666666666666665,
+      "pres": 963.8666666666667,
+      "vel": 6.3500000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T06:00:00+01:00",
+      "temp": 2.9333333333333336,
+      "pres": 963.0333333333333,
+      "vel": 6.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T07:00:00+01:00",
+      "temp": 2.6666666666666665,
+      "pres": 962.4499999999999,
+      "vel": 5.583333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T08:00:00+01:00",
+      "temp": 2.6166666666666667,
+      "pres": 961.6,
+      "vel": 7.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T09:00:00+01:00",
+      "temp": 2.3833333333333333,
+      "pres": 960.85,
+      "vel": 9.383333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T10:00:00+01:00",
+      "temp": 2.2666666666666666,
+      "pres": 960.4499999999999,
+      "vel": 8.066666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T11:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 960.0666666666666,
+      "vel": 7.2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T12:00:00+01:00",
+      "temp": 1.8,
+      "pres": 959.75,
+      "vel": 4.466666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T13:00:00+01:00",
+      "temp": 1.7833333333333332,
+      "pres": 959.6999999999999,
+      "vel": 3.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T14:00:00+01:00",
+      "temp": 1.7166666666666668,
+      "pres": 959.9166666666666,
+      "vel": 2.8166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T15:00:00+01:00",
+      "temp": 1.6500000000000001,
+      "pres": 960.5666666666666,
+      "vel": 5.1000000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T16:00:00+01:00",
+      "temp": 1.6500000000000001,
+      "pres": 961.7166666666667,
+      "vel": 7.3999999999999995
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T17:00:00+01:00",
+      "temp": 1.7,
+      "pres": 963.0333333333333,
+      "vel": 8.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T18:00:00+01:00",
+      "temp": 1.8666666666666665,
+      "pres": 964.6,
+      "vel": 8.583333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T19:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 966.2333333333332,
+      "vel": 9.883333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T20:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 967.9,
+      "vel": 8.616666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T21:00:00+01:00",
+      "temp": 2.466666666666667,
+      "pres": 969.3166666666666,
+      "vel": 6.166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T22:00:00+01:00",
+      "temp": 2.433333333333333,
+      "pres": 970.1833333333334,
+      "vel": 7.216666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-24T23:00:00+01:00",
+      "temp": 2.35,
+      "pres": 971.2166666666667,
+      "vel": 7.8
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T00:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 972.1166666666667,
+      "vel": 7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T01:00:00+01:00",
+      "temp": 2.2,
+      "pres": 973.0833333333334,
+      "vel": 7.2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T02:00:00+01:00",
+      "temp": 2.1166666666666667,
+      "pres": 974.0500000000001,
+      "vel": 6.333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T03:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 975.1999999999999,
+      "vel": 6.1499999999999995
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T04:00:00+01:00",
+      "temp": 1.8499999999999999,
+      "pres": 976.1,
+      "vel": 5.066666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T05:00:00+01:00",
+      "temp": 1.8166666666666667,
+      "pres": 976.75,
+      "vel": 4.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T06:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 977.3000000000001,
+      "vel": 3.5666666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T07:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 977.9166666666666,
+      "vel": 5.466666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T08:00:00+01:00",
+      "temp": 1.5833333333333333,
+      "pres": 978.5166666666668,
+      "vel": 2.4666666666666663
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T09:00:00+01:00",
+      "temp": 1.616666666666667,
+      "pres": 978.9833333333332,
+      "vel": 2.6166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T10:00:00+01:00",
+      "temp": 1.8,
+      "pres": 979.2833333333333,
+      "vel": 2.4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T11:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 979.8000000000001,
+      "vel": 0.48333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T12:00:00+01:00",
+      "temp": 2.216666666666667,
+      "pres": 979.9333333333334,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T13:00:00+01:00",
+      "temp": 2.283333333333333,
+      "pres": 980.3000000000001,
+      "vel": 1.2833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T14:00:00+01:00",
+      "temp": 2.8000000000000003,
+      "pres": 980.7833333333333,
+      "vel": 1.1500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T15:00:00+01:00",
+      "temp": 3.1999999999999997,
+      "pres": 981.3166666666666,
+      "vel": 0.9333333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T16:00:00+01:00",
+      "temp": 3.883333333333333,
+      "pres": 981.9666666666667,
+      "vel": 1.6166666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T17:00:00+01:00",
+      "temp": 3.85,
+      "pres": 982.5833333333334,
+      "vel": 2.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T18:00:00+01:00",
+      "temp": 3.3833333333333333,
+      "pres": 983.1166666666667,
+      "vel": 2.3666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T19:00:00+01:00",
+      "temp": 2.9499999999999997,
+      "pres": 983.9333333333334,
+      "vel": 0.8500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T20:00:00+01:00",
+      "temp": 2.6999999999999997,
+      "pres": 984.8833333333333,
+      "vel": 1.7833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T21:00:00+01:00",
+      "temp": 2.15,
+      "pres": 985.7833333333333,
+      "vel": 1.3166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T22:00:00+01:00",
+      "temp": 1.95,
+      "pres": 986.7666666666668,
+      "vel": 1.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-25T23:00:00+01:00",
+      "temp": 2.1666666666666665,
+      "pres": 987.7833333333333,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T00:00:00+01:00",
+      "temp": 2.1666666666666665,
+      "pres": 988.3833333333333,
+      "vel": 2.15
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T01:00:00+01:00",
+      "temp": 2.0500000000000003,
+      "pres": 989.3333333333334,
+      "vel": 1.5333333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T02:00:00+01:00",
+      "temp": 1.75,
+      "pres": 990.1666666666666,
+      "vel": 1.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T03:00:00+01:00",
+      "temp": 1.5999999999999999,
+      "pres": 990.9499999999999,
+      "vel": 1.3166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T04:00:00+01:00",
+      "temp": 1.7,
+      "pres": 991.4833333333332,
+      "vel": 0.8666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T05:00:00+01:00",
+      "temp": 1.8666666666666665,
+      "pres": 991.8666666666667,
+      "vel": 1.7666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T06:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 992.3000000000001,
+      "vel": 1.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T07:00:00+01:00",
+      "temp": 1.95,
+      "pres": 992.8000000000001,
+      "vel": 1.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T08:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 992.8333333333334,
+      "vel": 0.43333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T09:00:00+01:00",
+      "temp": 2.0833333333333335,
+      "pres": 992.8666666666667,
+      "vel": 1.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T10:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 993.1666666666666,
+      "vel": 2.35
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T11:00:00+01:00",
+      "temp": 2.783333333333333,
+      "pres": 993.0666666666666,
+      "vel": 2.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T12:00:00+01:00",
+      "temp": 1.9166666666666667,
+      "pres": 993.1166666666667,
+      "vel": 3.766666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T13:00:00+01:00",
+      "temp": 2.766666666666667,
+      "pres": 992.3333333333334,
+      "vel": 1.9833333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T14:00:00+01:00",
+      "temp": 4.533333333333334,
+      "pres": 991.1333333333333,
+      "vel": 3.5833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T15:00:00+01:00",
+      "temp": 5.383333333333333,
+      "pres": 990.5166666666668,
+      "vel": 5.266666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T16:00:00+01:00",
+      "temp": 5.083333333333333,
+      "pres": 989.5166666666668,
+      "vel": 6.033333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T17:00:00+01:00",
+      "temp": 4.983333333333333,
+      "pres": 988.0833333333334,
+      "vel": 4.883333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T18:00:00+01:00",
+      "temp": 4.283333333333333,
+      "pres": 986.3666666666667,
+      "vel": 6.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T19:00:00+01:00",
+      "temp": 4.933333333333334,
+      "pres": 983.8666666666667,
+      "vel": 7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T20:00:00+01:00",
+      "temp": 5.1499999999999995,
+      "pres": 981.5833333333334,
+      "vel": 8.133333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T21:00:00+01:00",
+      "temp": 3.533333333333333,
+      "pres": 979.8666666666667,
+      "vel": 7.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T22:00:00+01:00",
+      "temp": 3.15,
+      "pres": 978.3333333333334,
+      "vel": 5.666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-26T23:00:00+01:00",
+      "temp": 2.9,
+      "pres": 977.1,
+      "vel": 6.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T00:00:00+01:00",
+      "temp": 2.8666666666666667,
+      "pres": 976.0500000000001,
+      "vel": 7.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T01:00:00+01:00",
+      "temp": 2.6166666666666667,
+      "pres": 975.1166666666667,
+      "vel": 6.933333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T02:00:00+01:00",
+      "temp": 2.25,
+      "pres": 975.0166666666668,
+      "vel": 6.7
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T03:00:00+01:00",
+      "temp": 2.1,
+      "pres": 975.9333333333334,
+      "vel": 8.049999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T04:00:00+01:00",
+      "temp": 1.9000000000000001,
+      "pres": 977.75,
+      "vel": 4.933333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T05:00:00+01:00",
+      "temp": 2.566666666666667,
+      "pres": 980.0666666666666,
+      "vel": 6.033333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T06:00:00+01:00",
+      "temp": 2.716666666666667,
+      "pres": 982.5333333333333,
+      "vel": 3.8166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T07:00:00+01:00",
+      "temp": 2.8333333333333335,
+      "pres": 984.9666666666667,
+      "vel": 4.066666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T08:00:00+01:00",
+      "temp": 2.6666666666666665,
+      "pres": 986.5666666666666,
+      "vel": 4.183333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T09:00:00+01:00",
+      "temp": 2.6999999999999997,
+      "pres": 988.1,
+      "vel": 4.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T10:00:00+01:00",
+      "temp": 2.6999999999999997,
+      "pres": 989.6999999999999,
+      "vel": 3.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T11:00:00+01:00",
+      "temp": 2.966666666666667,
+      "pres": 990.9499999999999,
+      "vel": 2.4499999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T12:00:00+01:00",
+      "temp": 2.783333333333333,
+      "pres": 992.0833333333334,
+      "vel": 4.6000000000000005
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T13:00:00+01:00",
+      "temp": 2.533333333333333,
+      "pres": 993.3333333333334,
+      "vel": 4.133333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T14:00:00+01:00",
+      "temp": 2.716666666666667,
+      "pres": 994.15,
+      "vel": 2.8833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T15:00:00+01:00",
+      "temp": 3.0833333333333335,
+      "pres": 994.8666666666667,
+      "vel": 2.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T16:00:00+01:00",
+      "temp": 3.9166666666666665,
+      "pres": 995.4333333333334,
+      "vel": 1.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T17:00:00+01:00",
+      "temp": 3.9333333333333336,
+      "pres": 995.9166666666666,
+      "vel": 1.55
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T18:00:00+01:00",
+      "temp": 3.6666666666666665,
+      "pres": 996.15,
+      "vel": 2.0833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T19:00:00+01:00",
+      "temp": 4.133333333333334,
+      "pres": 996.2666666666668,
+      "vel": 1.9333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T20:00:00+01:00",
+      "temp": 4.416666666666667,
+      "pres": 996.25,
+      "vel": 2.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T21:00:00+01:00",
+      "temp": 4.433333333333334,
+      "pres": 996.2999999999998,
+      "vel": 2.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T22:00:00+01:00",
+      "temp": 4.1499999999999995,
+      "pres": 996.25,
+      "vel": 1.0666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-27T23:00:00+01:00",
+      "temp": 4.25,
+      "pres": 996.0500000000001,
+      "vel": 1.05
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T00:00:00+01:00",
+      "temp": 3.766666666666667,
+      "pres": 996.1333333333333,
+      "vel": 1.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T01:00:00+01:00",
+      "temp": 3.533333333333333,
+      "pres": 996.0500000000001,
+      "vel": 1.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T02:00:00+01:00",
+      "temp": 2.8833333333333333,
+      "pres": 995.9,
+      "vel": 0.8166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T03:00:00+01:00",
+      "temp": 2.9166666666666665,
+      "pres": 995.8666666666667,
+      "vel": 0.3333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T04:00:00+01:00",
+      "temp": 2.6833333333333336,
+      "pres": 995.8666666666667,
+      "vel": 0.18333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T05:00:00+01:00",
+      "temp": 2.3833333333333333,
+      "pres": 995.8499999999999,
+      "vel": 0.06666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T06:00:00+01:00",
+      "temp": 2,
+      "pres": 996.0666666666666,
+      "vel": 0.15
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T07:00:00+01:00",
+      "temp": 1.3666666666666665,
+      "pres": 996.2666666666668,
+      "vel": 0.06666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T08:00:00+01:00",
+      "temp": 1.0666666666666667,
+      "pres": 996.5,
+      "vel": 1.9333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T09:00:00+01:00",
+      "temp": 0.9333333333333332,
+      "pres": 997.0833333333334,
+      "vel": 0.08333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T10:00:00+01:00",
+      "temp": 1.8666666666666665,
+      "pres": 997.75,
+      "vel": 1.0333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T11:00:00+01:00",
+      "temp": 2.65,
+      "pres": 998,
+      "vel": 1.05
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T12:00:00+01:00",
+      "temp": 3.4499999999999997,
+      "pres": 998.2333333333332,
+      "vel": 1.3666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T13:00:00+01:00",
+      "temp": 2.716666666666667,
+      "pres": 998.6833333333334,
+      "vel": 3.233333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T14:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 999.0166666666668,
+      "vel": 1.5833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T15:00:00+01:00",
+      "temp": 2.8833333333333333,
+      "pres": 999.15,
+      "vel": 2.3333333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T16:00:00+01:00",
+      "temp": 2.75,
+      "pres": 999.6333333333333,
+      "vel": 2.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T17:00:00+01:00",
+      "temp": 3.1999999999999997,
+      "pres": 999.7833333333333,
+      "vel": 2.8000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T18:00:00+01:00",
+      "temp": 3.35,
+      "pres": 999.8833333333333,
+      "vel": 4.316666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T19:00:00+01:00",
+      "temp": 3.283333333333333,
+      "pres": 1000.1500000000001,
+      "vel": 4.283333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T20:00:00+01:00",
+      "temp": 4.116666666666666,
+      "pres": 1000.2333333333332,
+      "vel": 1.9833333333333332
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T21:00:00+01:00",
+      "temp": 3.966666666666667,
+      "pres": 999.85,
+      "vel": 2.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T22:00:00+01:00",
+      "temp": 4.166666666666667,
+      "pres": 999.6666666666666,
+      "vel": 2.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-28T23:00:00+01:00",
+      "temp": 3.4499999999999997,
+      "pres": 999.7166666666667,
+      "vel": 3.5500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T00:00:00+01:00",
+      "temp": 3.0666666666666664,
+      "pres": 999.4166666666666,
+      "vel": 2.983333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T01:00:00+01:00",
+      "temp": 2.8833333333333333,
+      "pres": 999.1833333333334,
+      "vel": 5.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T02:00:00+01:00",
+      "temp": 2.5500000000000003,
+      "pres": 999.1,
+      "vel": 3.3833333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T03:00:00+01:00",
+      "temp": 2.4499999999999997,
+      "pres": 999.1,
+      "vel": 4.483333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T04:00:00+01:00",
+      "temp": 2.433333333333333,
+      "pres": 999.0833333333334,
+      "vel": 2.966666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T05:00:00+01:00",
+      "temp": 2.35,
+      "pres": 998.9333333333334,
+      "vel": 1.8500000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T06:00:00+01:00",
+      "temp": 2.183333333333333,
+      "pres": 998.65,
+      "vel": 2.8166666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T07:00:00+01:00",
+      "temp": 2.0333333333333337,
+      "pres": 998.3333333333334,
+      "vel": 3.1666666666666665
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T08:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 998.0333333333333,
+      "vel": 2.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T09:00:00+01:00",
+      "temp": 1.9000000000000001,
+      "pres": 997.6,
+      "vel": 2.25
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T10:00:00+01:00",
+      "temp": 2.15,
+      "pres": 997.2166666666667,
+      "vel": 1.1500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T11:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 996.7333333333332,
+      "vel": 3.15
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T12:00:00+01:00",
+      "temp": 1.6333333333333335,
+      "pres": 996.2166666666667,
+      "vel": 2.216666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T13:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 995.6,
+      "vel": 2.9
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T14:00:00+01:00",
+      "temp": 2.2,
+      "pres": 995.0333333333333,
+      "vel": 4
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T15:00:00+01:00",
+      "temp": 2.3833333333333333,
+      "pres": 994.6,
+      "vel": 4.666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T16:00:00+01:00",
+      "temp": 2.2666666666666666,
+      "pres": 994.3833333333333,
+      "vel": 3.566666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T17:00:00+01:00",
+      "temp": 2.283333333333333,
+      "pres": 994.5666666666666,
+      "vel": 3.0666666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T18:00:00+01:00",
+      "temp": 2.433333333333333,
+      "pres": 994.4666666666667,
+      "vel": 1.1333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T19:00:00+01:00",
+      "temp": 2.3,
+      "pres": 994.4499999999999,
+      "vel": 0.8666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T20:00:00+01:00",
+      "temp": 2.1166666666666667,
+      "pres": 994.3000000000001,
+      "vel": 1.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T21:00:00+01:00",
+      "temp": 2.15,
+      "pres": 994,
+      "vel": 1.2666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T22:00:00+01:00",
+      "temp": 2.033333333333333,
+      "pres": 993.9166666666666,
+      "vel": 1.2666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-29T23:00:00+01:00",
+      "temp": 2.0500000000000003,
+      "pres": 993.9166666666666,
+      "vel": 0.9666666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T00:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 993.8000000000001,
+      "vel": 0.16666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T01:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 993.5833333333334,
+      "vel": 0.6
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T02:00:00+01:00",
+      "temp": 2.1,
+      "pres": 993.5333333333333,
+      "vel": 0.48333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T03:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 993.2666666666668,
+      "vel": 1.0666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T04:00:00+01:00",
+      "temp": 1.7833333333333332,
+      "pres": 993.0333333333333,
+      "vel": 0.7166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T05:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 992.5500000000001,
+      "vel": 1.2166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T06:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 992.1833333333334,
+      "vel": 1.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T07:00:00+01:00",
+      "temp": 1.8499999999999999,
+      "pres": 991.9666666666667,
+      "vel": 0.7166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T08:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 991.6166666666667,
+      "vel": 1.0999999999999999
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T09:00:00+01:00",
+      "temp": 1.8833333333333335,
+      "pres": 991.4,
+      "vel": 0.7166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T10:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 991.2666666666668,
+      "vel": 1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T11:00:00+01:00",
+      "temp": 2.3333333333333335,
+      "pres": 991.1833333333334,
+      "vel": 0.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T12:00:00+01:00",
+      "temp": 2.25,
+      "pres": 991.0833333333334,
+      "vel": 0.8166666666666668
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T13:00:00+01:00",
+      "temp": 1.7333333333333334,
+      "pres": 990.8000000000001,
+      "vel": 2.783333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T14:00:00+01:00",
+      "temp": 1.9666666666666668,
+      "pres": 990.4499999999999,
+      "vel": 2.716666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T15:00:00+01:00",
+      "temp": 2.1333333333333333,
+      "pres": 990.1333333333333,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T16:00:00+01:00",
+      "temp": 2.8000000000000003,
+      "pres": 989.9,
+      "vel": 2.5
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T17:00:00+01:00",
+      "temp": 3.1833333333333336,
+      "pres": 989.75,
+      "vel": 2.316666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T18:00:00+01:00",
+      "temp": 3.1999999999999997,
+      "pres": 989.5833333333334,
+      "vel": 2.9333333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T19:00:00+01:00",
+      "temp": 2.75,
+      "pres": 989.4499999999999,
+      "vel": 2.65
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T20:00:00+01:00",
+      "temp": 1.9333333333333333,
+      "pres": 989.25,
+      "vel": 2.85
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T21:00:00+01:00",
+      "temp": 2,
+      "pres": 989.1166666666667,
+      "vel": 3.3000000000000003
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T22:00:00+01:00",
+      "temp": 2.5500000000000003,
+      "pres": 988.7833333333333,
+      "vel": 3.35
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-30T23:00:00+01:00",
+      "temp": 2.6999999999999997,
+      "pres": 988.5500000000001,
+      "vel": 2.0166666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T00:00:00+01:00",
+      "temp": 2.433333333333333,
+      "pres": 988.2666666666668,
+      "vel": 1.1166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T01:00:00+01:00",
+      "temp": 2.1166666666666667,
+      "pres": 987.9499999999999,
+      "vel": 0.9500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T02:00:00+01:00",
+      "temp": 2.4,
+      "pres": 987.5333333333333,
+      "vel": 0.2333333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T03:00:00+01:00",
+      "temp": 2.3666666666666667,
+      "pres": 987.1666666666666,
+      "vel": 0.9500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T04:00:00+01:00",
+      "temp": 2.0166666666666666,
+      "pres": 986.9499999999999,
+      "vel": 0.4666666666666666
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T05:00:00+01:00",
+      "temp": 2.0833333333333335,
+      "pres": 986.8333333333334,
+      "vel": 0.5000000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T06:00:00+01:00",
+      "temp": 2.0833333333333335,
+      "pres": 986.6333333333333,
+      "vel": 0.6166666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T07:00:00+01:00",
+      "temp": 2.3,
+      "pres": 986.25,
+      "vel": 0.21666666666666667
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T08:00:00+01:00",
+      "temp": 2.0166666666666666,
+      "pres": 986.1,
+      "vel": 0.45
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T09:00:00+01:00",
+      "temp": 1.7166666666666668,
+      "pres": 986.1500000000001,
+      "vel": 2.0833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T10:00:00+01:00",
+      "temp": 1.8333333333333333,
+      "pres": 985.7666666666668,
+      "vel": 2.2333333333333334
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T11:00:00+01:00",
+      "temp": 2.183333333333333,
+      "pres": 985.4166666666666,
+      "vel": 2.1999999999999997
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T12:00:00+01:00",
+      "temp": 2.733333333333333,
+      "pres": 985.1666666666666,
+      "vel": 2.0666666666666664
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T13:00:00+01:00",
+      "temp": 2.75,
+      "pres": 984.8166666666666,
+      "vel": 1.8833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T14:00:00+01:00",
+      "temp": 2.983333333333333,
+      "pres": 984.5,
+      "vel": 2.6833333333333336
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T15:00:00+01:00",
+      "temp": 3.4166666666666665,
+      "pres": 984.1666666666666,
+      "vel": 2.033333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T16:00:00+01:00",
+      "temp": 4.25,
+      "pres": 983.9,
+      "vel": 1.3833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T17:00:00+01:00",
+      "temp": 4.733333333333333,
+      "pres": 983.7666666666665,
+      "vel": 2.0833333333333335
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T18:00:00+01:00",
+      "temp": 5.183333333333334,
+      "pres": 983.4166666666666,
+      "vel": 2.1
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T19:00:00+01:00",
+      "temp": 4.733333333333333,
+      "pres": 983.5500000000001,
+      "vel": 2.533333333333333
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T20:00:00+01:00",
+      "temp": 4.416666666666667,
+      "pres": 983.3166666666666,
+      "vel": 2.3
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T21:00:00+01:00",
+      "temp": 4.183333333333334,
+      "pres": 983.2666666666668,
+      "vel": 2
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T22:00:00+01:00",
+      "temp": 3.75,
+      "pres": 983.3000000000001,
+      "vel": 0.9500000000000001
+    },
+    {
+      "nombre": "JCI Estacion meteorologica",
+      "fhora": "2020-12-31T23:00:00+01:00",
+      "temp": 3.3833333333333333,
+      "pres": 983.6500000000001,
+      "vel": 0.6166666666666666
+    }
+  ]

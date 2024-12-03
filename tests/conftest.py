@@ -1,5 +1,6 @@
 """Test fixtures."""
 
+import json
 import pytest
 from fastapi.testclient import TestClient
 
@@ -13,3 +14,13 @@ def test_client() -> TestClient:
     :return:
     """
     return TestClient(app)
+
+@pytest.fixture
+def mock_data():
+    with open("tests/mock_data/valid_mock_data.json", "r") as file:
+        return json.load(file)
+
+@pytest.fixture
+def mock_data_leap_year():
+    with open("tests/mock_data/valid_mock_data_leap_year.json", "r") as file:
+        return json.load(file)

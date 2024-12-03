@@ -110,13 +110,20 @@ def get_timeseries(
     selected_columns = ["nombre", "fhora"] + [DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()]
     df = df[selected_columns]
 
-    # Replace string NaN to np.nan 
-    # Check if the columns exist in the DataFrame before dropping NaN
+    # Note: Here we delete rows with missing values in critical columns (e.g., 'temp', 'vel', 'pres').
+    # Other approaches, such as filling missing values with the mean, median, interpolation, or 
+    # using forward/backward filling, could also be considered depending on the use case and dataset size.
+
+    # Replace string NaN with actual np.nan
+    df.replace("NaN", np.nan, inplace=True)
+
+    # Ensure required columns are present
     required_columns = ["temp", "vel", "pres"]
     existing_columns = [col for col in required_columns if col in df.columns]
 
     if existing_columns:
-        df.dropna(subset=existing_columns, inplace=True)
+        # Drop rows with NaN in required columns
+        df = df[df[existing_columns].notna().all(axis=1)]
     else:
         raise ValueError(f"Required columns {required_columns} are missing from the DataFrame.")
 
