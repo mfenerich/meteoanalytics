@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     timezone: str = "Europe/Madrid"
     token: str
     log_level: str = "INFO"
+    database_url: str = ""
 
     model_config = ConfigDict(
         env_file=".env",  # Specifies the .env file
