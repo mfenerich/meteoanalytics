@@ -5,7 +5,7 @@ For retrieving meteorological data from the AEMET API. It processes and returns
 time series data for specified stations in Antarctica.
 """
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any, Optional
 
 import numpy as np
@@ -40,6 +40,30 @@ router = APIRouter()
 BASE_URL = settings.base_url
 TOKEN = settings.token
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
+
+from datetime import datetime, timedelta, timezone
+from sqlalchemy import text
+
+def cleanup_cache(db: Session) -> None:
+    """
+    Remove cache entries older than 12 hours.
+
+    Args:
+        db (Session): Database session.
+    """
+    try:
+        # Use timezone-aware datetime for UTC
+        expiration_time = datetime.now(timezone.utc) - timedelta(hours=12)
+        db.execute(
+            text("DELETE FROM weather_data WHERE created_at <= :expiration_time"),
+            {"expiration_time": expiration_time},
+        )
+        db.commit()
+        logger.info("Successfully cleaned up cache entries older than 12 hours.")
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Failed to clean up cache: {e}")
+
 
 def validate_cache_coverage(
     station_id: str,
@@ -132,7 +156,6 @@ def get_antartida_data(
 
     # Check if cache fully covers the requested interval
     if cached_data:
-        logger.warning(f"First row:::::::: {cached_data[0].fhora}")
         # Normalize cached timestamps to 10-minute intervals
         cached_timestamps = {row.fhora for row in cached_data}
 
@@ -190,16 +213,6 @@ def get_antartida_data(
     # Cache the newly fetched data
     cache_weather_data(db, api_data)
 
-    # Merge cached and newly fetched data
-    # if cached_data:
-    #     cached_data_dict = {row.fhora: row.data for row in cached_data}
-    #     for record in api_data:
-    #         ts = pd.to_datetime(record["fhora"]).tz_convert("UTC")
-    #         cached_data_dict[ts] = record
-    #     merged_data = list(cached_data_dict.values())
-    # else:
-    #     merged_data = api_data
-
     return api_data
 
 
@@ -212,6 +225,7 @@ def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
         api_data (list[dict]): Weather data fetched from the API.
     """
     try:
+        cleanup_cache(db)  # Cleanup old cache entries
         utc = pytz.UTC
         formatted_records = []
         for record in api_data:
