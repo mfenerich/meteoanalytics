@@ -52,8 +52,8 @@ def get_antartida_data(
     """
     Fetch data from the AEMET API or retrieve it from the cache.
 
-    If the data for the specified station and time range is not in the database,
-    fetch it from the API or mock data file and store it in the database.
+    If the requested interval is not fully covered by the cache,
+    fetch the missing data from the API or mock data file.
 
     Args:
         db (Session): Database session.
@@ -71,8 +71,8 @@ def get_antartida_data(
 
     logger.info(f"Querying database: start={start_utc}, end={end_utc}")
 
-    # Check if data exists in the database
-    existing_data = (
+    # Query cached data
+    cached_data = (
         db.query(WeatherData)
         .filter(
             WeatherData.identificacion == station_id,
@@ -82,15 +82,24 @@ def get_antartida_data(
         .all()
     )
 
-    if existing_data:
-        logger.info(f"Data for station {station_id} retrieved from cache.")
-        # Convert cached timestamps to the requested timezone
-        timezone = pytz.timezone(location) if location != "UTC" else pytz.UTC
-        for row in existing_data:
-            row.data["fhora"] = (
-                pd.to_datetime(row.data["fhora"]).tz_convert("UTC").astimezone(timezone).isoformat()
-            )
-        return [row.data for row in existing_data]
+    # Check if cache fully covers the requested interval
+    if cached_data:
+        cached_timestamps = {row.fhora for row in cached_data}
+        requested_timestamps = pd.date_range(start=start_utc, end=end_utc, freq="10T", tz="UTC")
+        missing_timestamps = [ts for ts in requested_timestamps if ts not in cached_timestamps]
+
+        if not missing_timestamps:
+            logger.info(f"Data for station {station_id} fully retrieved from cache.")
+            timezone = pytz.timezone(location) if location != "UTC" else pytz.UTC
+            for row in cached_data:
+                row.data["fhora"] = (
+                    pd.to_datetime(row.data["fhora"]).tz_convert("UTC").astimezone(timezone).isoformat()
+                )
+            return [row.data for row in cached_data]
+
+        logger.warning(f"Missing timestamps detected: {len(missing_timestamps)} entries.")
+    else:
+        logger.warning(f"No cached data for station {station_id}.")
 
     # Fetch or mock data from API
     api_data = None
@@ -116,10 +125,21 @@ def get_antartida_data(
     if not api_data:
         raise HTTPException(status_code=500, detail="Failed to fetch data.")
 
-    # Cache data in the database
+    # Cache the newly fetched data
     cache_weather_data(db, api_data)
 
-    return api_data
+    # Merge cached and newly fetched data
+    if cached_data:
+        cached_data_dict = {row.fhora: row.data for row in cached_data}
+        for record in api_data:
+            ts = pd.to_datetime(record["fhora"]).tz_convert("UTC")
+            cached_data_dict[ts] = record
+        merged_data = list(cached_data_dict.values())
+    else:
+        merged_data = api_data
+
+    return merged_data
+
 
 
 
