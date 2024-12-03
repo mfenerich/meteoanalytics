@@ -94,7 +94,7 @@ def get_antartida_data(
     # TODO: Funciona, mas ainda nao estou certo sobre os TZ. Estou guardando tudo em UTC
     # Mas nao tenho certerza ainda de como retornar, mas acho q teria q converter para o TZ solicitado
     api_data = None
-    if True:
+    if True: # TODO: colocar uma variavel de ambiente
         logger.info("Using mock data from 'tests/mock_data/valid_mock_data.json'")
         mock_data_path = "tests/mock_data/valid_mock_data.json"
         with open(mock_data_path, "r") as file:
