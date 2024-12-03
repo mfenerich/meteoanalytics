@@ -1,9 +1,27 @@
+"""
+Schemas for API responses.
+
+This module defines the data models used for structuring API responses. These schemas
+ensure consistency and provide metadata for automatic documentation generation.
+"""
+
 from typing import Optional
 
 from pydantic import BaseModel, Field
 
 
 class TimeSeriesResponse(BaseModel):
+    """
+    Schema for time series data response.
+
+    Attributes:
+        nombre (str): Name of the meteorological station.
+        fhora (str): Datetime in ISO format with timezone offset.
+        temp (Optional[float]): Temperature in Celsius.
+        pres (Optional[float]): Atmospheric pressure in hPa.
+        vel (Optional[float]): Wind speed in m/s.
+    """
+
     nombre: str = Field(
         ...,
         description="Name of the meteo station.",
