@@ -1,5 +1,12 @@
+"""
+Utility functions for handling and validating datetime values.
+
+This module provides helper functions for processing datetime strings,
+validating time ranges, and localizing datetimes to specific time zones
+or offsets.
+"""
+
 from datetime import datetime, timedelta
-from typing import Tuple
 
 import pytz
 from fastapi import HTTPException
@@ -9,7 +16,7 @@ from app.core.logging_config import logger
 
 def validate_and_localize_datetime(
     datetime_start: str, datetime_end: str, location: str
-) -> Tuple[datetime, datetime]:
+) -> tuple[datetime, datetime]:
     """
     Validate and localize datetime strings to the given time zone or offset.
 
@@ -19,10 +26,11 @@ def validate_and_localize_datetime(
         location (str): Time zone (e.g., Europe/Berlin) or offset (e.g., +02:00).
 
     Returns:
-        Tuple[datetime, datetime]: Localized start and end datetime objects.
+        tuple[datetime, datetime]: Localized start and end datetime objects.
 
     Raises:
-        HTTPException: If the inputs are invalid, the time range exceeds one month, or the time zone is not recognized.
+        HTTPException: If the inputs are invalid,the time range exceeds one month
+            or the time zone is not recognized.
     """
     try:
         # Parse datetime strings
