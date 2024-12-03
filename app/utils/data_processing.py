@@ -26,7 +26,7 @@ def aggregate_data(df: pd.DataFrame, aggregation: str, start: Any, end: Any) -> 
         df["fhora"] = pd.to_datetime(df["fhora"])
 
         # If 'fhora' is timezone-naive, localize to UTC
-        if not pd.api.types.is_datetime64tz_dtype(df["fhora"]):
+        if not isinstance(df["fhora"].dtype, pd.DatetimeTZDtype):
             df["fhora"] = df["fhora"].dt.tz_localize("UTC")
 
         # Ensure start and end are timezone-aware

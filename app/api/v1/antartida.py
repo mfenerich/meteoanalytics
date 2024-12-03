@@ -105,7 +105,7 @@ def get_timeseries(
     # Parse and process data
     df = pd.DataFrame(data)
     df["fhora"] = pd.to_datetime(df["fhora"], errors="coerce")
-    if not pd.api.types.is_datetime64tz_dtype(df["fhora"]):
+    if not isinstance(df["fhora"].dtype, pd.DatetimeTZDtype):
         df["fhora"] = df["fhora"].dt.tz_localize("UTC")
     df["fhora"] = df["fhora"].dt.tz_convert(location)
 
@@ -117,7 +117,7 @@ def get_timeseries(
     # Note: Here we delete rows with missing values in critical columns (e.g., 'temp', 'vel', 'pres').
     # Other approaches, such as filling missing values with the mean, median, interpolation, or 
     # using forward/backward filling, could also be considered depending on the use case and dataset size.
-    df.replace("NaN", np.nan, inplace=True)
+    df = df.replace("NaN", np.nan, inplace=False)
     required_columns = ["temp", "vel", "pres"]
     existing_columns = [col for col in required_columns if col in df.columns]
 
