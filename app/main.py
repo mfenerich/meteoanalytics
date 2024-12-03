@@ -1,3 +1,10 @@
+"""
+Main entry point for the FastAPI application.
+
+This module sets up the FastAPI app, including routes, exception handlers
+and startup/shutdown events for the Meteo API.
+"""
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request
@@ -44,6 +51,7 @@ app = FastAPI(
 async def health_check():
     """
     Check the health of the service.
+
     Returns:
         JSONResponse: Status and message indicating health.
     """
