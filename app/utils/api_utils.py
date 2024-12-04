@@ -1,3 +1,10 @@
+"""
+Utility functions and helper methods for interacting with external APIs.
+
+This module provides functions to fetch data from APIs, cache data into
+a database, and perform necessary data transformations and validations.
+"""
+
 import json
 from typing import Any, Optional
 
@@ -199,9 +206,9 @@ def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
         db.execute(
             text("""
             INSERT OR IGNORE INTO weather_data (identificacion, fhora, data)
-            SELECT identificacion, fhora, data 
+            SELECT identificacion, fhora, data
             FROM temp_weather_data;
-        """)
+            """)
         )
 
         # Drop the temporary table

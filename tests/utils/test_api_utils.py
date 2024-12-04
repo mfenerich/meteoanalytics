@@ -1,3 +1,11 @@
+"""
+Unit tests for the API utility functions.
+
+This module contains tests for functions that interact with external APIs,
+handle caching, and process weather data. These tests verify correct functionality
+and edge case handling.
+"""
+
 from datetime import datetime, timedelta
 from unittest.mock import MagicMock
 
@@ -16,6 +24,13 @@ TOKEN = "mocked_token"
 
 # Create mock weather data with timestamps aligned to 10-minute intervals
 def get_mock_weather_data():
+    """
+    Generate mock weather data for testing.
+
+    Returns:
+        list[MagicMock]: A list of mocked weather data records, each containing
+        timestamps, temperature, pressure, and wind speed values.
+    """
     # Get the current time rounded down to the nearest 10 minutes
     now = datetime.now(pytz.UTC)
     now = now.replace(second=0, microsecond=0)
@@ -45,6 +60,12 @@ def get_mock_weather_data():
 
 
 def test_get_antartida_data_complete_cache_hit():
+    """
+    Test get_antartida_data for a complete cache hit scenario.
+
+    Verifies that the function correctly retrieves all requested weather data
+    from the database cache without making external API calls.
+    """
     # Create a mock database session
     db_session = MagicMock(spec=Session)
 
@@ -93,6 +114,11 @@ def test_get_antartida_data_complete_cache_hit():
 
 
 def test_get_antartida_data_invalid_dates():
+    """
+    Test get_antartida_data with invalid date inputs.
+
+    Ensures that the function raises a ValueError when given invalid date formats.
+    """
     # Create a mock database session
     db_session = MagicMock(spec=Session)
 

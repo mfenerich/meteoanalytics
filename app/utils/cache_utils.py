@@ -1,3 +1,11 @@
+"""
+Utilities for managing and cleaning up cached data.
+
+This module provides helper functions to handle cache-related operations,
+such as removing outdated data from the database, ensuring efficient
+management of stored weather data.
+"""
+
 from datetime import datetime, timedelta, timezone
 
 from sqlalchemy import text

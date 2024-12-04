@@ -1,3 +1,10 @@
+"""
+Unit tests for the cache utility functions.
+
+This module tests the behavior of caching utilities, focusing on the cleanup
+of outdated cache entries, query integrity, exception handling, and boundary conditions.
+"""
+
 import datetime
 from unittest.mock import MagicMock, patch
 
