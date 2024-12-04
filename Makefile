@@ -53,5 +53,6 @@ build:
 deploy_all_resources:
 	kubectl apply -f ./k8s/meteoservice-config.yaml && \
 		kubectl apply -f ./k8s/meteoservice-secret.yaml && \
+		kubectl apply -f ./k8s/meteoservice-service-api.yaml && \
 		kubectl apply -f ./k8s/app-pvc.yaml && \
 		kubectl apply -f ./k8s/app-deployment.yaml
