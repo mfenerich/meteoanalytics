@@ -10,7 +10,7 @@ from typing import Optional
 import pandas as pd
 import pytz
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
-from pytest import Session
+from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.core.logging_config import logger

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: meteoservice
+  name: meteoservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meteoservice
+  template:
+    metadata:
+      labels:
+        app: meteoservice
+    spec:
+      containers:
+      - name: meteoservice
+        image: localhost:5555/meteo-service:latest
+        envFrom:
+        - configMapRef:
+            name: meteoservice-env
+        - secretRef:
+            name: meteoservice-secret
+        resources: {}
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        volumeMounts:
+        - name: sqlite-storage
+          mountPath: /data
+      volumes:
+      - name: sqlite-storage
+        persistentVolumeClaim:
+          claimName: meteoservice-pvc
