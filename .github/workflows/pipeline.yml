@@ -34,4 +34,4 @@ jobs:
           poetry install --with dev --no-interaction --no-root
       - name: Run tests
         run: |
-          poetry run pytest
+          poetry run pytest --disable-warnings

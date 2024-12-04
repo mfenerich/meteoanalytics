@@ -205,6 +205,15 @@ The pipeline is triggered on every `push` event to the repository.
 
 ---
 
+## Important Notes About the Challenge
+
+- I skipped some tests, especially in Parts 2 and 3. This was a deliberate choice to save time, but the project still provides a good sense of how testing works overall.
+- I noticed that at least the station `89064R` does not consistently return data within the requested time window. Because of this, caching might not work as expected, as it will often result in a "partial hit."
+- In Part 3, the challenge requested a front-end built with **TypeScript**. Unfortunately, I realized this requirement a bit too late. The front-end delivered is quite rudimentary, but I’m happy with the outcome given the circumstances.
+- I added a Kind cluster to run the project. The provided `Makefile` and Kind binary are tailored for macOS. I hope this won’t cause any issues.
+
+---
+
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
