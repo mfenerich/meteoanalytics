@@ -211,6 +211,7 @@ The pipeline is triggered on every `push` event to the repository.
 - I noticed that at least the station `89064R` does not consistently return data within the requested time window. Because of this, caching might not work as expected, as it will often result in a "partial hit."
 - In Part 3, the challenge requested a front-end built with **TypeScript**. Unfortunately, I realized this requirement a bit too late. The front-end delivered is quite rudimentary, but I’m happy with the outcome given the circumstances.
 - I added a Kind cluster to run the project. The provided `Makefile` and Kind binary are tailored for macOS. I hope this won’t cause any issues.
+- My token for the Meteo Station is stored in a Kubernetes Secret. Given the scope of this project, this approach is sufficient and not a major concern. Despite we should never version a token.
 
 ---
 
