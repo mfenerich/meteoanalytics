@@ -5,26 +5,23 @@ For retrieving meteorological data from the AEMET API. It processes and returns
 time series data for specified stations in Antarctica.
 """
 
-from typing import Any, Optional
+from typing import Optional
 
-import numpy as np
 import pandas as pd
 import pytz
-from fastapi import APIRouter, HTTPException, Query, Response
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
+from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.core.logging_config import logger
+from app.db.connection import get_db
 from app.enums import enums
-from app.schemas.responses import TimeSeriesResponse
+from app.schemas.responses import TimeSeriesFullResponse, TimeSeriesResponse
+from app.utils.api_utils import get_antartida_data
 from app.utils.data_processing import aggregate_data
-from app.utils.network_utils import fetch_data_from_url
 from app.utils.time_utils import validate_and_localize_datetime
-from open_data_client.aemet_open_data_client.api.antartida.datos_antartida import (
-    sync_detailed,
-)
-from open_data_client.aemet_open_data_client.client import AuthenticatedClient
-from open_data_client.aemet_open_data_client.models.field_200 import Field200
-from open_data_client.aemet_open_data_client.models.field_404 import Field404
+
+db_dependency = Depends(get_db)
 
 router = APIRouter()
 
@@ -34,26 +31,6 @@ TOKEN = settings.token
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
 
 
-def get_antartida_data(
-    fecha_ini_str: str, fecha_fin_str: str, identificacion: str
-) -> list[dict[str, Any]]:
-    """Fetch data from the AEMET API and handle retries for the dataset."""
-    with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
-        response = sync_detailed(
-            fecha_ini_str=fecha_ini_str,
-            fecha_fin_str=fecha_fin_str,
-            identificacion=identificacion,
-            client=client,
-        )
-        if isinstance(response.parsed, Field200):
-            datos_url = response.parsed.datos
-            logger.info(f"Fetched 'datos' URL: {datos_url}")
-            return fetch_data_from_url(datos_url)  # Fetch actual data from AEMET
-        elif isinstance(response.parsed, Field404):
-            raise HTTPException(status_code=404, detail=response.parsed.descripcion)
-        raise HTTPException(status_code=500, detail="Unexpected response structure.")
-
-
 # Endpoints
 @router.get(
     "/timeseries/",
@@ -61,50 +38,145 @@ def get_antartida_data(
     response_model_exclude_unset=True,
     summary="Retrieve time series data for a meteo station",
     description="""
-    Retrieve meteorological time series data for a specified station over
-        a defined time range.
+    Retrieve selected meteorological time series data for a specified
+        station over a defined time range.
 
     ### Overview:
-    This endpoint allows you to fetch meteorological data for selected
-        weather stations within a specified time range.
-            The data can be aggregated at hourly,
-        daily, or monthly intervals and adjusted to a specified timezone.
+    This endpoint allows you to fetch meteorological data for
+        selected weather stations within a specified time range.
+            The data can be aggregated at hourly, daily, or monthly intervals
+            and adjusted to a specified timezone. You can specify which weather
+            parameters to include in the response using the `data_types` parameter.
 
     ### Key Features:
     - Fetch raw or aggregated data from specific stations.
-    - Perform aggregations based on hourly, daily,
-        or monthly intervals.
+    - Perform aggregations based on hourly, daily, or monthly intervals.
     - Adjust timezone or offset for response datetime values.
-    - Filter results by specific weather parameters
-        such as temperature, pressure, and wind speed.
+    - **Filter results by specific weather parameters such as temperature,
+        pressure, and wind speed using the `data_types` parameter.**
 
     ### Inputs:
     - **`datetime_start`**: Start datetime in ISO format (e.g., `2020-12-01T00:00:00`).
     - **`datetime_end`**: End datetime in ISO format (e.g., `2020-12-31T23:59:59`).
-    - **`station`**: Specify the weather station to fetch data from.
-        Supported values:
-      - `89064`: Estación Meteorológica Juan Carlos I
-      - `89064R`: Estación Radiométrica Juan Carlos I
-      - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
-      - `89070`: Estación Meteorológica Gabriel de Castilla
-    - **`location`** (optional):
-        Specify the timezone or offset for the datetime
-        values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
-    - **`time_aggregation`** (optional): Specify the aggregation level.
-    - **`data_types`** (optional): Specify the weather
-        parameters to include in the response. Supported values:
-      - `temperature`: Include temperature data in Celsius.
-      - `pressure`: Include atmospheric pressure in hPa.
-      - `speed`: Include wind speed in m/s.
+    - **`station`**: Specify the weather station to fetch data from. Supported values:
+    - `89064`: Estación Meteorológica Juan Carlos I
+    - `89064R`: Estación Radiométrica Juan Carlos I
+    - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
+    - `89070`: Estación Meteorológica Gabriel de Castilla
+    - **`location`** (optional): Specify the timezone or offset for
+        the datetime values (e.g., `Europe/Madrid`, `+02:00`).
+            Defaults to `Europe/Madrid`.
+    - **`time_aggregation`** (optional): Specify the aggregation
+        level (`hourly`, `daily`, `monthly`, or `None`).
+    - **`data_types`** (optional): Specify the weather parameters
+        to include in the response. Supported values:
+    - `temperature`: Include temperature data in Celsius.
+    - `pressure`: Include atmospheric pressure in hPa.
+    - `speed`: Include wind speed in m/s.
 
     ### Output:
     A list of dictionaries containing:
     - **`nombre`**: Name of the weather station.
     - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
     - Weather parameters (`temperature`, `pressure`, `speed`)
-        based on the selected data types.
+        based on the selected `data_types`.
     """,
 )
+def get_short_response(
+    datetime_start: str,
+    datetime_end: str,
+    station: enums.Station = Query(...),
+    location: Optional[str] = settings.timezone,
+    time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
+    data_types: Optional[list[enums.DataType]] = Query(None),
+    db: Session = Depends(get_db),
+):
+    """
+    Retrieve aggregated meteorological data for a specific station.
+
+    This function processes a shortened response with selected data types
+    for the specified station and time range.
+    """
+    return get_timeseries(
+        datetime_start,
+        datetime_end,
+        station,
+        location,
+        time_aggregation,
+        data_types,
+        False,
+        db,
+    )
+
+
+@router.get(
+    "/timeseries/full",
+    response_model=list[TimeSeriesFullResponse],
+    summary="Retrieve time series data for a meteo station",
+    description="""
+    Retrieve full meteorological time series data for a specified
+        station over a defined time range.
+
+    ### Overview:
+    This endpoint allows you to fetch the full set of meteorological
+        data for selected weather stations within a specified time range.
+        The data can be aggregated at hourly, daily, or monthly intervals
+        and adjusted to a specified timezone. All available weather parameters
+        are included in the response.
+
+    ### Key Features:
+    - Fetch raw or aggregated data from specific stations.
+    - Perform aggregations based on hourly, daily, or monthly intervals.
+    - Adjust timezone or offset for response datetime values.
+    - **Includes all available weather parameters in the response.**
+
+    ### Inputs:
+    - **`datetime_start`**: Start datetime in ISO format (e.g., `2020-12-01T00:00:00`).
+    - **`datetime_end`**: End datetime in ISO format (e.g., `2020-12-31T23:59:59`).
+    - **`station`**: Specify the weather station to fetch data from. Supported values:
+      - `89064`: Estación Meteorológica Juan Carlos I
+      - `89064R`: Estación Radiométrica Juan Carlos I
+      - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
+      - `89070`: Estación Meteorológica Gabriel de Castilla
+    - **`location`** (optional): Specify the timezone or offset for the datetime
+        values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
+    - **`time_aggregation`** (optional): Specify the aggregation level
+        (`hourly`, `daily`, `monthly`, or `None`).
+
+    ### Output:
+    A list of dictionaries containing:
+    - **`nombre`**: Name of the weather station.
+    - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
+    - **All available weather parameters**, such as temperature, pressure,
+        wind speed, humidity, and more.
+    """,
+)
+def get_full_response(
+    datetime_start: str,
+    datetime_end: str,
+    station: enums.Station = Query(...),
+    location: Optional[str] = settings.timezone,
+    time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
+    db: Session = Depends(get_db),
+):
+    """
+    Retrieve full meteorological data for a specific station.
+
+    This function provides a detailed response with all available
+    data types for the specified station and time range.
+    """
+    return get_timeseries(
+        datetime_start,
+        datetime_end,
+        station,
+        location,
+        time_aggregation,
+        None,
+        True,
+        db,
+    )
+
+
 def get_timeseries(
     datetime_start: str,
     datetime_end: str,
@@ -112,6 +184,8 @@ def get_timeseries(
     location: Optional[str] = settings.timezone,
     time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
     data_types: Optional[list[enums.DataType]] = Query(None),
+    full_response=False,
+    db: Session = Depends(get_db),
 ):
     """
     Retrieve meteorological time series data for a specified station.
@@ -131,6 +205,7 @@ def get_timeseries(
             Aggregation level ("None" by default).
         data_types (Optional[list[enums.DataType]]):
             Weather parameters to include (e.g., temperature, pressure).
+        full_response (bool): Define if the response will be full or short
 
     Returns:
         list[dict]: Processed meteorological data
@@ -148,7 +223,9 @@ def get_timeseries(
     end_api_format = end.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
 
     # Fetch data
-    data = get_antartida_data(start_api_format, end_api_format, station.value)
+    data = get_antartida_data(
+        station.value, start_api_format, end_api_format, db, location
+    )
 
     # Handle empty DataFrame
     if len(data) == 0:
@@ -163,10 +240,11 @@ def get_timeseries(
     df["fhora"] = df["fhora"].dt.tz_convert(location)
 
     # Filter columns
-    selected_columns = ["nombre", "fhora"] + [
-        DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()
-    ]
-    df = df[selected_columns]
+    if not full_response:
+        selected_columns = ["nombre", "fhora"] + [
+            DATA_TYPE_MAP[dt] for dt in data_types or DATA_TYPE_MAP.keys()
+        ]
+        df = df[selected_columns]
 
     # Handle missing values
     # Note: Here we delete rows with missing values
@@ -175,7 +253,7 @@ def get_timeseries(
     #   with the mean, median, interpolation, or
     # using forward/backward filling, could also be considered
     #   depending on the use case and dataset size.
-    df = df.replace("NaN", np.nan, inplace=False)
+    df = df.replace("NaN", None, inplace=False)
     required_columns = ["temp", "vel", "pres"]
     existing_columns = [col for col in required_columns if col in df.columns]
 

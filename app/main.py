@@ -8,7 +8,7 @@ and startup/shutdown events for the Meteo API.
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, ORJSONResponse
 
 from app.api.v1.antartida import router as aemet_router
 from app.core.logging_config import logger
@@ -43,6 +43,7 @@ app = FastAPI(
         "name": "MIT License",
         "url": "https://opensource.org/licenses/MIT",
     },
+    default_response_class=ORJSONResponse,
     lifespan=lifespan,
 )
 

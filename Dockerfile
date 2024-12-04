@@ -13,6 +13,8 @@ WORKDIR ${PYTHONPATH}
 # install [tool.poetry.dependencies]
 # this will install virtual environment into /.venv because of POETRY_VIRTUALENVS_IN_PROJECT=true
 # see: https://python-poetry.org/docs/configuration/#virtualenvsin-project
+COPY ./open_data_client ./open_data_client
+
 COPY ./pyproject.toml ${PYTHONPATH}
 RUN poetry install --no-interaction --no-root --without dev
 
@@ -48,12 +50,28 @@ COPY --from=dependencies-build-stage --chown=python_application:python_applicati
 # Copy application files
 COPY --chown=python_application:python_application /app ${PYTHONPATH}/app/
 
+# Install tzdata, PostgreSQL client tools, and curl
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends tzdata postgresql-client curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Configure tzdata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+WORKDIR /app
+
+# Copy the entrypoint script
+COPY ./app/scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Not best practice... but lets just use the same image for the UI
+COPY ./ui /app/ui
+
+COPY ./app /app
+COPY ./open_data_client ./open_data_client
+
 # Document the exposed port
 # https://docs.docker.com/engine/reference/builder/#expose
 EXPOSE ${APPLICATION_SERVER_PORT}
 
-# Use the unpriveledged user to run the application
-USER 10001
-
-# Run the uvicorn application server.
-CMD exec uvicorn --workers 1 --host 0.0.0.0 --port $APPLICATION_SERVER_PORT app.main:app
+ENTRYPOINT ["/entrypoint.sh"]

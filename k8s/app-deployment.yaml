@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: meteoservice
+  name: meteoservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meteoservice
+  template:
+    metadata:
+      labels:
+        app: meteoservice
+    spec:
+      containers:
+      - name: meteoservice
+        image: localhost:5555/meteo-service:latest
+        envFrom:
+        - configMapRef:
+            name: meteoservice-env
+        - secretRef:
+            name: meteoservice-secret
+        resources: {}
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        volumeMounts:
+        - name: sqlite-storage
+          mountPath: /data
+
+      - name: meteodash
+        image: localhost:5555/meteo-service:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            echo "Waiting for temperature-service to be ready..."
+            until curl -s http://localhost:8000/health; do
+              echo "meteo-service is not ready yet. Waiting..."
+              sleep 2
+            done
+            echo "meteo-service is ready. Starting Meteo Dash..."
+            streamlit run ./ui/app.py --server.port 8001
+        resources: {}
+      volumes:  # Agora está no nível correto
+      - name: sqlite-storage
+        persistentVolumeClaim:
+          claimName: meteoservice-pvc
