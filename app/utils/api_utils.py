@@ -118,26 +118,20 @@ def get_antartida_data(
                 )
             return [row.data for row in cached_data]
 
-    # Fetch or mock data from API
+    # Fetch from API
     api_data = None
-    if False:  # TODO Mocking condition
-        logger.info("Using mock data from 'tests/mock_data/valid_mock_data.json'")
-        mock_data_path = "tests/mock_data/valid_mock_data.json"
-        with open(mock_data_path) as file:
-            api_data = json.load(file)
-    else:
-        with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
-            response = sync_detailed(
-                fecha_ini_str=start_api_format,
-                fecha_fin_str=end_api_format,
-                identificacion=station_id,
-                client=client,
-            )
-            if isinstance(response.parsed, Field200):
-                datos_url = response.parsed.datos
-                api_data = fetch_data_from_url(datos_url)
-            elif isinstance(response.parsed, Field404):
-                raise HTTPException(status_code=404, detail=response.parsed.descripcion)
+    with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
+        response = sync_detailed(
+            fecha_ini_str=start_api_format,
+            fecha_fin_str=end_api_format,
+            identificacion=station_id,
+            client=client,
+        )
+        if isinstance(response.parsed, Field200):
+            datos_url = response.parsed.datos
+            api_data = fetch_data_from_url(datos_url)
+        elif isinstance(response.parsed, Field404):
+            raise HTTPException(status_code=404, detail=response.parsed.descripcion)
 
     if not api_data:
         raise HTTPException(status_code=500, detail="Failed to fetch data.")
