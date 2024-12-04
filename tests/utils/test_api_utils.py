@@ -1,20 +1,18 @@
-import pytest
-from unittest.mock import MagicMock, patch
 from datetime import datetime, timedelta
-import pytz
+from unittest.mock import MagicMock
+
 import pandas as pd
+import pytest
+import pytz
 from sqlalchemy.orm import Session
-from fastapi import HTTPException
 
 # Replace 'app.utils.api_utils' with the actual path to your function
 from app.utils.api_utils import get_antartida_data
-from app.db.models import WeatherData
-from open_data_client.aemet_open_data_client.models.field_200 import Field200
-from open_data_client.aemet_open_data_client.models.field_404 import Field404
 
 # Constants for mocking
 BASE_URL = "https://mocked.base.url"
 TOKEN = "mocked_token"
+
 
 # Create mock weather data with timestamps aligned to 10-minute intervals
 def get_mock_weather_data():
@@ -45,6 +43,7 @@ def get_mock_weather_data():
         )
     return data
 
+
 def test_get_antartida_data_complete_cache_hit():
     # Create a mock database session
     db_session = MagicMock(spec=Session)
@@ -53,7 +52,9 @@ def test_get_antartida_data_complete_cache_hit():
     MOCK_WEATHER_DATA = get_mock_weather_data()
 
     # Mock the query to return our mock data
-    db_session.query.return_value.filter.return_value.all.return_value = MOCK_WEATHER_DATA
+    db_session.query.return_value.filter.return_value.all.return_value = (
+        MOCK_WEATHER_DATA
+    )
 
     # Define test parameters using the timestamps from MOCK_WEATHER_DATA
     station_id = "12345"

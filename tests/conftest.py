@@ -1,12 +1,10 @@
 """Test fixtures."""
 
-from datetime import datetime
 import json
 
 import pytest
 from fastapi.testclient import TestClient
 
-from app.db.models import WeatherData
 from app.main import app
 
 

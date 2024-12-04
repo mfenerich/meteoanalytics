@@ -1,9 +1,9 @@
-
 import datetime
 from unittest.mock import MagicMock, patch
+
 from sqlalchemy.orm import Session
+
 from app.utils.cache_utils import cleanup_cache
-from sqlalchemy.sql import text
 
 
 def test_cleanup_cache_removal():
@@ -28,10 +28,14 @@ def test_cleanup_cache_removal():
         assert actual_call_args is not None, "Expected execute to be called once."
 
         actual_query, actual_params = actual_call_args[0]
-        assert str(actual_query) == "DELETE FROM weather_data WHERE created_at <= :expiration_time"
+        assert (
+            str(actual_query)
+            == "DELETE FROM weather_data WHERE created_at <= :expiration_time"
+        )
         assert actual_params["expiration_time"] == old_time
 
         mock_session.commit.assert_called_once()
+
 
 def test_cleanup_cache_no_removal():
     """Test cleanup_cache when no old cache entries are found."""
@@ -52,6 +56,7 @@ def test_cleanup_cache_no_removal():
         # Assert the DELETE query was executed, but no entries were removed
         mock_session.execute.assert_called_once()
         mock_session.commit.assert_called_once()
+
 
 def test_cleanup_cache_exception():
     """Test cleanup_cache handles exceptions during execution."""
@@ -76,7 +81,10 @@ def test_cleanup_cache_exception():
             mock_session.commit.assert_not_called()
 
             # Assert an error was logged
-            mock_logger.error.assert_called_once_with("Failed to clean up cache: Database error")
+            mock_logger.error.assert_called_once_with(
+                "Failed to clean up cache: Database error"
+            )
+
 
 def test_cleanup_cache_query_integrity():
     """Test the SQL query string used in cleanup_cache."""
@@ -90,6 +98,7 @@ def test_cleanup_cache_query_integrity():
 
         # Ensure the text method was called with the correct query
         mock_text.assert_called_once_with(query_text)
+
 
 def test_cleanup_cache_boundary():
     """Test cleanup_cache when entries are exactly at the threshold."""

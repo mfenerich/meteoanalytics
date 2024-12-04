@@ -1,7 +1,10 @@
 from datetime import datetime, timedelta, timezone
+
 from sqlalchemy import text
-from app.core.logging_config import logger
 from sqlalchemy.orm import Session
+
+from app.core.logging_config import logger
+
 
 def cleanup_cache(db: Session) -> None:
     """

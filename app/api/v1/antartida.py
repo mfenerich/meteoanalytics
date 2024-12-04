@@ -5,7 +5,7 @@ For retrieving meteorological data from the AEMET API. It processes and returns
 time series data for specified stations in Antarctica.
 """
 
-from typing import Any, Optional
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -127,7 +127,9 @@ def get_timeseries(
     end_api_format = end.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SUTC")
 
     # Fetch data
-    data = get_antartida_data(station.value, start_api_format, end_api_format, db, location)
+    data = get_antartida_data(
+        station.value, start_api_format, end_api_format, db, location
+    )
 
     # Handle empty DataFrame
     if len(data) == 0:

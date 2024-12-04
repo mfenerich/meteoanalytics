@@ -3,16 +3,19 @@ from typing import Any, Optional
 
 import pandas as pd
 import pytz
-from sqlalchemy import DateTime, cast, text
-from app.db.models import WeatherData
-from sqlalchemy.orm import Session
 from fastapi import HTTPException
+from sqlalchemy import DateTime, cast, text
+from sqlalchemy.orm import Session
+
+from app.core.config import settings
 from app.core.logging_config import logger
+from app.db.models import WeatherData
 from app.utils.cache_utils import cleanup_cache
 from app.utils.network_utils import fetch_data_from_url
-from open_data_client.aemet_open_data_client.api.antartida.datos_antartida import sync_detailed
+from open_data_client.aemet_open_data_client.api.antartida.datos_antartida import (
+    sync_detailed,
+)
 from open_data_client.aemet_open_data_client.client import AuthenticatedClient
-from app.core.config import settings
 from open_data_client.aemet_open_data_client.models.field_200 import Field200
 from open_data_client.aemet_open_data_client.models.field_404 import Field404
 
@@ -20,6 +23,7 @@ from open_data_client.aemet_open_data_client.models.field_404 import Field404
 BASE_URL = settings.base_url
 TOKEN = settings.token
 DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
+
 
 def get_antartida_data(
     station_id: str,
@@ -65,7 +69,7 @@ def get_antartida_data(
         .filter(
             WeatherData.identificacion == station_id,
             cast(WeatherData.fhora, DateTime) >= cast(start_utc, DateTime),
-            cast(WeatherData.fhora, DateTime) <= cast(end_utc, DateTime)
+            cast(WeatherData.fhora, DateTime) <= cast(end_utc, DateTime),
         )
         .all()
     )
@@ -78,13 +82,15 @@ def get_antartida_data(
         # Normalize requested timestamps to 10-minute intervals
         requested_timestamps = pd.date_range(
             start=start_utc.floor("10T"),  # Align start to 10-minute intervals
-            end=end_utc.ceil("10T"),       # Align end to 10-minute intervals
+            end=end_utc.ceil("10T"),  # Align end to 10-minute intervals
             freq="10T",
-            tz="UTC"
+            tz="UTC",
         )
 
         # Check if all requested timestamps are in the cache
-        missing_timestamps = [ts for ts in requested_timestamps if ts not in cached_timestamps]
+        missing_timestamps = [
+            ts for ts in requested_timestamps if ts not in cached_timestamps
+        ]
 
         # Log missing timestamps
         if missing_timestamps:
@@ -98,7 +104,10 @@ def get_antartida_data(
             timezone = pytz.timezone(location) if location != "UTC" else pytz.UTC
             for row in cached_data:
                 row.data["fhora"] = (
-                    pd.to_datetime(row.data["fhora"]).tz_convert("UTC").astimezone(timezone).isoformat()
+                    pd.to_datetime(row.data["fhora"])
+                    .tz_convert("UTC")
+                    .astimezone(timezone)
+                    .isoformat()
                 )
             return [row.data for row in cached_data]
 
@@ -107,7 +116,7 @@ def get_antartida_data(
     if False:  # TODO Mocking condition
         logger.info("Using mock data from 'tests/mock_data/valid_mock_data.json'")
         mock_data_path = "tests/mock_data/valid_mock_data.json"
-        with open(mock_data_path, "r") as file:
+        with open(mock_data_path) as file:
             api_data = json.load(file)
     else:
         with AuthenticatedClient(base_url=BASE_URL, token=TOKEN) as client:
@@ -130,6 +139,7 @@ def get_antartida_data(
     cache_weather_data(db, api_data)
 
     return api_data
+
 
 def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
     """
@@ -156,23 +166,27 @@ def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
             timestamp = timestamp.to_pydatetime()
 
             # Format the record for bulk insertion
-            formatted_records.append({
-                "identificacion": record["identificacion"],
-                "fhora": timestamp,
-                "data": json.dumps(record),  # Serialize JSON data
-            })
+            formatted_records.append(
+                {
+                    "identificacion": record["identificacion"],
+                    "fhora": timestamp,
+                    "data": json.dumps(record),  # Serialize JSON data
+                }
+            )
 
         # Optimize SQLite journal mode
         db.execute(text("PRAGMA journal_mode = WAL;"))
 
         # Create a temporary table for staging data
-        db.execute(text("""
+        db.execute(
+            text("""
             CREATE TEMP TABLE temp_weather_data (
                 identificacion TEXT NOT NULL,
                 fhora TIMESTAMP NOT NULL,
                 data JSON NOT NULL
             );
-        """))
+        """)
+        )
 
         # Use executemany for bulk insertion into the temp table
         insert_query = """
@@ -182,18 +196,22 @@ def cache_weather_data(db: Session, api_data: list[dict[str, Any]]) -> None:
         db.execute(text(insert_query), formatted_records)
 
         # Move data from the temporary table to the main table
-        db.execute(text("""
+        db.execute(
+            text("""
             INSERT OR IGNORE INTO weather_data (identificacion, fhora, data)
             SELECT identificacion, fhora, data 
             FROM temp_weather_data;
-        """))
+        """)
+        )
 
         # Drop the temporary table
         db.execute(text("DROP TABLE temp_weather_data;"))
 
         # Commit the transaction
         db.commit()
-        logger.info(f"Successfully cached {len(formatted_records)} records to the database.")
+        logger.info(
+            f"Successfully cached {len(formatted_records)} records to the database."
+        )
 
     except Exception as e:
         db.rollback()
