@@ -38,16 +38,22 @@ DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
     response_model_exclude_unset=True,
     summary="Retrieve time series data for a meteo station",
     description="""
-    Retrieve selected meteorological time series data for a specified station over a defined time range.
+    Retrieve selected meteorological time series data for a specified
+        station over a defined time range.
 
     ### Overview:
-    This endpoint allows you to fetch meteorological data for selected weather stations within a specified time range. The data can be aggregated at hourly, daily, or monthly intervals and adjusted to a specified timezone. You can specify which weather parameters to include in the response using the `data_types` parameter.
+    This endpoint allows you to fetch meteorological data for
+        selected weather stations within a specified time range.
+            The data can be aggregated at hourly, daily, or monthly intervals
+            and adjusted to a specified timezone. You can specify which weather
+            parameters to include in the response using the `data_types` parameter.
 
     ### Key Features:
     - Fetch raw or aggregated data from specific stations.
     - Perform aggregations based on hourly, daily, or monthly intervals.
     - Adjust timezone or offset for response datetime values.
-    - **Filter results by specific weather parameters such as temperature, pressure, and wind speed using the `data_types` parameter.**
+    - **Filter results by specific weather parameters such as temperature,
+        pressure, and wind speed using the `data_types` parameter.**
 
     ### Inputs:
     - **`datetime_start`**: Start datetime in ISO format (e.g., `2020-12-01T00:00:00`).
@@ -57,9 +63,13 @@ DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
     - `89064R`: Estación Radiométrica Juan Carlos I
     - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
     - `89070`: Estación Meteorológica Gabriel de Castilla
-    - **`location`** (optional): Specify the timezone or offset for the datetime values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
-    - **`time_aggregation`** (optional): Specify the aggregation level (`hourly`, `daily`, `monthly`, or `None`).
-    - **`data_types`** (optional): Specify the weather parameters to include in the response. Supported values:
+    - **`location`** (optional): Specify the timezone or offset for
+        the datetime values (e.g., `Europe/Madrid`, `+02:00`).
+            Defaults to `Europe/Madrid`.
+    - **`time_aggregation`** (optional): Specify the aggregation
+        level (`hourly`, `daily`, `monthly`, or `None`).
+    - **`data_types`** (optional): Specify the weather parameters
+        to include in the response. Supported values:
     - `temperature`: Include temperature data in Celsius.
     - `pressure`: Include atmospheric pressure in hPa.
     - `speed`: Include wind speed in m/s.
@@ -68,7 +78,8 @@ DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
     A list of dictionaries containing:
     - **`nombre`**: Name of the weather station.
     - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
-    - Weather parameters (`temperature`, `pressure`, `speed`) based on the selected `data_types`.
+    - Weather parameters (`temperature`, `pressure`, `speed`)
+        based on the selected `data_types`.
     """,
 )
 def get_short_response(
@@ -97,10 +108,15 @@ def get_short_response(
     response_model=list[TimeSeriesFullResponse],
     summary="Retrieve time series data for a meteo station",
     description="""
-    Retrieve full meteorological time series data for a specified station over a defined time range.
+    Retrieve full meteorological time series data for a specified
+        station over a defined time range.
 
     ### Overview:
-    This endpoint allows you to fetch the full set of meteorological data for selected weather stations within a specified time range. The data can be aggregated at hourly, daily, or monthly intervals and adjusted to a specified timezone. All available weather parameters are included in the response.
+    This endpoint allows you to fetch the full set of meteorological
+        data for selected weather stations within a specified time range.
+        The data can be aggregated at hourly, daily, or monthly intervals
+        and adjusted to a specified timezone. All available weather parameters
+        are included in the response.
 
     ### Key Features:
     - Fetch raw or aggregated data from specific stations.
@@ -116,14 +132,17 @@ def get_short_response(
       - `89064R`: Estación Radiométrica Juan Carlos I
       - `89064RA`: Estación Radiométrica Juan Carlos I (until 08/03/2007)
       - `89070`: Estación Meteorológica Gabriel de Castilla
-    - **`location`** (optional): Specify the timezone or offset for the datetime values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
-    - **`time_aggregation`** (optional): Specify the aggregation level (`hourly`, `daily`, `monthly`, or `None`).
+    - **`location`** (optional): Specify the timezone or offset for the datetime
+        values (e.g., `Europe/Madrid`, `+02:00`). Defaults to `Europe/Madrid`.
+    - **`time_aggregation`** (optional): Specify the aggregation level
+        (`hourly`, `daily`, `monthly`, or `None`).
 
     ### Output:
     A list of dictionaries containing:
     - **`nombre`**: Name of the weather station.
     - **`fhora`**: ISO-formatted datetime adjusted to the specified timezone.
-    - **All available weather parameters**, such as temperature, pressure, wind speed, humidity, and more.
+    - **All available weather parameters**, such as temperature, pressure,
+        wind speed, humidity, and more.
     """,
 )
 def get_full_response(
