@@ -101,7 +101,7 @@ def get_antartida_data(
 
         # Log missing timestamps
         if missing_timestamps:
-            logger.debug(f"Missing timestamps: {missing_timestamps}")
+            logger.info(f"Missing timestamps: {missing_timestamps}")
 
         # If there are missing timestamps, fetch from the server
         if missing_timestamps:

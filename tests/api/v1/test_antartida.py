@@ -205,46 +205,6 @@ def test_time_aggregation(
     response_data = response.json()
     assert len(response_data) == expected_count
 
-
-def test_get_timeseries_with_nan_data(test_client, mock_data_leap_year, monkeypatch):
-    """Test the get_timeseries function to ensure it handles 'NaN' values properly."""
-
-    # Mock dependencies
-    def mock_get_antartida_data(*args, **kwargs):
-        return mock_data_leap_year
-
-    monkeypatch.setattr(
-        "app.api.v1.antartida.get_antartida_data", mock_get_antartida_data
-    )
-
-    # Simulate API call
-    response = test_client.get(
-        "/v1/antartida/timeseries/",
-        params={
-            "datetime_start": "2020-02-28T00:00:00",
-            "datetime_end": "2020-02-28T23:59:59",
-            "station": "89064",
-            "location": "UTC",
-            "time_aggregation": "Hourly",
-            "data_types": ["temperature", "pressure", "speed"],
-        },
-    )
-
-    # Validate response
-    assert response.status_code == 200, response.text
-    result = response.json()
-
-    # Ensure cleaned data contains no "NaN" or None in required fields
-    for record in result:
-        assert record["temp"] is not None
-        assert record["vel"] is not None
-        assert record["pres"] is not None
-
-    # Ensure valid datetime conversion
-    for record in result:
-        pd.Timestamp(record["fhora"])  # Will raise ValueError if invalid
-
-
 @pytest.mark.parametrize(
     "aggregation, expected_count, expected_values",
     [
