@@ -105,7 +105,7 @@ class TimeSeriesFullResponse(BaseModel):
     rad_w_m2: Optional[float] = Field(
         None, description="Radiation in W/m².", json_schema_extra={"example": 949.0}
     )
-    rec: Optional[str|None] = Field(
+    rec: Optional[float|None] = Field(
         None, description="Record information.", json_schema_extra={"example": None}
     )
     temp: Optional[float] = Field(

@@ -94,7 +94,6 @@ def get_short_response(
 @router.get(
     "/timeseries/full",
     response_model=list[TimeSeriesFullResponse],
-    response_model_exclude_unset=True,
     summary="Retrieve time series data for a meteo station",
     description="""
     Retrieve full meteorological time series data for a specified station over a defined time range.
