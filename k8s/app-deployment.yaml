@@ -32,7 +32,21 @@ spec:
         volumeMounts:
         - name: sqlite-storage
           mountPath: /data
-      volumes:
+
+      - name: meteodash
+        image: localhost:5555/meteo-service:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            echo "Waiting for temperature-service to be ready..."
+            until curl -s http://localhost:8000/health; do
+              echo "meteo-service is not ready yet. Waiting..."
+              sleep 2
+            done
+            echo "meteo-service is ready. Starting Meteo Dash..."
+            streamlit run ./ui/app.py --server.port 8001
+        resources: {}
+      volumes:  # Agora está no nível correto
       - name: sqlite-storage
         persistentVolumeClaim:
           claimName: meteoservice-pvc

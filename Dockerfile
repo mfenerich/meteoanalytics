@@ -64,6 +64,9 @@ WORKDIR /app
 COPY ./app/scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+# Not best practice... but lets just use the same image for the UI
+COPY ./ui /app/ui
+
 COPY ./app /app
 COPY ./open_data_client ./open_data_client
 

@@ -18,6 +18,7 @@ pydantic-settings = "^2.6.1"
 alembic = "^1.14.0"
 sqlalchemy = "^2.0.36"
 orjson = "^3.10.12"
+streamlit = "^1.40.2"
 
 [tool.poetry.dev-dependencies]
 coverage = "7.6.1"
