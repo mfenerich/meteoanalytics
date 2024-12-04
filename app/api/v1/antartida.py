@@ -10,7 +10,7 @@ from typing import Optional
 import pandas as pd
 import pytz
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
-from pytest import Session
+from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.core.logging_config import logger
@@ -91,6 +91,12 @@ def get_short_response(
     data_types: Optional[list[enums.DataType]] = Query(None),
     db: Session = Depends(get_db),
 ):
+    """
+    Retrieve aggregated meteorological data for a specific station.
+
+    This function processes a shortened response with selected data types
+    for the specified station and time range.
+    """
     return get_timeseries(
         datetime_start,
         datetime_end,
@@ -153,6 +159,12 @@ def get_full_response(
     time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
     db: Session = Depends(get_db),
 ):
+    """
+    Retrieve full meteorological data for a specific station.
+
+    This function provides a detailed response with all available
+    data types for the specified station and time range.
+    """
     return get_timeseries(
         datetime_start,
         datetime_end,
