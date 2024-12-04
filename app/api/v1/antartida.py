@@ -72,24 +72,25 @@ DATA_TYPE_MAP = {"temperature": "temp", "pressure": "pres", "speed": "vel"}
     """,
 )
 def get_short_response(
-        datetime_start: str,
-        datetime_end: str,
-        station: enums.Station = Query(...),
-        location: Optional[str] = settings.timezone,
-        time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
-        data_types: Optional[list[enums.DataType]] = Query(None),
-        db: Session = Depends(get_db),
-    ):
+    datetime_start: str,
+    datetime_end: str,
+    station: enums.Station = Query(...),
+    location: Optional[str] = settings.timezone,
+    time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
+    data_types: Optional[list[enums.DataType]] = Query(None),
+    db: Session = Depends(get_db),
+):
     return get_timeseries(
-            datetime_start,
-            datetime_end,
-            station,
-            location,
-            time_aggregation,
-            data_types,
-            False,
-            db,
-        )
+        datetime_start,
+        datetime_end,
+        station,
+        location,
+        time_aggregation,
+        data_types,
+        False,
+        db,
+    )
+
 
 @router.get(
     "/timeseries/full",
@@ -126,23 +127,24 @@ def get_short_response(
     """,
 )
 def get_full_response(
-        datetime_start: str,
-        datetime_end: str,
-        station: enums.Station = Query(...),
-        location: Optional[str] = settings.timezone,
-        time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
-        db: Session = Depends(get_db),
-    ):
+    datetime_start: str,
+    datetime_end: str,
+    station: enums.Station = Query(...),
+    location: Optional[str] = settings.timezone,
+    time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
+    db: Session = Depends(get_db),
+):
     return get_timeseries(
-            datetime_start,
-            datetime_end,
-            station,
-            location,
-            time_aggregation,
-            None,
-            True,
-            db,
-        )
+        datetime_start,
+        datetime_end,
+        station,
+        location,
+        time_aggregation,
+        None,
+        True,
+        db,
+    )
+
 
 def get_timeseries(
     datetime_start: str,
@@ -151,7 +153,7 @@ def get_timeseries(
     location: Optional[str] = settings.timezone,
     time_aggregation: Optional[enums.TimeAggregation] = Query("None"),
     data_types: Optional[list[enums.DataType]] = Query(None),
-    full_response = False,
+    full_response=False,
     db: Session = Depends(get_db),
 ):
     """

@@ -4,7 +4,6 @@ Tests for the temperature-related API endpoints.
 Includes tests for adding temperature data and fetching average temperature data.
 """
 
-import pandas as pd
 import pytest
 
 from app.enums.enums import DataType, Station, TimeAggregation
@@ -204,6 +203,7 @@ def test_time_aggregation(
 
     response_data = response.json()
     assert len(response_data) == expected_count
+
 
 @pytest.mark.parametrize(
     "aggregation, expected_count, expected_values",
