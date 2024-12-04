@@ -2,11 +2,15 @@
 
 Meteo API is a FastAPI-based application designed to provide meteorological data for Antarctica. This project enables retrieval and processing of temperature, pressure, and wind speed data, offering features like time-based aggregation and timezone adjustments.
 
-## **Important Disclaimer**
+## **Important Disclaimers**
 
 🚨 **This project is specifically designed to be deployed on macOS systems with an ARM64 architecture.**  
 
-While the code and configuration may work on other platforms, the setup, tooling, and dependencies (such as Docker images and Kubernetes configurations) have been optimized and tested exclusively on **macOS ARM64**. If you are using a different operating system or architecture, additional modifications may be required to ensure compatibility.  
+While the code and configuration may work on other platforms, the setup, tooling, and dependencies (such as Docker images and Kubernetes configurations) have been optimized and tested exclusively on **macOS ARM64**. If you are using a different operating system or architecture, additional modifications may be required to ensure compatibility.
+
+### Code Organization
+
+The project is structured into four branches: `main`, `part_1`, `part_2`, and `part_3`. Each branch corresponds to a specific part of the challenge, with `main` being equivalent to `part_3`. This organization allows for easy navigation and clear progression through the challenge phases.
 
 ---
 
@@ -123,7 +127,8 @@ The project uses **Kind** (Kubernetes in Docker) for local testing and deploymen
 
 ### Clone the Repository
 ```bash
-cd IoTSimulation-main
+git clone https://github.com/mfenerich/meteoanalytics.git
+cd meteoanalytics
 ```
 
 ### Build and Deploy Locally
