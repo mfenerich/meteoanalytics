@@ -212,6 +212,7 @@ The pipeline is triggered on every `push` event to the repository.
 - In Part 3, the challenge requested a front-end built with **TypeScript**. Unfortunately, I realized this requirement a bit too late. The front-end delivered is quite rudimentary, but I’m happy with the outcome given the circumstances.
 - I added a Kind cluster to run the project. The provided `Makefile` and Kind binary are tailored for macOS. I hope this won’t cause any issues.
 - My token for the Meteo Station is stored in a Kubernetes Secret. Given the scope of this project, this approach is sufficient and not a major concern. Despite we should never version a token.
+- The best approach would be use a in-memory Sqlite, but I had some problems using it.
 
 ---
 
